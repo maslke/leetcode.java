@@ -24,23 +24,24 @@ public class lc116 {
         if (root == null) {
             return;
         }
-        Queue<TreeLinkNode> queue = new LinkedList<TreeLinkNode>();
-        queue.add(root);
-        while(!queue.isEmpty()) {
-            Queue<TreeLinkNode> innerQueue = new LinkedList<TreeLinkNode>();
-            TreeLinkNode cur = new TreeLinkNode(0);
-            while(!queue.isEmpty()) {
-                TreeLinkNode temp = queue.poll();
-                cur.next = temp;
-                cur = temp;
-                if (temp.left != null) {
-                    innerQueue.add(temp.left);
-                }
-                if (temp.right != null) {
-                    innerQueue.add(temp.right);
-                }
-            }
-            queue = innerQueue;
+        connect(root.left, root.right);
+    }
+
+    private void connect(TreeLinkNode left, TreeLinkNode right) {
+        if (left == null && right == null) {
+            return;
         }
+        if (left == null) {
+            connect(right.left, right.right);
+        }
+        if (right == null) {
+            connect(left.left, left.left);
+        }
+
+        left.next = right;
+        connect(left.left, left.right);
+        connect(left.right, right.left);
+        connect(right.left, right.right);
+
     }
 }
