@@ -4,6 +4,8 @@ package easy;
  * Author:maslke
  * Date:2017/9/1
  * Version:0.0.1
+ * 342. Power of Four
+ * 不知道我的这种方法又没有违反 不能使用循环和递归 的规定
  */
 public class lc342 {
     public boolean isPowerOfFour(int num) {
