@@ -47,7 +47,7 @@ public class lc215 {
             } else {
                 break;
             }
-            k = 2 * j;
+            k = j;
         }
     }
 }
