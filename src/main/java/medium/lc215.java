@@ -44,6 +44,8 @@ public class lc215 {
                 int temp = pq[k];
                 pq[k] = pq[j];
                 pq[j] = temp;
+            } else {
+                break;
             }
             k = 2 * j;
         }
