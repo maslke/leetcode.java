@@ -37,7 +37,7 @@ public class lc215 {
     private void sink(int[] pq, int k, int last) {
         while (2 * k <= last) {
             int j = 2 * k;
-            while (j < last && pq[j] < pq[j + 1]) {
+            if (j < last && pq[j] < pq[j + 1]) {
                 j++;
             }
             if (pq[k] < pq[j]) {
