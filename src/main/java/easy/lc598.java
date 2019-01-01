@@ -1,9 +1,5 @@
-package easy;
-
 /**
- * Author:maslke
- * Date:2017/9/28
- * Version:0.0.1
+ * https://leetcode.com/problems/range-addition-ii/   
  * 598. Range Addition II
  */
 public class lc598 {
