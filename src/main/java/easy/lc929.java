@@ -1,7 +1,3 @@
-package easy;
-
-import java.util.Set;
-import java.util.HashSet;
 
 public class lc929 {
     public int numUniqueEmails(String[] emails) {

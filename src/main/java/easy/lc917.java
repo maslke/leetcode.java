@@ -1,5 +1,3 @@
-package easy;
-
 /**
  * 917. Reverse Only Letters
  * Date: 2018/12/27

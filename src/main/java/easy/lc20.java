@@ -1,6 +1,3 @@
-package easy;
-
-import java.util.Stack;
 
 /**
  * Author:maslke

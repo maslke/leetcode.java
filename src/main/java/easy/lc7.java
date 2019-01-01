@@ -1,4 +1,3 @@
-package easy;
 
 /**
  * Author:maslke

@@ -1,5 +1,3 @@
-package easy;
-
 /**
  * Author:maslke
  * Date:2018/12/27 

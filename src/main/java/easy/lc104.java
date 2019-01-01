@@ -1,9 +1,3 @@
-package easy;
-
-import sun.reflect.generics.tree.Tree;
-
-import java.util.*;
-
 /**
  * Author:maslke
  * Date:2017/8/30

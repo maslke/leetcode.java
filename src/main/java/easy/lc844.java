@@ -1,5 +1,3 @@
-package easy;
-
 /**
  * lc844. Backspace String Compare
  */

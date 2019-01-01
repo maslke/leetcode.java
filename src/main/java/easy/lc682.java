@@ -1,7 +1,3 @@
-package easy;
-
-import java.util.Stack;
-
 /**
  * Author:maslke
  * Date:2017/9/24

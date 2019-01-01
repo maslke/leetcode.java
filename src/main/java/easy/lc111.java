@@ -1,7 +1,3 @@
-package easy;
-
-import java.util.*;
-
 /**
  * Author:maslke
  * Date:2017/8/30

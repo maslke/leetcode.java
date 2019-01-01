@@ -1,9 +1,3 @@
-package easy;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * Author:maslke
  * Date:2017/9/29
