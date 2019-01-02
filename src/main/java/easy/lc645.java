@@ -28,3 +28,26 @@ public class lc645 {
         return ret;
     }
 }
+
+//method2
+class Solution {
+    public int[] findErrorNums(int[] nums) {
+        int[] ret = new int[2];
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                ret[0] = nums[i];
+            } else {
+                map.put(nums[i], 1);
+            }
+        }
+        
+        for (int i = 1; i <= nums.length; i++) {
+            if (!map.containsKey(i)) {
+                ret[1] = i;
+                break;
+            }
+        }
+        return ret;
+    }
+}
