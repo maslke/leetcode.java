@@ -16,22 +16,11 @@ class Solution {
         int r = calcHeight(root.right);
         if (l == r) {
             //左右子树高度相等，是完全左子树
-            return 1 + getSum(l) + countNodes(root.right);
+            return (1 << l) + countNodes(root.right);
         } else {
-            return 1 + getSum(r) + countNodes(root.left);
+            return (1 << r) + countNodes(root.left);
         }
     }
-    
-    private int getSum(int level) {
-        int sum  = 0;
-        int temp  = 1;
-        for (int i = 0; i < level; i++) {
-            sum += temp;
-            temp = temp * 2;
-        }
-        return sum;
-    }
-
     
     private int calcHeight(TreeNode node) {
         if (node == null) return 0;
