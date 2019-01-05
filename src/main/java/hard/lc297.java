@@ -70,3 +70,50 @@ public class Codec {
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
 // codec.deserialize(codec.serialize(root));
+
+
+
+/**
+ * 递归的解法，使用了先序遍历
+ * 序列化的方法，容易想到。但是根据字符串反序列化，起初没有想到这种方法。
+ * 
+ */
+public class Codec {
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        serialize(root, sb);
+        String ret = sb.toString();
+        return ret.substring(1, ret.length());
+    }
+    
+    private void serialize(TreeNode node, StringBuilder sb) {
+        if (node == null) {
+            sb.append(",null");
+        } else {
+            sb.append(",").append(node.val);
+            serialize(node.left, sb);
+            serialize(node.right, sb);
+        }
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        String[] c = data.split(",");
+        List<String> contents = new LinkedList<String>(Arrays.asList(c));
+        return deserialize(contents);
+    }
+    
+    private TreeNode deserialize(List<String> contents) {
+        if (contents.get(0).equals("null")) {
+            contents.remove(0);
+            return null;
+        }
+        TreeNode root = new TreeNode(Integer.valueOf(contents.get(0)));
+        contents.remove(0);
+        root.left = deserialize(contents);
+        root.right = deserialize(contents);
+        return root;
+    }
+}
