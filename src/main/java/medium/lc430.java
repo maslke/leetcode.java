@@ -44,3 +44,31 @@ class Solution {
     }
 
 }
+
+//a better solution
+class Solution {
+    public Node flatten(Node head) {
+        flatten(null, head);
+        return head;
+    }
+    private Node flatten(Node prev, Node current) {
+        if (current == null) return prev;
+        Node next = current.next;
+        Node child = current.child;
+        if (prev != null) {
+            prev.next = current;
+        }
+        current.prev = prev;
+        if (child == null) {
+            return flatten(current, current.next);
+        } else {
+            current.child = null;
+            Node c = flatten(current, child);
+            c.next = next;
+            if (next != null) {
+                next.prev = c;
+            }
+            return flatten(c, next);
+        }
+    }
+}
