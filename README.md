@@ -1,10 +1,12 @@
 # leetcode.java
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
-1|[Two Sum](https://leetcode.com/problems/two-sum/)|Easy|yes|
-2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|
+1|[Two Sum](https://leetcode.com/problems/two-sum/)|Easy|yes|2018-12-28
+2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
 3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|Medium|yes|
 4|Median of Two Sorted Arrays|Hard|no|
+6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|Medium|yes|2019-01-05
+7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|Easy|
 80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|Medium|yes|2019-01-06
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[ Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
@@ -12,7 +14,27 @@ No.|Title|Difficulty|Solved|Date
 
 
 
+1. [Two Sum](https://leetcode.com/problems/two-sum/)
 
+题目设定了一定会有符合要求的方案。
+使用Map来记录序号，在遍及数组的时候，进行问题的求解。如果先遍历，存储到Map之后，再进行问题的求解，反而会加大问题的难度。
+
+2. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
+
+链表的数据结构，使用两个指针同时向前移动，可以解决。需要注意的是，最后结果是否需要进位。
+
+3. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+
+6. [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)
+
+很简单的数组题目，可以使用List<List<String>>这种结果来存储遍历的结果。最后将结果顺序取出。
+遍历的过程，可以分为竖直向下的部分和斜向上的部分。竖直向下的部分是从0 - n，斜向上的部分是从n - 1到1。
+
+7. [Reverse Integer](https://leetcode.com/problems/reverse-integer/)
+
+循环取最后一个数字，然后作为高位，继续处理下一个数字。
+需要注意的是负数存储值的个数比正数多1。需要注意溢出的问题。
+需要考虑原始数字是正数还是负数的情况。
 
 430. [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
