@@ -7,7 +7,9 @@ No.|Title|Difficulty|Solved|Date
 4|Median of Two Sorted Arrays|Hard|no|
 6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|Medium|yes|2019-01-05
 7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|Easy|
+15|[3Sum](https://leetcode.com/problems/3sum/)|Medium|yes|2019-01-07
 19|[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|Medium|yes|2019-01-07
+66|[Plus One](https://leetcode.com/problems/plus-one/)|Easy|yes|2019-01-07
 80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|Medium|yes|2019-01-06
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[ Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
@@ -36,6 +38,11 @@ No.|Title|Difficulty|Solved|Date
 循环取最后一个数字，然后作为高位，继续处理下一个数字。
 需要注意的是负数存储值的个数比正数多1。需要注意溢出的问题。
 需要考虑原始数字是正数还是负数的情况。
+
+
+15. [3Sum](https://leetcode.com/problems/3sum/)
+
+将数组进行排序之后，可以转换为3Sum来进行求解。
 
 19. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 

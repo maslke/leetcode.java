@@ -54,3 +54,43 @@ public class lc98 {
         return true;
     }
 }
+
+//a better solution
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        if (root == null) return true;
+        boolean first = true;
+        int before = 0;
+        Set<TreeNode> set = new HashSet<>();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (!set.contains(node)) {
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                
+                stack.push(node);
+                set.add(node);
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+            } else {
+                int val = node.val;
+                if (first) {
+                    before = val;
+                    first = false;
+                } else {
+                    if (before >= val) {
+                        return false;
+                    }
+                    before = val;
+                }
+            }
+        }
+        return true;
+    }
+    
+   
+}
