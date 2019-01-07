@@ -9,9 +9,12 @@ No.|Title|Difficulty|Solved|Date
 7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|Easy|
 15|[3Sum](https://leetcode.com/problems/3sum/)|Medium|yes|2019-01-07
 19|[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|Medium|yes|2019-01-07
+21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|Easy|yes|2019-01-07
+53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|Easy|yes|2019-01-07
+55|[Jump Game](https://leetcode.com/problems/jump-game/)|Medium|yes|2019-01-07
 66|[Plus One](https://leetcode.com/problems/plus-one/)|Easy|yes|2019-01-07
 80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|Medium|yes|2019-01-06
-98|[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|Medium|yes
+98|[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|Medium|yes|2019-01-07
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[ Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 821|[Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|Easy|yes|2019-01-06
@@ -48,6 +51,18 @@ No.|Title|Difficulty|Solved|Date
 19. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 
 链表遍历的问题。可以采用一次遍历或是二次遍历。问题较为简单，不要将所有节点都存储到临时数组中。
+
+21. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+
+双指针遍历即可。
+
+53. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
+
+最大连续子序列和，经典问题。
+
+55. [Jump Game](https://leetcode.com/problems/jump-game/)
+
+动态规划。Reach[i] = Math.max(Reach[i - 1], i + nums[i])。
 
 98. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
 

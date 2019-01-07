@@ -1,10 +1,5 @@
-
-/**
- * Author:maslke
- * Date:2017/8/25
- * Version:0.0.1
- * 21. Merge Two Sorted Lists
- */
+//https://leetcode.com/problems/merge-two-sorted-lists/
+//21. Merge Two Sorted Lists
 public class lc21 {
     class ListNode {
         ListNode next;
