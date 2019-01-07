@@ -42,3 +42,59 @@ public class lc19 {
         return head;
     }
 }
+
+
+/**
+ * solution 2
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if (n == 0) return head;
+        ListNode current = head;
+        ListNode prev = null;
+        while (current != null) {
+            ListNode c = current;
+            for (int i = 0; i < n; i++) {
+                c = c.next;
+            }
+            if (c == null) {
+                if (prev == null) {
+                   return head.next;
+                } else {
+                    prev.next = current.next;
+                    break;
+                }
+            } else {
+                prev = current;
+                current = current.next;
+            }
+        }
+        return head;
+        
+    }
+}
+
+/**
+ * solution 3
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        int count = 0;
+        ListNode h = head;
+        while (h != null) {
+            count++;
+            h = h.next;
+        }
+        h = head;
+        for (int i = 0; i < count - n - 1; i++) {
+            h = h.next;
+        }
+        if (n == count) {
+            return head.next;
+        } else {
+            ListNode next = h.next.next;
+            h.next = next;
+            return head;
+        }
+    }
+}
