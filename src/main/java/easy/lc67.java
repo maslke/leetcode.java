@@ -69,3 +69,38 @@ public class lc67 {
         }
     }
 }
+
+
+//a better solution
+class Solution {
+    public String addBinary(String a, String b) {
+        String ret = "";
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        boolean addOne = false;
+        while (i >= 0 || j >= 0) {
+            int v = 0;
+            if (i >= 0) {
+                v += Integer.valueOf(a.substring(i, i + 1));
+            }
+            if (j >= 0) {
+                v += Integer.valueOf(b.substring(j, j + 1));
+            }
+            if (addOne) {
+                v += 1;
+                addOne = false;
+            }
+            if (v >= 2) {
+                v -= 2;
+                addOne = true;
+            }
+            ret = v + ret;
+            i--;
+            j--;
+        }
+        if (addOne) {
+            ret = "1" + ret;
+        }
+        return ret;
+    }
+}
