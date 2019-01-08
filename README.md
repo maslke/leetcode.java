@@ -15,10 +15,15 @@ No.|Title|Difficulty|Solved|Date
 53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|Easy|yes|2019-01-07
 55|[Jump Game](https://leetcode.com/problems/jump-game/)|Medium|yes|2019-01-07
 58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|Easy|yes|2019-01-08
+62|[Unique Paths](https://leetcode.com/problems/unique-paths/)|Medium|yes|2019-01-08
+64|[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)|Medium|yes|2019-01-08
 66|[Plus One](https://leetcode.com/problems/plus-one/)|Easy|yes|2019-01-07
+67|[Add Binary](https://leetcode.com/problems/add-binary/)|Easy|yes|2019-01-07
 80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|Medium|yes|2019-01-06
 94|[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|Medium|yes|2019-01-08
 98|[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|Medium|yes|2019-01-07
+99|[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/)|Hard|no
+100|[Same Tree](https://leetcode.com/problems/same-tree/)|Easy|yes|2019-01-08
 102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|Medium|yes|2019-01-08
 103|[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|Medium|yes|2019-01-08
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
@@ -27,9 +32,8 @@ No.|Title|Difficulty|Solved|Date
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|Easy|yes|2019-01-05
 589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)|Easy|yes|2019-01-05
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
+654|[Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)|Medium|yes|2019-12-30
 821|[Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|Easy|yes|2019-01-06
-
-
 
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 
@@ -85,6 +89,18 @@ No.|Title|Difficulty|Solved|Date
 
 一次遍历即可。
 
+62. [Unique Paths](https://leetcode.com/problems/unique-paths/)
+
+动态规划。和leetcode.64类似。 ret[i, j] = ret[i + 1, j] + ret[i, j + 1];
+
+64. [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/)
+
+动态规划 ret[i, j] = grid[i, j] + Math.MIN(ret[i + 1, j], ret[i, j + 1])
+
+67. [Add Binary](https://leetcode.com/problems/add-binary/)
+
+一次遍历即可，注意最后是否有进位。
+
 94. [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
 
 中序遍历，使用Set来检测节点是否已经访问过。访问过的节点，直接输出。
@@ -93,6 +109,10 @@ No.|Title|Difficulty|Solved|Date
 98. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
 
 二叉树的中序遍历，在遍历的时候，保存前一个节点的值。如果节点的值是递增的，则是合法的二叉树
+
+100. [Same Tree](https://leetcode.com/problems/same-tree/)
+
+递归解决。
 
 102. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 
@@ -148,7 +168,13 @@ class Solution {
 对于特定的某个节点，最大的长度为左子树的高度+右子树的高度。然后进行递归的求解。
 
 589. [N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)
+
 和二叉树的前序遍历求解方式一样
 
 590. [N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)
+
 和二叉树的后序求解方式一样。
+
+654. [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
+
+递归处理
