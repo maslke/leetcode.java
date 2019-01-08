@@ -8,13 +8,19 @@ No.|Title|Difficulty|Solved|Date
 6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|Medium|yes|2019-01-05
 7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|Easy|
 15|[3Sum](https://leetcode.com/problems/3sum/)|Medium|yes|2019-01-07
+17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|Medium|yes|2017-01-04
 19|[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)|Medium|yes|2019-01-07
 21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|Easy|yes|2019-01-07
+27|[Remove Element](https://leetcode.com/problems/remove-element/)|Easy|yes|2019-01-08
 53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|Easy|yes|2019-01-07
 55|[Jump Game](https://leetcode.com/problems/jump-game/)|Medium|yes|2019-01-07
+58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|Easy|yes|2019-01-08
 66|[Plus One](https://leetcode.com/problems/plus-one/)|Easy|yes|2019-01-07
 80|[Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)|Medium|yes|2019-01-06
 98|[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|Medium|yes|2019-01-07
+102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|Medium|yes|2019-01-08
+103|[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|Medium|yes|2019-01-08
+222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[ Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 821|[Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|Easy|yes|2019-01-06
@@ -48,6 +54,10 @@ No.|Title|Difficulty|Solved|Date
 
 将数组进行排序之后，可以转换为3Sum来进行求解。
 
+17. [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+
+广度优先遍历
+
 19. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 
 链表遍历的问题。可以采用一次遍历或是二次遍历。问题较为简单，不要将所有节点都存储到临时数组中。
@@ -55,6 +65,10 @@ No.|Title|Difficulty|Solved|Date
 21. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 
 双指针遍历即可。
+
+27. [Remove Element](https://leetcode.com/problems/remove-element/)
+
+在移动数组元素的时候，即时的记录动态的数组长度即可。
 
 53. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 
@@ -64,9 +78,26 @@ No.|Title|Difficulty|Solved|Date
 
 动态规划。Reach[i] = Math.max(Reach[i - 1], i + nums[i])。
 
+58. [Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
+
+一次遍历即可。
+
 98. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
 
 二叉树的中序遍历，在遍历的时候，保存前一个节点的值。如果节点的值是递增的，则是合法的二叉树
+
+102. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+
+二叉树层次遍历。
+
+103. [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
+
+二叉树层次遍历。
+
+222. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)
+
+计算完全二叉树的节点个数。最容易想到的是暴力的方式，通过层次遍历来进行解决。不过会超时。
+对于完全二叉树来说，根节点之下，如果左右子树的高度一样，则左子树一定是完全二叉树。若不一致，则右子树一定是完全二叉树。根据此性质，可以递归的进行解决。
 
 430. [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
