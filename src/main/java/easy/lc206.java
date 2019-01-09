@@ -6,6 +6,8 @@ package easy;
  * Version:0.0.1
  * 206. Reverse Linked List
  */
+
+ //recursive
 public class lc206 {
     class ListNode {
         ListNode next;
@@ -31,4 +33,19 @@ public class lc206 {
         other.next = node;
         return reverse(other, next);
     }
+}
+
+
+//solution 2: iter
+public ListNode reverseList(ListNode head) {
+    ListNode current = head;
+    ListNode prev = null;
+    while (current != null) {
+        ListNode next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+            
+    }
+    return prev;
 }

@@ -1,4 +1,4 @@
-# LinkList
+# LinkList(12/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -9,11 +9,17 @@ No.|Title|Difficulty|Solved|Date
 25|[Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)|Hard|no|
 61|[Rotate List](https://leetcode.com/problems/rotate-list/)|Meidum|yes|2019-01-09
 82|[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)|Medium|yes|2019-01-09
-83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|Easy|Easy|yes|2019-01-09
+83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|Easy|yes|2019-01-09
+86|[Partition List](https://leetcode.com/problems/partition-list/)|Medium|yes|
+92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|Medium|yes|
 109|[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|Medium|yes|2019-01-03
+141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|Easy|yes|2019-01-09
+142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
+206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
-
+445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
+876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|Easy|yes|2019-01-09
 
 2. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 
@@ -46,6 +52,31 @@ No.|Title|Difficulty|Solved|Date
 一个比较朴素的处理思路是将链表处理成数组。然后就转变成为排序后的数组生成二叉查找树的问题。不过这种题目的考核点明显不在这个地方。应该存在更好的办法。
 
 查看资料，可以使用快慢指针法。慢指针一次移动一个位置，快指针一次移动两个位置。这样当筷子真到链表末尾的时候，慢指针指向中间位置。同事，还需要断开中间位置左右两个链表。
+
+
+141. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+
+快慢指针法.
+
+```java
+public boolean hasCycle(ListNode head) {
+        if (head == null) return false;
+        ListNode slow = head;
+        ListNode fast =head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+```
+
+206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+
+可以使用递归或者迭代来进行求解.
 
 430. [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
@@ -82,4 +113,24 @@ class Solution {
     }
 }
 ```
+
+445. [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
+
+反转链表之后进行求解.
+
+876. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+
+快慢指针.快指针是慢指针的两倍速度。当快指针到末尾的时候，慢指针到中间位置。
+
+```java
+public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;   
+    }
+```    
 
