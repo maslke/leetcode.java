@@ -34,6 +34,7 @@ No.|Title|Difficulty|Solved|Date
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
 654|[Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)|Medium|yes|2019-12-30
 821|[Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|Easy|yes|2019-01-06
+859|[Buddy Strings](https://leetcode.com/problems/buddy-strings/)|Easy|yes|2019-01-09
 
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 
@@ -178,3 +179,7 @@ class Solution {
 654. [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
 
 递归处理
+
+859. [Buddy Strings](https://leetcode.com/problems/buddy-strings/)
+
+判断两个字符串长度相等并且只有一个字符存在着交换。当两个字符串相等的时候，需要判断字符串中是否存在着重复的字符。即在字符串相等的时候，可以交换一个重复的字符。
