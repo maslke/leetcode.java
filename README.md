@@ -34,6 +34,7 @@ No.|Title|Difficulty|Solved|Date
 589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)|Easy|yes|2019-01-05
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
 654|[Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)|Medium|yes|2019-12-30
+746|[Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)|Easy|yes|2019-01-09
 821|[Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|Easy|yes|2019-01-06
 
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
@@ -165,6 +166,7 @@ class Solution {
 ```
 
 509. [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
+
 斐波那契数列计算。缓存前面的结果。限制了最大的数字N。如果N很大，则需要考虑整型溢出的问题。
 
 543. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
@@ -182,3 +184,7 @@ class Solution {
 654. [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
 
 递归处理
+
+746. [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
+
+动态规划。ret[i] = Math.min(ret[i - 1] + cost[i - 1], ret[i - 2] + cost[i - 2]) 。其中ret[0] = ret[1] = 0;
