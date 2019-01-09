@@ -29,10 +29,12 @@ No.|Title|Difficulty|Solved|Date
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
+509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|Easy|yes|2019-01-09
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|Easy|yes|2019-01-05
 589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)|Easy|yes|2019-01-05
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
 654|[Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)|Medium|yes|2019-12-30
+746|[Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)|Easy|yes|2019-01-09
 821|[Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|Easy|yes|2019-01-06
 859|[Buddy Strings](https://leetcode.com/problems/buddy-strings/)|Easy|yes|2019-01-09
 
@@ -164,6 +166,10 @@ class Solution {
 }
 ```
 
+509. [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
+
+斐波那契数列计算。缓存前面的结果。限制了最大的数字N。如果N很大，则需要考虑整型溢出的问题。
+
 543. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
 
 对于特定的某个节点，最大的长度为左子树的高度+右子树的高度。然后进行递归的求解。
@@ -179,6 +185,12 @@ class Solution {
 654. [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
 
 递归处理
+
+
+746. [Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
+
+动态规划。ret[i] = Math.min(ret[i - 1] + cost[i - 1], ret[i - 2] + cost[i - 2]) 。其中ret[0] = ret[1] = 0;
+
 
 859. [Buddy Strings](https://leetcode.com/problems/buddy-strings/)
 
