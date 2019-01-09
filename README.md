@@ -29,6 +29,7 @@ No.|Title|Difficulty|Solved|Date
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
+509|[Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)|Easy|yes|2019-01-09
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|Easy|yes|2019-01-05
 589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)|Easy|yes|2019-01-05
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
@@ -162,6 +163,9 @@ class Solution {
     }
 }
 ```
+
+509. [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
+斐波那契数列计算。缓存前面的结果。限制了最大的数字N。如果N很大，则需要考虑整型溢出的问题。
 
 543. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
 
