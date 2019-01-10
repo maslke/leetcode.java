@@ -5,6 +5,7 @@ No.|Title|Difficulty|Solved|Date
 98|[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)|Medium|yes|2019-01-07
 99|[Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/)|Hard|no
 100|[Same Tree](https://leetcode.com/problems/same-tree/)|Easy|yes|2019-01-08
+101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|Easy|yes|2019-01-10
 102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|Medium|yes|2019-01-08
 103|[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|Medium|yes|2019-01-08
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
@@ -27,6 +28,28 @@ No.|Title|Difficulty|Solved|Date
 100. [Same Tree](https://leetcode.com/problems/same-tree/)
 
 递归解决。
+
+101. [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
+
+从顶到下，递归解决问题。
+
+```java
+ public boolean isSymmetric(TreeNode root) {
+        if (root == null) return true;
+        return symmetric(root.left, root.right);
+    }
+    
+    private boolean symmetric(TreeNode node1, TreeNode node2) {
+        if (node1 != null && node2 != null) {
+            if (node1.val != node2.val) return false;
+            return symmetric(node1.left, node2.right) && symmetric(node1.right, node2.left);
+        } else if (node1 != null || node2 != null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+ ```   
 
 102. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 
