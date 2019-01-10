@@ -1,12 +1,10 @@
 # leetcode.java
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
-1|[Two Sum](https://leetcode.com/problems/two-sum/)|Easy|yes|2018-12-28
 3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)|Medium|yes|
 4|Median of Two Sorted Arrays|Hard|no|
 6|[ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)|Medium|yes|2019-01-05
 7|[Reverse Integer](https://leetcode.com/problems/reverse-integer/)|Easy|
-15|[3Sum](https://leetcode.com/problems/3sum/)|Medium|yes|2019-01-07
 17|[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)|Medium|yes|2019-01-04
 27|[Remove Element](https://leetcode.com/problems/remove-element/)|Easy|yes|2019-01-08
 53|[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)|Easy|yes|2019-01-07
@@ -23,11 +21,6 @@ No.|Title|Difficulty|Solved|Date
 821|[Shortest Distance to a Character](https://leetcode.com/problems/shortest-distance-to-a-character/)|Easy|yes|2019-01-06
 859|[Buddy Strings](https://leetcode.com/problems/buddy-strings/)|Easy|yes|2019-01-09
 
-1. [Two Sum](https://leetcode.com/problems/two-sum/)
-
-题目设定了一定会有符合要求的方案。
-使用Map来记录序号，在遍及数组的时候，进行问题的求解。如果先遍历，存储到Map之后，再进行问题的求解，反而会加大问题的难度。
-
 3. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 6. [ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/)
@@ -40,10 +33,6 @@ No.|Title|Difficulty|Solved|Date
 循环取最后一个数字，然后作为高位，继续处理下一个数字。
 需要注意的是负数存储值的个数比正数多1。需要注意溢出的问题。
 需要考虑原始数字是正数还是负数的情况。
-
-15. [3Sum](https://leetcode.com/problems/3sum/)
-
-将数组进行排序之后，可以转换为3Sum来进行求解。
 
 17. [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 
