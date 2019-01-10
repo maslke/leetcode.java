@@ -1,4 +1,4 @@
-#Tree
+# Tree
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 94|[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|Medium|yes|2019-01-08
@@ -14,6 +14,7 @@ No.|Title|Difficulty|Solved|Date
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
 654|[Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)|Medium|yes|2019-12-30
 701|[Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)|Medium|yes|2018-12-29
+
 94. [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
 
 中序遍历，使用Set来检测节点是否已经访问过。访问过的节点，直接输出。
