@@ -8,6 +8,7 @@ No.|Title|Difficulty|Solved|Date
 101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|Easy|yes|2019-01-10
 102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|Medium|yes|2019-01-08
 103|[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|Medium|yes|2019-01-08
+112|[Path Sum](https://leetcode.com/problems/path-sum/)|Easy|yes|2019-01-10
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|Easy|yes|2019-01-05
@@ -58,6 +59,10 @@ No.|Title|Difficulty|Solved|Date
 103. [Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
 
 二叉树层次遍历。
+
+112. [Path Sum](https://leetcode.com/problems/path-sum/)
+
+使用先序遍历来解决，并使用Map来存储到当前节点的节点值之和。
 
 222. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)
 
