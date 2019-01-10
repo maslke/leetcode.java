@@ -15,10 +15,15 @@ No.|Title|Difficulty|Solved|Date
 109|[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|Medium|yes|2019-01-03
 141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|Easy|yes|2019-01-09
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
+<<<<<<< HEAD
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
+=======
+297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
+430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
+>>>>>>> origin/master
 876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|Easy|yes|2019-01-09
 
 2. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
@@ -74,10 +79,13 @@ public boolean hasCycle(ListNode head) {
     }
 ```
 
+<<<<<<< HEAD
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 可以使用递归或者迭代来进行求解.
 
+=======
+>>>>>>> origin/master
 430. [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
 节点有next指针、prev指针和child指针，要求将链表展开。在节点同时有next节点和child节点的时候，优先排列child，然后再排列next。
@@ -114,10 +122,13 @@ class Solution {
 }
 ```
 
+<<<<<<< HEAD
 445. [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
 
 反转链表之后进行求解.
 
+=======
+>>>>>>> origin/master
 876. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
 快慢指针.快指针是慢指针的两倍速度。当快指针到末尾的时候，慢指针到中间位置。
