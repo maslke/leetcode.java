@@ -53,3 +53,45 @@ public class lc234 {
     }
 }
 
+//a better solution
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) return true;
+        ListNode prev = null;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        prev.next = null;
+        fast = head;
+        slow = reverse(slow);
+        while (fast != null || slow != null) {
+            if (fast == null || slow == null) {
+                return true;
+            }
+            if (fast.val != slow.val) {
+                return false;
+            }
+            fast = fast.next;
+            slow = slow.next;
+        }
+        return true;
+    }
+    
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode h = head;
+        while (h != null) {
+            ListNode next = h.next;
+            h.next = prev;
+            prev = h;
+            h = next;
+        }
+        return prev;
+        
+    }
+}
+

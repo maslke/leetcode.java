@@ -1,4 +1,4 @@
-# LinkList(14/34)
+# LinkedList(14/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -16,6 +16,7 @@ No.|Title|Difficulty|Solved|Date
 141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|Easy|yes|2019-01-09
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
+234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|Easy|yes|2019-01-10
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
@@ -77,6 +78,14 @@ public boolean hasCycle(ListNode head) {
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 可以使用递归或者迭代来进行求解.
+
+234. [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+
+首先去求链表的中间节点
+
+然后将后半段链表反转
+
+最后遍历去比较两个链表的节点。需要注意的是两个链表可能长度不一致，存在一个节点的长度差。在遍历比较节点值的时候，只需要比较存在的节点即可。
 
 430. [Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
