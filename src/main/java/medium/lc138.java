@@ -51,3 +51,16 @@ public class lc138 {
         }
     }
 }
+
+
+// recursive
+Map<RandomListNode, RandomListNode> map = new HashMap<>();
+    public RandomListNode copyRandomList(RandomListNode head) {
+        if (head == null) return null;
+        if (map.containsKey(head)) return map.get(head);
+        RandomListNode h = new RandomListNode(head.label);
+        map.put(head, h);
+        h.next = copyRandomList(head.next);
+        h.random = copyRandomList(head.random);
+        return h;
+    }

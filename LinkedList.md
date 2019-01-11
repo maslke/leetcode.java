@@ -13,6 +13,7 @@ No.|Title|Difficulty|Solved|Date
 86|[Partition List](https://leetcode.com/problems/partition-list/)|Medium|yes|
 92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|Medium|yes|2019-01-11
 109|[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|Medium|yes|2019-01-03
+138|[Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|Medium|yes|2019-01-11
 141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|Easy|yes|2019-01-09
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
@@ -60,6 +61,10 @@ No.|Title|Difficulty|Solved|Date
 一个比较朴素的处理思路是将链表处理成数组。然后就转变成为排序后的数组生成二叉查找树的问题。不过这种题目的考核点明显不在这个地方。应该存在更好的办法。
 
 查看资料，可以使用快慢指针法。慢指针一次移动一个位置，快指针一次移动两个位置。这样当筷子真到链表末尾的时候，慢指针指向中间位置。同事，还需要断开中间位置左右两个链表。
+
+138. [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
+
+可以递归的进行解决。由于有random节点的存在，复制的时候，需要考虑此节点是否已经创建完成。
 
 
 141. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
