@@ -11,7 +11,7 @@ No.|Title|Difficulty|Solved|Date
 82|[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)|Medium|yes|2019-01-09
 83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|Easy|yes|2019-01-09
 86|[Partition List](https://leetcode.com/problems/partition-list/)|Medium|yes|
-92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|Medium|yes|
+92|[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)|Medium|yes|2019-01-11
 109|[Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)|Medium|yes|2019-01-03
 141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|Easy|yes|2019-01-09
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
@@ -50,6 +50,10 @@ No.|Title|Difficulty|Solved|Date
 83. [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
 
 和82比较相似。可以递归的进行处理。从头节点开始，remove(head, head.next) => remove(head.next, head.next) | remove(head,head.next.next)
+
+92. [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
+
+可以先计算出需要反转的节点的前一个节点和后一个节点。然后将中间的链表进行反转。最后连接起来即可。
 
 109. [Convert Sorted List to Binary Search Tree](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
 

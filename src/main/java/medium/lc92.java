@@ -54,3 +54,64 @@ public class lc92 {
 
 }
 
+//solution 2
+public ListNode reverseBetween(ListNode head, int m, int n) {
+    if (head == null) return head;
+    ListNode h = new ListNode(0);
+    h.next = head;
+    ListNode current = head;
+    ListNode prev = h;
+    for (int i = 1; i < m; i++) {
+        prev = current;
+        current = current.next;
+    }
+    ListNode current2 = current;
+    ListNode next = current.next;
+    for (int i = m; i < n; i++) {   
+        ListNode temp = next.next;
+        next.next = current;
+        current = next;
+        next = temp;
+    }
+    
+    prev.next = current;
+    current2.next = next;
+    
+    return h.next;
+}
+
+//solution 3
+public ListNode reverseBetween(ListNode head, int m, int n) {
+    ListNode h = new ListNode(0);
+    h.next = head;
+    ListNode prev = null;
+    ListNode temp = h;        
+    for (int i = 0; i < m; i++) {
+        prev = temp;
+        temp = temp.next;
+    
+    }
+    ListNode temp2 = temp;
+    for (int i = m; i < n; i++) {
+        temp2 = temp2.next;
+    }
+    ListNode tail = temp2.next;
+    temp2.next = null;
+    prev.next = reverse(temp);
+    temp.next = tail;
+    return h.next;
+}
+
+private ListNode reverse(ListNode node) {
+    ListNode prev = null;
+    ListNode h = node;
+    while (h != null) {
+        ListNode next = h.next;
+        h.next = prev;
+        prev = h;
+        h = next;
+        
+    }
+    return prev;
+}
+
