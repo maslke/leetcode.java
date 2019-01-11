@@ -1,4 +1,4 @@
-# LinkedList(16/34)
+# LinkedList(17/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -40,6 +40,8 @@ No.|Title|Difficulty|Solved|Date
 两个节点为一组，交换两个节点的位置。为了便于处理，可以设置一个哨兵节点。
 
 61. [Rotate List](https://leetcode.com/problems/rotate-list/)
+
+计算链表的长度，用k对len求余后，就是需要移动到链表头部的节点的个数.
 
 82. [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)
 
