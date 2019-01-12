@@ -1,7 +1,8 @@
-/**
- * lc.848 Shifting Letters
- *  meidum
- */
+//https://leetcode.com/problems/shifting-letters/
+//848. Shifting Letters
+
+package medium;
+
 class Solution {
     public String shiftingLetters(String S, int[] shifts) {
         char[] chars = S.toCharArray();

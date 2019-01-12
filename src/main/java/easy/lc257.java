@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/binary-tree-paths/
+//257. Binary Tree Paths
 package easy;
 
 import java.util.*;
@@ -18,37 +20,26 @@ public class lc257 {
         }
     }
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> ret  = new ArrayList<String>();
-        if (root == null) {
-            return ret;
-        }
-        Stack<TreeNode> stack = new Stack<TreeNode>();
+        List<String> ret = new ArrayList<>();
+        if (root == null) return ret;
+        Map<TreeNode, String> map = new HashMap<>();
+        map.put(root, "" + root.val);
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-        List<Integer> ret1 = new ArrayList<Integer>();
-        ret1.add(root.val);
-        Map<TreeNode, List<Integer>> map = new HashMap<TreeNode, List<Integer>>();
-        map.put(root, ret1);
-        while(!stack.isEmpty()) {
-            TreeNode temp = stack.pop();
-            if (temp.left == null && temp.right == null) {
-                List<Integer> list = map.get(temp);
-                String msg = "";
-                for (int i = 0; i < list.size(); i++) {
-                    msg += "->" + list.get(i);
-                }
-                ret.add(msg.substring(2));
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node.left == null && node.right == null) {
+                ret.add(map.get(node));
+                continue;    
             }
-            if (temp.right != null) {
-                stack.push(temp.right);
-                List<Integer> list1 = new ArrayList<Integer>(map.get(temp));
-                list1.add(temp.right.val);
-                map.put(temp.right, list1);
+            
+            if (node.right != null) {
+                map.put(node.right, map.get(node) + "->" + node.right.val);
+                stack.push(node.right);
             }
-            if (temp.left != null) {
-                stack.push(temp.left);
-                List<Integer> list2 = new ArrayList<Integer>(map.get(temp));
-                list2.add(temp.left.val);
-                map.put(temp.left, list2);
+            if (node.left != null) {
+                map.put(node.left, map.get(node) + "->" + node.left.val);
+                stack.push(node.left);
             }
         }
         return ret;

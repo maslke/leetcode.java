@@ -1,8 +1,16 @@
 # String
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
+58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|Easy|yes|2019-01-08
 696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|Easy|yes|2019-01-11
+848|[Shifting Letters](https://leetcode.com/problems/shifting-letters/)|Medium|yes|2019-01-12
+859|[Buddy Strings](https://leetcode.com/problems/buddy-strings/)|Easy|yes|2019-01-09
 
+----
+
+58. [Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
+
+一次遍历即可。
 
 696. [Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)
 
@@ -35,3 +43,13 @@ public int countBinarySubstrings(String s) {
         return ret;
     }
 ```    
+
+848. [Shifting Letters](https://leetcode.com/problems/shifting-letters/)
+
+问题很简单，需要注意的是问题规模的化简。
+
+859. [Buddy Strings](https://leetcode.com/problems/buddy-strings/)
+
+判断两个字符串长度相等并且只有一个字符存在着交换。当两个字符串相等的时候，需要判断字符串中是否存在着重复的字符。即在字符串相等的时候，可以交换一个重复的字符。
+
+

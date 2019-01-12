@@ -26,6 +26,8 @@ No.|Title|Difficulty|Solved|Date
 445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
 876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|Easy|yes|2019-01-09
 
+--------------------------------------------
+
 2. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 
 链表的数据结构，使用两个指针同时向前移动，可以解决。需要注意的是，最后结果是否需要进位。

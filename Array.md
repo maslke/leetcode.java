@@ -6,7 +6,7 @@ No.|Title|Difficulty|Solved|Date
 26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|Easy|yes|2019-01-10
 27|[Remove Element](https://leetcode.com/problems/remove-element/)|Easy|yes|2019-01-10
 
-
+----------------------------------------------------------------
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 
 题目设定了一定会有符合要求的方案。
