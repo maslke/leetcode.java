@@ -1,4 +1,4 @@
-# LinkedList(17/34)
+# LinkedList(20/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -16,6 +16,8 @@ No.|Title|Difficulty|Solved|Date
 138|[Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)|Medium|yes|2019-01-11
 141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|Easy|yes|2019-01-09
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
+143|[Reorder List](https://leetcode.com/problems/reorder-list/)|Medium|yes|2019-01-12
+147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|Medium|yes|
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
 234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|Easy|yes|2019-01-10
 237|[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|Easy|yes|2019-01-10
@@ -86,6 +88,47 @@ public boolean hasCycle(ListNode head) {
         return false;
     }
 ```
+
+143. [Reorder List](https://leetcode.com/problems/reorder-list/)
+
+快慢指针法，取得后半段的链表，然后反转后半段的链表。
+
+在反转之后，可以遍历后半段链表，依次插入即可。需要注意的从后半段的链表长度可能比长半段的长度大1.需要注意不要清空了可能存在的最后一个节点。
+
+```java
+public void reorderList2(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) return;
+        ListNode prev = null;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if (prev != null) {
+            prev.next = null;
+        }
+        slow = reverse(slow);
+        ListNode h = head;
+        while (slow != null) {
+            ListNode next = h.next;
+            ListNode next2 = slow.next;
+            h.next = slow;
+            if (next == null) break;
+            slow.next = next;
+            h = next;
+            slow = next2;
+        }
+        
+    }
+```    
+
+
+
+147. [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)
+
+
 
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 

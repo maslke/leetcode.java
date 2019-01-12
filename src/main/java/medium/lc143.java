@@ -46,4 +46,43 @@ public class lc143 {
             index--;
         }
     }
+
+    public void reorderList2(ListNode head) {
+        if (head == null || head.next == null || head.next.next == null) return;
+        ListNode prev = null;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if (prev != null) {
+            prev.next = null;
+        }
+        slow = reverse(slow);
+        ListNode h = head;
+        while (slow != null) {
+            ListNode next = h.next;
+            ListNode next2 = slow.next;
+            h.next = slow;
+            if (next == null) break;
+            slow.next = next;
+            h = next;
+            slow = next2;
+        }
+        
+    }
+    
+    private ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        ListNode h = head;
+        while (h != null) {
+            ListNode next = h.next;
+            h.next = prev;
+            prev = h;
+            h = next;
+        }
+        return prev;
+    }
 }
