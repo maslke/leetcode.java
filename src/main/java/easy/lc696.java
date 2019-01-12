@@ -1,5 +1,11 @@
 //https://leetcode.com/problems/count-binary-substrings/
-//
+//696. Count Binary Substrings
+
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+
 class Solution {
     public int countBinarySubstrings(String s) {
         int i = 0;
@@ -32,5 +38,31 @@ class Solution {
             i++;
         }
         return count;
+    }
+
+    // a much better solution
+    public int countBinarySubstrings2(String s) {
+        List<Integer> values = new ArrayList<>();
+        int i = 0;
+        int j = s.length();
+        while (i < j) {
+            char c = s.charAt(i);
+            int m = i + 1;
+            while (m < j) {
+                if (s.charAt(m) == c) {
+                    m++;
+                } else {
+                    break;
+                }
+            }
+            values.add(m - i);
+            i = m;
+        }
+        int ret = 0;
+        int size = values.size();
+        for (i = 0; i < size - 1; i++) {
+            ret += Math.min(values.get(i), values.get(i + 1));
+        }
+        return ret;
     }
 }
