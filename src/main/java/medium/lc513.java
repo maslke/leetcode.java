@@ -42,4 +42,20 @@ public class lc513 {
         }
         return val;
     }
+
+    public int findBottomLeftValue2(TreeNode root) {
+        if (root.left == null && root.right  == null) return root.val;
+        int l = maxDepth(root.left);
+        int r = maxDepth(root.right);
+        if (l >= r) {
+            return findBottomLeftValue(root.left);
+        } else {
+            return findBottomLeftValue(root.right);
+        }
+    } 
+    
+    private int maxDepth(TreeNode node) {
+        if (node == null) return 0;
+        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+    }
 }

@@ -12,6 +12,7 @@ No.|Title|Difficulty|Solved|Date
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
 257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|Easy|yes|2019-01-12
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
+513|[Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value/)|Medium|yes|2019-01-14
 543|[Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)|Easy|yes|2019-01-05
 589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)|Easy|yes|2019-01-05
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
@@ -79,6 +80,30 @@ No.|Title|Difficulty|Solved|Date
 297. [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
 
 使用中序遍历来序列化二叉树。在进行反序列化二叉树的时候，使用递归的方式来进行。处理的第一个节点总是中间节点.
+
+513. [Find Bottom Left Tree Value](https://leetcode.com/problems/find-bottom-left-tree-value/)
+
+简单的，当然可以通过层次遍历来解决。
+
+相对而言，更优美的方案是，递归的进行二叉树高度的比较。如果左右子树高度相当，则取左子树继续处理。最后处理到的节点，即是结果节点。
+
+```java
+public int findBottomLeftValue(TreeNode root) {
+        if (root.left == null && root.right  == null) return root.val;
+        int l = maxDepth(root.left);
+        int r = maxDepth(root.right);
+        if (l >= r) {
+            return findBottomLeftValue(root.left);
+        } else {
+            return findBottomLeftValue(root.right);
+        }
+    } 
+    
+    private int maxDepth(TreeNode node) {
+        if (node == null) return 0;
+        return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+    }
+```
 
 543. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
 
