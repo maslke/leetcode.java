@@ -17,7 +17,7 @@ No.|Title|Difficulty|Solved|Date
 141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|Easy|yes|2019-01-09
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
 143|[Reorder List](https://leetcode.com/problems/reorder-list/)|Medium|yes|2019-01-12
-147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|Medium|yes|
+147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|Medium|yes|2019-01-14
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
 234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|Easy|yes|2019-01-10
 237|[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|Easy|yes|2019-01-10
@@ -130,7 +130,44 @@ public void reorderList2(ListNode head) {
 
 147. [Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)
 
+插入排序。可以使用递归方法解决，也可以使用迭代方法解决。
 
+```java
+public ListNode insertionSortList(ListNode head) {
+        if (head == null) return null;
+        ListNode h = new ListNode(0);
+        h.next = head;
+        ListNode cur = head.next;
+        head.next = null;
+        // tail node
+        ListNode prev2 = head;
+        while (cur != null) {
+            ListNode prev = h;
+            ListNode current = h.next;
+            while (current != null) {
+                if (current.val <= cur.val) {
+                    prev = current;
+                    current = current.next;
+                } else {
+                    break;
+                }
+            }
+            if (current == null) {
+                prev.next = cur;
+                prev2 = cur;
+                cur = cur.next;
+                prev2.next = null;
+            } else {
+                ListNode temp = cur.next;
+                prev.next = cur;
+                cur.next = current;
+                cur = temp;
+            }
+            
+        }
+        return h.next;
+    }
+```
 
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 

@@ -52,4 +52,39 @@ public class lc147 {
         }
         return head;
     }
+
+    // a new solution
+    public ListNode insertionSortList2(ListNode head) {
+        if (head == null) return null;
+        ListNode h = new ListNode(0);
+        h.next = head;
+        ListNode cur = head.next;
+        head.next = null;
+        ListNode prev2 = head;
+        while (cur != null) {
+            ListNode prev = h;
+            ListNode current = h.next;
+            while (current != null) {
+                if (current.val <= cur.val) {
+                    prev = current;
+                    current = current.next;
+                } else {
+                    break;
+                }
+            }
+            if (current == null) {
+                prev.next = cur;
+                prev2 = cur;
+                cur = cur.next;
+                prev2.next = null;
+            } else {
+                ListNode temp = cur.next;
+                prev.next = cur;
+                cur.next = current;
+                cur = temp;
+            }
+            
+        }
+        return h.next;
+    }
 }
