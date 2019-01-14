@@ -3,6 +3,7 @@ No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|Easy|yes|2019-01-08
 680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|Easy|yes|2019-1-14
+686|[Repeated String Match](https://leetcode.com/problems/repeated-string-match/)|Easy|yes|2019-1-14
 696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|Easy|yes|2019-01-11
 848|[Shifting Letters](https://leetcode.com/problems/shifting-letters/)|Medium|yes|2019-01-12
 859|[Buddy Strings](https://leetcode.com/problems/buddy-strings/)|Easy|yes|2019-01-09
@@ -46,6 +47,10 @@ public boolean validPalindrome(String s) {
         return true;
     }
 ```
+
+686. [Repeated String Match](https://leetcode.com/problems/repeated-string-match/)
+
+字符串问题。计算字符串A叠加多少次之后，可以包含字符串B。注意退出条件即可。
 
 696. [Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)
 
