@@ -2,6 +2,7 @@
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|Easy|yes|2019-01-08
+680|[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)|Easy|yes|2019-1-14
 696|[Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)|Easy|yes|2019-01-11
 848|[Shifting Letters](https://leetcode.com/problems/shifting-letters/)|Medium|yes|2019-01-12
 859|[Buddy Strings](https://leetcode.com/problems/buddy-strings/)|Easy|yes|2019-01-09
@@ -11,6 +12,40 @@ No.|Title|Difficulty|Solved|Date
 58. [Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
 
 一次遍历即可。
+
+680. [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)
+
+对于给定字符串，在判定某个位置不相等的情况下，分为两种情况进行处理。
+
+```java
+public boolean validPalindrome(String s) {
+        int i = 0;
+        int j = s.length() - 1;
+        int inx1 = 0;
+        int inx2 = 0;
+        int count = 0;
+        while (i < j) {
+            if (s.charAt(i) == s.charAt(j)) {
+                i++;
+                j--;
+            } else {
+                if (count == 0) {
+                    count++;
+                    inx1 = i;
+                    inx2 = j;
+                    i++;
+                } else if (count == 1) {
+                    count++;
+                    i = inx1;
+                    j = inx2 - 1;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+```
 
 696. [Count Binary Substrings](https://leetcode.com/problems/count-binary-substrings/)
 
