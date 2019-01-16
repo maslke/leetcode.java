@@ -9,6 +9,8 @@ No.|Title|Difficulty|Solved|Date
 102|[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)|Medium|yes|2019-01-08
 103|[Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)|Medium|yes|2019-01-08
 112|[Path Sum](https://leetcode.com/problems/path-sum/)|Easy|yes|2019-01-10
+113|[Path Sum II](https://leetcode.com/problems/path-sum-ii/)|Medium|yes|2019-01-16
+114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|Medium|yes|2019-01-16
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
 257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|Easy|yes|2019-01-12
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
@@ -67,6 +69,14 @@ No.|Title|Difficulty|Solved|Date
 112. [Path Sum](https://leetcode.com/problems/path-sum/)
 
 使用先序遍历来解决，并使用Map来存储到当前节点的节点值之和。
+
+113. [Path Sum II](https://leetcode.com/problems/path-sum-ii/)
+
+同112.
+
+114. [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
+
+先序遍历。在遍历的时候，依次改变节点的右子树为栈中的下一个节点。
 
 222. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)
 
