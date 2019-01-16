@@ -11,6 +11,7 @@ No.|Title|Difficulty|Solved|Date
 112|[Path Sum](https://leetcode.com/problems/path-sum/)|Easy|yes|2019-01-10
 113|[Path Sum II](https://leetcode.com/problems/path-sum-ii/)|Medium|yes|2019-01-16
 114|[Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)|Medium|yes|2019-01-16
+124|[Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)|Medium|yes|2019-01-16
 222|[Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)|Medium|yes|2019-01-04
 257|[Binary Tree Paths](https://leetcode.com/problems/binary-tree-paths/)|Easy|yes|2019-01-12
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
@@ -77,6 +78,48 @@ No.|Title|Difficulty|Solved|Date
 114. [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
 
 先序遍历。在遍历的时候，依次改变节点的右子树为栈中的下一个节点。
+
+124. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+
+求取二叉树中最大的路径，要求路径不必经过根节点，路径不必以叶子节点结束。
+
+很容易想到使用递归的方式，计算经过每个节点的路径的大小，求取最大值。
+
+经过某个节点的路径的值，可以在本身节点值，经过左子树的最大值，经过右子树的最大值之间比较得到。
+
+```java
+public int maxPathSum(TreeNode root) {
+        if (root == null) return 0;
+        int l = path(root.left);
+        int r = path(root.right);
+     
+        //节点值加上左右子树的值
+        int v1 = root.val + l + r;
+        //节点值加上左子树值
+        int v2 = root.val + l;
+        //节点值加上右子树值
+        int v3 = root.val + r;
+        
+        int max = Math.max(v1, v2);
+        max = Math.max(max, v3);
+        max = Math.max(max, root.val);
+        if (root.left != null) {
+            max = Math.max(max, maxPathSum(root.left));
+        }
+        if (root.right != null) {
+             max = Math.max(max, maxPathSum(root.right));
+        }
+        return max;
+        
+    }
+    
+    private int path(TreeNode node) {
+        
+        if (node == null) return 0;
+        return Math.max(node.val, node.val + Math.max(path(node.left), path(node.right)));    
+    }
+
+```
 
 222. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/)
 
