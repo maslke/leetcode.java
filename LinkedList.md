@@ -1,4 +1,4 @@
-# LinkedList(20/34)
+# LinkedList(21/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -24,6 +24,7 @@ No.|Title|Difficulty|Solved|Date
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
+797|[Design Linked List](https://leetcode.com/problems/design-linked-list/)|Easy|yes|2019-01-17
 876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|Easy|yes|2019-01-09
 
 --------------------------------------------
@@ -247,6 +248,10 @@ class Solution {
 445. [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
 
 反转链表之后进行求解.
+
+797. [Design Linked List](https://leetcode.com/problems/design-linked-list/)
+
+设计链表。
 
 876. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
