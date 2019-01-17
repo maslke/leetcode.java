@@ -20,6 +20,7 @@ No.|Title|Difficulty|Solved|Date
 589|[N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)|Easy|yes|2019-01-05
 590|[N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)|Easy|yes|2019-01-05
 654|[Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)|Medium|yes|2019-12-30
+662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|Medium|yes|2019-01-17
 701|[Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)|Medium|yes|2018-12-29
 
 -------------------------------------------------------------
@@ -217,6 +218,12 @@ public List<Integer> postorder(Node root) {
 654. [Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)
 
 递归处理
+
+662. [Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)
+
+利用二叉树父节点和子节点序号之间的关系来进行计算。
+
+定义二叉树根节点的节点序号为0，则给定父节点序号为x，则左子树的节点序号为2x + 1，右子树的节点序号为2x + 2;
 
 701. [Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)
 
