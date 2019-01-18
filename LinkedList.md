@@ -1,4 +1,4 @@
-# LinkedList(21/34)
+# LinkedList(23/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -18,6 +18,8 @@ No.|Title|Difficulty|Solved|Date
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
 143|[Reorder List](https://leetcode.com/problems/reorder-list/)|Medium|yes|2019-01-12
 147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|Medium|yes|2019-01-14
+148|[Sort List](https://leetcode.com/problems/sort-list/)|Medium|yes|2019-01-18
+160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|Easy|yes|2019-01-18
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
 234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|Easy|yes|2019-01-10
 237|[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|Easy|yes|2019-01-10
@@ -169,6 +171,15 @@ public ListNode insertionSortList(ListNode head) {
         return h.next;
     }
 ```
+
+
+148. [Sort List](https://leetcode.com/problems/sort-list/)
+
+可以使用147中的插入排序。
+
+160. [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+
+计算链表的长度差，然后将长链表的指针提前向前移动长度差个距离。
 
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
