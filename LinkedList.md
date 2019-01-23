@@ -1,4 +1,4 @@
-# LinkedList(22/34)
+# LinkedList(25/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -18,6 +18,8 @@ No.|Title|Difficulty|Solved|Date
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
 143|[Reorder List](https://leetcode.com/problems/reorder-list/)|Medium|yes|2019-01-12
 147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|Medium|yes|2019-01-14
+148|[Sort List](https://leetcode.com/problems/sort-list/)|Medium|yes|2019-01-18
+160|[Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)|Easy|yes|2019-01-18
 203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|Easy|yes|2019-01-23
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
 234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|Easy|yes|2019-01-10
@@ -25,6 +27,7 @@ No.|Title|Difficulty|Solved|Date
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
+797|[Design Linked List](https://leetcode.com/problems/design-linked-list/)|Easy|yes|2019-01-17
 817|[Linked List Components](https://leetcode.com/problems/linked-list-components/)|Medium|yes|2019-01-23
 876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|Easy|yes|2019-01-09
 
@@ -171,9 +174,20 @@ public ListNode insertionSortList(ListNode head) {
     }
 ```
 
+<<<<<<< HEAD
 203. [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
 
 简单。
+=======
+
+148. [Sort List](https://leetcode.com/problems/sort-list/)
+
+可以使用147中的插入排序。
+
+160. [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+
+计算链表的长度差，然后将长链表的指针提前向前移动长度差个距离。
+>>>>>>> 329c8b5cad86e13746a4f98122033cf3e152f68f
 
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
@@ -254,9 +268,15 @@ class Solution {
 
 反转链表之后进行求解.
 
+<<<<<<< HEAD
 817. [Linked List Components](https://leetcode.com/problems/linked-list-components/)
 
 可以使用Map来存储每个节点在链表中的序号。然后，即可根据节点的序号值来判断是否相连。
+=======
+797. [Design Linked List](https://leetcode.com/problems/design-linked-list/)
+
+设计链表。
+>>>>>>> 329c8b5cad86e13746a4f98122033cf3e152f68f
 
 876. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
