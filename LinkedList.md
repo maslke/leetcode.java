@@ -1,4 +1,4 @@
-# LinkedList(20/34)
+# LinkedList(22/34)
 No.|Title|Difficulty|Solved|Date
 --|:--:|--:|--:|--:|
 2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)|Medium|yes|2018-12-28
@@ -18,12 +18,14 @@ No.|Title|Difficulty|Solved|Date
 142|[Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)|Medium|yes
 143|[Reorder List](https://leetcode.com/problems/reorder-list/)|Medium|yes|2019-01-12
 147|[Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/)|Medium|yes|2019-01-14
+203|[Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)|Easy|yes|2019-01-23
 206|[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)|Easy|yes|2019-01-10
 234|[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)|Easy|yes|2019-01-10
 237|[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|Easy|yes|2019-01-10
 297|[Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)|Hard|yes|2019-01-05
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
+817|[Linked List Components](https://leetcode.com/problems/linked-list-components/)|Medium|yes|2019-01-23
 876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|Easy|yes|2019-01-09
 
 --------------------------------------------
@@ -169,6 +171,10 @@ public ListNode insertionSortList(ListNode head) {
     }
 ```
 
+203. [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
+
+简单。
+
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
 可以使用递归或者迭代来进行求解.
@@ -247,6 +253,10 @@ class Solution {
 445. [Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
 
 反转链表之后进行求解.
+
+817. [Linked List Components](https://leetcode.com/problems/linked-list-components/)
+
+可以使用Map来存储每个节点在链表中的序号。然后，即可根据节点的序号值来判断是否相连。
 
 876. [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
