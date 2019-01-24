@@ -30,4 +30,25 @@ public class lc203 {
         }
         return temp.next;
     }
+
+    //recursive
+    public ListNode removeElements2(ListNode head, int val) {
+        if (head == null) return null;
+        if (head.val == val) {
+            return removeElements(head.next, val);
+        } else {
+            remove(head, head.next, val);
+            return head;
+        }
+    }
+    
+    private void remove(ListNode prev, ListNode current, int val) {
+        if (current == null) return;
+        if (current.val == val) {
+            prev.next = current.next;
+            remove(prev, current.next, val);
+        } else {
+            remove(current, current.next, val);
+        }
+    }
 }
