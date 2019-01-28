@@ -26,6 +26,7 @@ No.|Title|Difficulty|Solved|Date
 237|[Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/)|Easy|yes|2019-01-10
 430|[Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)|Medium|yes|2019-01-05
 445|[Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)|Medium|yes|2019-01-10
+707|[Design Linked List](https://leetcode.com/problems/design-linked-list/submissions/)|Easy|yes|2019-01-17
 797|[Design Linked List](https://leetcode.com/problems/design-linked-list/)|Easy|yes|2019-01-17
 817|[Linked List Components](https://leetcode.com/problems/linked-list-components/)|Medium|yes|2019-01-23
 876|[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)|Easy|yes|2019-01-09
