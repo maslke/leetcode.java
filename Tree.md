@@ -22,6 +22,7 @@ No.|Title|Difficulty|Solved|Date
 654|[Maximum Binary Tree](https://leetcode.com/problems/maximum-binary-tree/)|Medium|yes|2019-12-30
 662|[Maximum Width of Binary Tree](https://leetcode.com/problems/maximum-width-of-binary-tree/)|Medium|yes|2019-01-17
 701|[Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/)|Medium|yes|2018-12-29
+872|[Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees/)|Easy|yes|2019-01-28
 
 -------------------------------------------------------------
 
@@ -250,5 +251,9 @@ public TreeNode insertIntoBST(TreeNode root, int val) {
             }
         }
     }
-```    
+```   
+
+872. [Leaf-Similar Trees](https://leetcode.com/problems/leaf-similar-trees/)
+
+遍历即可。
 
