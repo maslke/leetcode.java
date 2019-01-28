@@ -181,7 +181,31 @@ public ListNode insertionSortList(ListNode head) {
 
 203. [Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
 
-简单。
+简单。相对而言，迭代的方式更加直接。
+
+递归的写法如下
+
+```java
+ public ListNode removeElements(ListNode head, int val) {
+        if (head == null) return null;
+        if (head.val == val) {
+            return removeElements(head.next, val);
+        } else {
+            remove(head, head.next, val);
+            return head;
+        }
+    }
+    
+    private void remove(ListNode prev, ListNode current, int val) {
+        if (current == null) return;
+        if (current.val == val) {
+            prev.next = current.next;
+            remove(prev, current.next, val);
+        } else {
+            remove(current, current.next, val);
+        }
+    }
+ ```   
 
 206. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 
