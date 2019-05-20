@@ -1,3 +1,7 @@
+package easy;
+import java.util.List;
+import java.util.ArrayList;
+
 //https://leetcode.com/problems/palindrome-number/
 //9. Palindrome Number
 class Solution {

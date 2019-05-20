@@ -7,6 +7,15 @@ package easy;
  * 237. Delete Node in a Linked List
  */
 class Solution {
+    class ListNode {
+        ListNode next;
+        int val;
+        ListNode (int x) {
+            val = x;
+        }
+    }
+
+
     public void deleteNode(ListNode node) {
         if (node == null) return;
         ListNode prev = null;

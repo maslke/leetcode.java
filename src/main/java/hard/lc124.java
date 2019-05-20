@@ -1,3 +1,5 @@
+package hard;
+
 //https://leetcode.com/problems/binary-tree-maximum-path-sum/
 //124. Binary Tree Maximum Path Sum
 /**
@@ -10,6 +12,14 @@
  * }
  */
 class Solution {
+
+    class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+    }
+
+
     public int maxPathSum(TreeNode root) {
         if (root == null) return 0;
         

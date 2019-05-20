@@ -1,3 +1,5 @@
+package medium;
+
 /**
  * https://leetcode.com/problems/insert-into-a-binary-search-tree/
  */
@@ -11,7 +13,19 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+
 class Solution {
+
+    class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+        public TreeNode (int val) {
+            this.val = val;
+        }
+    }
+
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) return new TreeNode(val);
         if (root.val > val) {

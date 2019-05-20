@@ -1,3 +1,4 @@
+package easy;
 
 /**
  * Author:maslke
@@ -5,6 +6,8 @@
  * Version:0.0.1 2. 
  * Add Two Numbers
  */
+
+
 public class lc2 {
     class ListNode {
         ListNode next;

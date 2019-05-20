@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * https://leetcode.com/problems/univalued-binary-tree/
  * Definition for a binary tree node.
@@ -9,6 +11,13 @@
  * }
  */
 class Solution {
+
+    class TreeNode {
+        TreeNode left;
+        TreeNode right;
+        int val;
+    }
+
     public boolean isUnivalTree(TreeNode root) {
         if (root == null) return true;
         if (root.left != null && root.right != null) {

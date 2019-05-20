@@ -1,3 +1,5 @@
+package easy;
+
 //https://leetcode.com/problems/merge-two-sorted-lists/
 //21. Merge Two Sorted Lists
 public class lc21 {
