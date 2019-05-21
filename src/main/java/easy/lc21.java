@@ -38,16 +38,13 @@ public class lc21 {
         }
         return temp.next;
     }
-}
 
-//simplify the solution
-class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
         ListNode temp = new ListNode(0);
         ListNode temp1 = l1;
         ListNode temp2 = l2;
         ListNode cur = temp;
-        while(temp1 != null || temp2 != null) {
+        while (temp1 != null || temp2 != null) {
             if (temp1 == null) {
                 cur.next = new ListNode(temp2.val);
                 temp2 = temp2.next;
@@ -56,14 +53,14 @@ class Solution {
                 temp1 = temp1.next;
             } else {
                 if (temp1.val < temp2.val) {
-                cur.next = new ListNode(temp1.val);
-                temp1 = temp1.next;
-            } else {
-                cur.next = new ListNode(temp2.val);
-                temp2 = temp2.next;
+                    cur.next = new ListNode(temp1.val);
+                    temp1 = temp1.next;
+                } else {
+                    cur.next = new ListNode(temp2.val);
+                    temp2 = temp2.next;
+                }
             }
-            }
-            
+
             cur = cur.next;
         }
         return temp.next;

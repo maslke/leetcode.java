@@ -1,3 +1,4 @@
+package easy;
 
 //https://leetcode.com/problems/diameter-of-binary-tree/
 //543. Diameter of Binary Tree

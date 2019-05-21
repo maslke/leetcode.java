@@ -1,3 +1,4 @@
+package easy;
 
 /**
  * Author:maslke
@@ -19,11 +20,8 @@ public class lc26 {
         }
         return j + 1;
     }
-}
 
-//new solution 
-class Solution {
-    public int removeDuplicates(int[] nums) {
+    public int removeDuplicates2(int[] nums) {
         int i = 0;
         int j = nums.length;
         while (i < j) {

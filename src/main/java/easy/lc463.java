@@ -32,11 +32,9 @@ public class lc463 {
         }
         return count1 * 4 - count2;
     }
-}
 
 
-class Solution {
-    public int islandPerimeter(int[][] grid) {
+    public int islandPerimeter2(int[][] grid) {
         int sum = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {

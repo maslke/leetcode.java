@@ -1,3 +1,10 @@
+package easy;
+
+import java.util.List;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.ArrayList;
+
 //https://leetcode.com/problems/n-ary-tree-level-order-traversal/
 //429. N-ary Tree Level Order Traversal
 /*
@@ -14,6 +21,19 @@ class Node {
     }
 };
 */
+
+class Node {
+    public int val;
+    public List<Node> children;
+
+    public Node() {}
+
+    public Node(int _val, List<Node> _children) {
+        val = _val;
+        children = _children;
+    }
+}
+
 class Solution {
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();

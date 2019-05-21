@@ -1,3 +1,5 @@
+package easy;
+
 //https://leetcode.com/problems/length-of-last-word/
 //58. Length of Last Word
 /**
@@ -24,10 +26,8 @@ public class lc58 {
         }
         return len;
     }
-}
 
-class Solution {
-    public int lengthOfLastWord(String s) {
+    public int lengthOfLastWord2(String s) {
         if (s == null || s.length() == 0) return 0;
         int i = s.length() - 1;
         int start = -1;

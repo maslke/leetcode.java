@@ -1,3 +1,5 @@
+package easy;
+
 //https://leetcode.com/problems/maximum-subarray/
 //53. Maximum Subarray
 //@date:2019/01/07

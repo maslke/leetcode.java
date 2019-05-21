@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * Author:maslke
  * Date:2017/8/21
@@ -21,11 +23,8 @@ public class lc69 {
             return sqrt(( begin + x / begin) / 2, x);
         }
     }
-}
 
-//another solution
-class Solution {
-    public int mySqrt(int x) {
+    public int mySqrt2(int x) {
         if (x == 0) return 0;
         if (x == 1) return 1;
         int begin = 1;
@@ -46,3 +45,4 @@ break;
         return m;
     }
 }
+

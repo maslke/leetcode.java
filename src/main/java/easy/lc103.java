@@ -1,3 +1,10 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 //https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/submissions/
 //103. Binary Tree Zigzag Level Order Traversal
 /**
@@ -9,6 +16,14 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x;}
+}
+
 class Solution {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();

@@ -1,3 +1,8 @@
+package easy;
+
+import java.util.Map;
+import java.util.HashMap;
+
 //https://leetcode.com/problems/fibonacci-number/
 //509. Fibonacci Number
 class Solution {
