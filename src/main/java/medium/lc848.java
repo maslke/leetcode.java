@@ -1,7 +1,8 @@
+package medium;
+
+
 //https://leetcode.com/problems/shifting-letters/
 //848. Shifting Letters
-
-package medium;
 
 class Solution {
     public String shiftingLetters(String S, int[] shifts) {

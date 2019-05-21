@@ -1,3 +1,10 @@
+package medium;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+
+
 //https://leetcode.com/problems/linked-list-components/
 //817. Linked List Components
 /**
@@ -8,6 +15,13 @@
  *     ListNode(int x) { val = x; }
  * }
  */
+
+ class ListNode {
+     int val;
+     ListNode next;
+     ListNode(int x) { val = x; }
+ }
+
 class Solution {
     public int numComponents(ListNode head, int[] G) {
         if (G.length == 0) return 0;

@@ -1,4 +1,4 @@
-package meidum;
+package medium;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -8,6 +8,14 @@ package meidum;
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
+
 class Solution {
     public int rangeSumBST(TreeNode root, int L, int R) {
         if (root == null) return 0;

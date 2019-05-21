@@ -1,3 +1,7 @@
+package medium;
+
+import java.util.Stack;
+
 /**
  * https://leetcode.com/problems/score-of-parentheses/
  * 856. Score of Parentheses

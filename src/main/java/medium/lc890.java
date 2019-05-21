@@ -1,3 +1,10 @@
+package medium;
+
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * https://leetcode.com/problems/find-and-replace-pattern/
  * 890. Find and Replace Pattern
