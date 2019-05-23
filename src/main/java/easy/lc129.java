@@ -1,3 +1,9 @@
+package easy;
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Stack;
+
 /**
  * Author:maslke
  * Date:2017/8/23

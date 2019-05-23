@@ -1,3 +1,5 @@
+package easy;
+
 //https://leetcode.com/problems/repeated-string-match/
 //686. Repeated String Match
 class Solution {

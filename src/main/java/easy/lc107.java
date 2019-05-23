@@ -1,3 +1,11 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * Author:maslke
  * Date:2017/8/23

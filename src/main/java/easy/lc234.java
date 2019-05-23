@@ -51,11 +51,9 @@ public class lc234 {
         }
         return true;
     }
-}
 
-//a better solution
-class Solution {
-    public boolean isPalindrome(ListNode head) {
+    //a better solution
+    public boolean isPalindrome2(ListNode head) {
         if (head == null || head.next == null) return true;
         ListNode prev = null;
         ListNode slow = head;
@@ -94,4 +92,5 @@ class Solution {
         
     }
 }
+
 

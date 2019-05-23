@@ -1,3 +1,11 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Stack;
+
 //https://leetcode.com/problems/n-ary-tree-postorder-traversal/
 // 590. N-ary Tree Postorder Traversal
 /*

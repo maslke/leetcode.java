@@ -1,3 +1,9 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
+
 //https://leetcode.com/problems/n-ary-tree-preorder-traversal/
 //589. N-ary Tree Preorder Traversal
 /*

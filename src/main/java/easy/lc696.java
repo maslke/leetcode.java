@@ -1,7 +1,7 @@
+package easy;
+
 //https://leetcode.com/problems/count-binary-substrings/
 //696. Count Binary Substrings
-
-package easy;
 
 import java.util.List;
 import java.util.ArrayList;

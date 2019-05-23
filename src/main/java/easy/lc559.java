@@ -1,3 +1,5 @@
+package easy;
+
 //https://leetcode.com/problems/maximum-depth-of-n-ary-tree/
 //559. Maximum Depth of N-ary Tree
 /*

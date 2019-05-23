@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * Author:maslke
  * Date:2017/8/31

@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * https://leetcode.com/problems/range-addition-ii/   
  * 598. Range Addition II
