@@ -1,3 +1,6 @@
+package medium;
+
+
 //https://leetcode.com/problems/swap-nodes-in-pairs/
 //24. Swap Nodes in Pairs
 /**
@@ -8,7 +11,7 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc24 {
     public ListNode swapPairs(ListNode head) {
         if (head == null) return null;
         ListNode h = new ListNode(0);

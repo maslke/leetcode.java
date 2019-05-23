@@ -1,8 +1,8 @@
+package medium;
 //https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 //153. Find Minimum in Rotated Sorted Array
-package medium;
 
-class Solution {
+class lc153 {
     public int findMin(int[] nums) {
         return findMin(nums, 0, nums.length - 1);    
     }

@@ -6,7 +6,7 @@ package easy;
 import java.util.List;
 import java.util.ArrayList;
 
-class Solution {
+class lc696 {
     public int countBinarySubstrings(String s) {
         int i = 0;
         int j = s.length();

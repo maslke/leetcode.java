@@ -1,6 +1,8 @@
+package medium;
+
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
 //80. Remove Duplicates from Sorted Array II
-class Solution {
+class lc80 {
     public int removeDuplicates(int[] nums) {
         int i = 0;
         int j = nums.length;

@@ -26,7 +26,6 @@ class Solution {
     public int numComponents(ListNode head, int[] G) {
         if (G.length == 0) return 0;
         if (G.length == 1) return 1;
-        int length = 0;
         ListNode temp = head;
         Map<Integer, Integer> map = new HashMap<>();
         int index = 0;

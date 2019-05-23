@@ -26,7 +26,6 @@ public class lc46 {
 
     private List<List<Integer>> compose(List<List<Integer>> items, int inx) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        int i = 0;
         for (List<Integer> list : items) {
             for (int j = 0; j <= list.size(); j++) {
                 List<Integer> newList = new ArrayList<Integer>(list);

@@ -1,3 +1,6 @@
+package medium;
+
+
 /**
  * https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
  * 109. Convert Sorted List to Binary Search Tree
@@ -8,16 +11,7 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-class Solution {
+class lc109 {
     public TreeNode sortedListToBST(ListNode head) {
         int count = 0;
         ListNode h = head;

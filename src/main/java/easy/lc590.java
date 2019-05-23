@@ -22,7 +22,7 @@ class Node {
     }
 };
 */
-class Solution {
+class lc590 {
     public List<Integer> postorder(Node root) {
         List<Integer> ret = new ArrayList<>();
         if (root == null) return ret;

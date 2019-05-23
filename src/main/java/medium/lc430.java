@@ -1,7 +1,10 @@
+package medium;
 //https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/
 //430. Flatten a Multilevel Doubly Linked List
-/*
-// Definition for a Node.
+
+import java.util.List;
+import java.util.ArrayList;
+
 class Node {
     public int val;
     public Node prev;
@@ -16,9 +19,9 @@ class Node {
         next = _next;
         child = _child;
     }
-};
-*/
-class Solution {
+}
+
+class lc430 {
     public Node flatten(Node head) {
         if (head == null) return null;
         List<Node> nodes = new ArrayList<>();
@@ -43,11 +46,7 @@ class Solution {
         compose(head.next, nodes);
     }
 
-}
-
-//a better solution
-class Solution {
-    public Node flatten(Node head) {
+    public Node flatten2(Node head) {
         flatten(null, head);
         return head;
     }
@@ -71,4 +70,5 @@ class Solution {
             return flatten(c, next);
         }
     }
+
 }

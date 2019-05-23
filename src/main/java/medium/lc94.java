@@ -1,3 +1,11 @@
+package medium;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Set;
+import java.util.HashSet;
+
 //https://leetcode.com/problems/binary-tree-inorder-traversal//
 //94. Binary Tree Inorder Traversal
 /**
@@ -9,7 +17,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc94 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> ret = new ArrayList<>();
         if (root == null) return ret;
@@ -33,11 +41,9 @@ class Solution {
         }
         return ret;
     }
-}
 
-//recursive
-class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
+    //solution 2
+    public List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> ret = new ArrayList<>();
         inorder(root, ret);
         return ret;

@@ -41,14 +41,9 @@ public class lc19 {
         }
         return head;
     }
-}
 
-
-/**
- * solution 2
- */
-class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
+    //solution2
+    public ListNode removeNthFromEnd2(ListNode head, int n) {
         if (n == 0) return head;
         ListNode current = head;
         ListNode prev = null;
@@ -72,13 +67,9 @@ class Solution {
         return head;
         
     }
-}
 
-/**
- * solution 3
- */
-class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
+    //solution3
+    public ListNode removeNthFromEnd3(ListNode head, int n) {
         int count = 0;
         ListNode h = head;
         while (h != null) {

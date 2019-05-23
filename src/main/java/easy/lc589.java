@@ -20,7 +20,7 @@ class Node {
     }
 };
 */
-class Solution {
+class lc589 {
     public List<Integer> preorder(Node root) {
         List<Integer> ret = new ArrayList<>();
         if (root == null) return ret;

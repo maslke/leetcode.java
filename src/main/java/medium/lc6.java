@@ -1,6 +1,11 @@
+package medium;
+
+import java.util.List;
+import java.util.ArrayList;
+
 //https://leetcode.com/problems/zigzag-conversion/
 //6. ZigZag Conversion
-class Solution {
+class lc6 {
     public String convert(String s, int numRows) {
         List<List<String>> ret = new ArrayList<List<String>>();
         for (int inx = 0; inx < numRows; inx++) {

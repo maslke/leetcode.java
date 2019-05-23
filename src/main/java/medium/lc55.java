@@ -1,6 +1,8 @@
+package medium;
+
 //https://leetcode.com/problems/jump-game/
 //55. Jump Game
-class Solution {
+class lc55 {
     public boolean canJump(int[] nums) {
        if (nums.length <= 1) return true;
         int i = 0;

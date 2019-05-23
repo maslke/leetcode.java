@@ -1,6 +1,13 @@
+package medium;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
+
 //https://leetcode.com/problems/binary-tree-level-order-traversal/
 //102. Binary Tree Level Order Traversal
-class Solution {
+class lc102 {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
         if (root == null) return ret;

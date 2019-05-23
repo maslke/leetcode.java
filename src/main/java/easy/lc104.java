@@ -7,20 +7,19 @@ import java.util.HashMap;
 import java.util.Stack;
 
 /**
- * Author:maslke
- * Date:2017/8/30
- * Version:0.0.1
- * 104. Maximum Depth of Binary Tree
+ * Author:maslke Date:2017/8/30 Version:0.0.1 104. Maximum Depth of Binary Tree
  */
 public class lc104 {
     class TreeNode {
         TreeNode left;
         TreeNode right;
         int val;
+
         TreeNode(int x) {
             val = x;
         }
     }
+
     public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -30,7 +29,7 @@ public class lc104 {
         stack.push(root);
         Map<TreeNode, Integer> map = new HashMap<TreeNode, Integer>();
         map.put(root, 1);
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             TreeNode temp = stack.pop();
             int value = map.get(temp);
             if (temp.right != null) {

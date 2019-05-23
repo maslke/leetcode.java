@@ -12,7 +12,6 @@ public class lc224 {
         if (s == null || s.isEmpty()) {
             return 0;
         }
-        int ret = 0;
         int length = s.length();
         Stack<String> stack = new Stack<String>();
         int i = 0;

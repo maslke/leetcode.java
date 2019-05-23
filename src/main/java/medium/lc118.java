@@ -14,7 +14,7 @@ public class lc118 {
         if (numRows == 0) {
             return ret;
         }
-        List<Integer> list1 = new ArrayList();
+        List<Integer> list1 = new ArrayList<>();
         list1.add(1);
         ret.add(list1);
         if (numRows == 1) {

@@ -1,3 +1,5 @@
+package medium;
+
 /**
  * https://leetcode.com/problems/sort-list/
  * 148. Sort List
@@ -8,7 +10,7 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc148 {
     public ListNode sortList(ListNode head) {
         if (head == null) return head;
         ListNode flag = new ListNode(0);

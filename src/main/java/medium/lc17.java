@@ -1,4 +1,11 @@
-class Solution {
+package medium;
+
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+
+class lc17 {
     public List<String> letterCombinations(String digits) {
         List<String> ret = new ArrayList<>();
         if (digits.equals("") || digits == null) return ret;

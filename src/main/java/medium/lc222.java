@@ -1,3 +1,5 @@
+package medium;
+
 /**
  * https://leetcode.com/problems/count-complete-tree-nodes/
  * 222. Count Complete Tree Nodes
@@ -9,7 +11,7 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc222 {
     public int countNodes(TreeNode root) {
         if (root == null) return 0;
         int l = calcHeight(root.left);
