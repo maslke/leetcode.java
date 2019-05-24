@@ -1,3 +1,8 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  * https://leetcode.com/problems/positions-of-large-groups/
  * lc.830

@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * https://leetcode.com/problems/valid-mountain-array/
  * 941. Valid Mountain Array

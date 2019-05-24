@@ -24,7 +24,7 @@ class TreeNode {
     TreeNode(int x) { val = x;}
 }
 
-class Solution {
+class lc103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
         if (root == null) return ret;

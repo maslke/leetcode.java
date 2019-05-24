@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * lc.922 Sort Array By Parity II
  * easy

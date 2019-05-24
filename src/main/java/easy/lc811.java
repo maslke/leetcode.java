@@ -1,3 +1,10 @@
+package easy;
+
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.ArrayList;
+
 //https://leetcode.com/problems/subdomain-visit-count/
 //811. Subdomain Visit Count
 class Solution {

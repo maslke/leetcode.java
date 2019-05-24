@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * https://leetcode.com/problems/delete-columns-to-make-sorted/
  * 944. Delete Columns to Make Sorted

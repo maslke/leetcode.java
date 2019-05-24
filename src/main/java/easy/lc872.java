@@ -1,3 +1,9 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
+
 //https://leetcode.com/problems/leaf-similar-trees/
 //872. Leaf-Similar Trees
 /**

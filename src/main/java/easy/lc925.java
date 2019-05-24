@@ -1,3 +1,5 @@
+package easy;
+
 /**
  * https://leetcode.com/problems/long-pressed-name/
  * lc.925

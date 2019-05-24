@@ -1,3 +1,8 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+
 //https://leetcode.com/problems/shortest-distance-to-a-character/
 //821. Shortest Distance to a Character
 class Solution {

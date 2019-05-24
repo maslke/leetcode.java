@@ -1,10 +1,18 @@
+package easy;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Set;
+import java.util.HashSet;
+
 /**
  * Author:maslke
  * Date:2018/12/27 
  * Version:0.0.1 
  * 897. Increasing Order Search Tree
  */
-public class lc2 {
+public class lc897 {
     class TreeNode {
         TreeNode left;
         TreeNode right;

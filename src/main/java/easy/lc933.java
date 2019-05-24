@@ -1,3 +1,5 @@
+package easy;
+
 /***
  * https://leetcode.com/problems/number-of-recent-calls/
  * 933. Number of Recent Calls

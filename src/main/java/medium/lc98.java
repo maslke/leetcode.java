@@ -53,11 +53,8 @@ public class lc98 {
         }
         return true;
     }
-}
 
-//a better solution
-class Solution {
-    public boolean isValidBST(TreeNode root) {
+    public boolean isValidBST2(TreeNode root) {
         if (root == null) return true;
         boolean first = true;
         int before = 0;
@@ -91,6 +88,4 @@ class Solution {
         }
         return true;
     }
-    
-   
 }

@@ -1,3 +1,11 @@
+package easy;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  * https://leetcode.com/problems/uncommon-words-from-two-sentences/
  * 884. Uncommon Words from Two Sentences

@@ -1,3 +1,7 @@
+package easy;
+
+import java.util.Stack;
+
 /**
  * lc844. Backspace String Compare
  */

@@ -1,6 +1,8 @@
+package easy;
+
 //https://leetcode.com/problems/min-cost-climbing-stairs/
 //Min Cost Climbing Stairs
-class Solution {
+class lc746 {
     public int minCostClimbingStairs(int[] cost) {
         int len = cost.length;
         if (len <= 2) return 0;

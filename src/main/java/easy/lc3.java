@@ -29,7 +29,6 @@ public class lc3 {
                 }
             }
         }
- 
         return maxLength;
     }
 

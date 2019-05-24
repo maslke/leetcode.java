@@ -1,3 +1,8 @@
+package easy;
+
+import java.util.Map;
+import java.util.HashMap;
+
 //https://leetcode.com/problems/buddy-strings/
 //859. Buddy Strings
 class Solution {

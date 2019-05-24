@@ -1,3 +1,6 @@
+package easy;
+
+
 /**
  * Author:maslke
  * Date:2018/12/27 
@@ -6,7 +9,7 @@
  */
 
  public class lc896 {
-     private test(int a, int b) {
+     private int test(int a, int b) {
          if (a == b) return 0;
          if (a < b) return 1;
          return -1;
