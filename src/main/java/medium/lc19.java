@@ -88,4 +88,26 @@ public class lc19 {
             return head;
         }
     }
+
+    public ListNode removeNthFromEnd4(ListNode head, int n) {
+        if (head == null) {
+             return null;
+         }
+         ListNode head1 = head;
+         ListNode head2 = head;
+         int i = 0;
+         while (i++ < n) {
+             head2 = head2.next;
+         }
+         if (head2 == null) {
+             return head.next;
+         }
+         while (head2.next != null) {
+             head1 = head1.next;
+             head2 = head2.next;
+         }
+
+         head1.next = head1.next.next;
+         return head;
+     }
 }
