@@ -17,6 +17,67 @@ public class lc445 {
             val = x;
         }
     }
+
+    //a better solution
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+          ListNode l3 = revert(l1);
+          ListNode l4 = revert(l2);
+          return revert(add(l3, l4));  
+    }
+
+    private ListNode revert(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode temp = head;
+        ListNode before = null;
+        while (temp != null) {
+            ListNode next = temp.next;
+            temp.next = before;
+            before = temp;
+            if (next == null) {
+                break;
+            }
+            temp = next;
+        }
+        return before;
+    }
+
+    private ListNode add(ListNode l1, ListNode l2) {
+        boolean flag = false;
+        ListNode newHead = new ListNode(0);
+        ListNode cursor = newHead;
+        while (l1 != null || l2 != null) {
+            int v = 0;
+            if (l1 != null) {
+                v += l1.val;
+                l1 = l1.next;
+            }
+
+            if (l2 != null) {
+               v += l2.val;
+               l2 = l2.next;     
+            }
+
+            if (flag) {
+                v += 1;
+                flag = false;
+            }
+            if (v >= 10) {
+                v -= 10;
+                flag = true;
+            }
+            ListNode node = new ListNode (v);
+            cursor.next = node;
+            cursor = node;
+         }    
+         if (flag) {
+             cursor.next = new ListNode(1);
+         }
+        return newHead.next;
+    }
+
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
