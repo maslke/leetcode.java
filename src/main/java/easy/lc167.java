@@ -10,7 +10,6 @@ public class lc167 {
     public int[] twoSum(int[] numbers, int target) {
         int[] ret = new int[2];
         int i = 0, j = numbers.length - 1;
-        boolean success = false;
         while (i < j) {
             int val = target - numbers[i];
             if (val > numbers[j]) {

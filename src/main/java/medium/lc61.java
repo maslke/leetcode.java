@@ -15,30 +15,27 @@ public class lc61 {
         }
     }
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null) {
-            return null;
+        if (head == null || k == 0) return head;
+        int len = 0;
+        ListNode h = head;
+        ListNode prev = null;
+        while (h != null) {
+            len++;
+            prev = h;
+            h = h.next;
         }
-        if (k == 0) {
-            return head;
+        k = k % len;
+        if (k == 0) return head;
+        int m = 0;
+        h = head;
+        while (m < len - k - 1) {
+            h = h.next;
+            m++;
         }
-        int length = 0;
-        ListNode temp = head;
-        while (temp != null) {
-            temp = temp.next;
-            length++;
-        }
-        k = k % length;
-        temp = head;
-        ListNode tail = head;
-        for (int i = 0; i < length - k - 1; i++) {
-            tail = tail.next;
-        }
-        for (int i = 0; i < length - 1; i++) {
-            temp = temp.next;
-        }
-        temp.next = head;
-        ListNode newHead = tail.next;
-        tail.next = null;
-        return newHead;
+        
+        ListNode temp = h.next;
+        prev.next = head;
+        h.next = null;
+        return temp;
     }
 }

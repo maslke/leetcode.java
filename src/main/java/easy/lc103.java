@@ -1,54 +1,56 @@
 package easy;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
+//https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/submissions/
+//103. Binary Tree Zigzag Level Order Traversal
 /**
- * Author:maslke
- * Date:2017/8/23
- * Version:0.0.1
- * 103. Binary Tree Zigzag Level Order Traversal
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
  */
-public class lc103 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x;}
+}
+
+class lc103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        if (root == null) {
-            return ret;
-        }
-        int inx = 0;
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        if (root == null) return ret;
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        while(!queue.isEmpty()) {
-            List<Integer> level = new ArrayList<Integer>();
-            Queue<TreeNode> innerQueue = new LinkedList<TreeNode>();
-            while(!queue.isEmpty()) {
-                TreeNode temp = queue.poll();
-                if (inx % 2 == 1) {
-                    level.add(0, temp.val);
+        boolean leftToRight = true;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> levels = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (leftToRight) {
+                    levels.add(node.val);
                 } else {
-                    level.add(temp.val);
+                    levels.add(0, node.val);
                 }
-                if (temp.left != null) {
-                    innerQueue.add(temp.left);
+                if (node.left != null) {
+                    queue.add(node.left);
                 }
-                if (temp.right != null) {
-                    innerQueue.add(temp.right);
+                if (node.right != null) {
+                    queue.add(node.right);
                 }
             }
-            inx++;
-            ret.add(level);
-            queue = innerQueue;
+            leftToRight = !leftToRight;
+            ret.add(levels);
         }
         return ret;
-    }
+    } 
 }

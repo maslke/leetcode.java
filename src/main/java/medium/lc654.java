@@ -12,7 +12,7 @@ public class lc654 {
         TreeNode right;
         int val;
         TreeNode(int val) {
-            val = val;
+            this.val = val;
         }
     }
     public TreeNode constructMaximumBinaryTree(int[] nums) {

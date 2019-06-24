@@ -1,8 +1,5 @@
 package easy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Author:maslke
  * Date:2017/8/27
@@ -22,5 +19,31 @@ public class lc26 {
             }
         }
         return j + 1;
+    }
+
+    public int removeDuplicates2(int[] nums) {
+        int i = 0;
+        int j = nums.length;
+        while (i < j) {
+            int v = nums[i];
+            int m = i;
+            int count = 0;
+            while (m < j) {
+                if (nums[m] == v) {
+                    count++;
+                    m++;
+                } else {
+                    break;
+                }
+            }
+            if (count > 1) {
+                for (int k = m; k < j; k++) {
+                nums[k - (count - 1)] = nums[k];
+                }
+            } 
+            i = i + 1;
+            j = j - (count - 1);
+        }
+        return j;
     }
 }

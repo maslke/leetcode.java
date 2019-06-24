@@ -1,19 +1,18 @@
 package medium;
 
 /**
- * Author:maslke
- * Date:2017/9/30
- * Version:0.0.1
- * 328. Odd Even Linked List
+ * Author:maslke Date:2017/9/30 Version:0.0.1 328. Odd Even Linked List
  */
 public class lc328 {
     class ListNode {
         ListNode next;
         int val;
+
         ListNode(int x) {
             val = x;
         }
     }
+
     public ListNode oddEvenList(ListNode head) {
         if (head == null) {
             return null;
@@ -43,6 +42,45 @@ public class lc328 {
                 odd.next = evenHead;
             }
         }
+        return head;
+    }
+
+    // a stupid solution
+    public ListNode oddEvenList2(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+        ListNode current = head;
+        ListNode current2 = head.next;
+        int count = 1;
+        boolean flag = true;
+        while (flag) {
+            ListNode c = current2;
+            ListNode prev = null;
+            for (int i = 1; i <= count; i++) {
+                prev = c;
+                c = c.next;
+                if (c == null) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (!flag) {
+                break;
+            }
+            ListNode next = c.next;
+            current.next = c;
+            c.next = current2;
+            if (prev == current2) {
+                current2.next = next;
+
+            } else {
+                prev.next = next;
+            }
+            count++;
+            current = current.next;
+
+        }
+
         return head;
     }
 }

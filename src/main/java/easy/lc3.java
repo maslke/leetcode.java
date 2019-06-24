@@ -1,7 +1,6 @@
 package easy;
-
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Author:maslke
@@ -10,6 +9,31 @@ import java.util.Map;
  * 3. Longest Substring Without Repeating Characters
  */
 public class lc3 {
+
+    public int lengthOfLongestSubstring2(String s) {
+        int i = 0;
+        int length = 0;
+        int maxLength = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        while (i < s.length() - 1) {
+            char c = s.charAt(i);
+            if (map.containsKey(c)) {
+                i = map.get(c) + 1;
+                length = 0;
+                map.clear();    
+            } else {
+                i++;
+                length++;
+                if (maxLength < length) {
+                    maxLength = length;
+                }
+            }
+        }
+        return maxLength;
+    }
+
+
+
     public int lengthOfLongestSubstring(String s) {
         if (s == null || s.isEmpty()) {
             return 0;

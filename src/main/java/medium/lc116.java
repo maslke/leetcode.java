@@ -1,10 +1,5 @@
 package medium;
 
-import sun.reflect.generics.tree.Tree;
-
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * Author:maslke
  * Date:2017/8/25

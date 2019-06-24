@@ -16,7 +16,7 @@ public class lc28 {
         }
         int len1 = haystack.length();
         int len2 = needle.length();
-        int i = 0, j = 0;
+        int i = 0;
         while (i < len1) {
             if (haystack.charAt(i) == needle.charAt(0)) {
                 int m = i, n = 0;

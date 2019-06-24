@@ -8,7 +8,6 @@ package easy;
  */
 public class lc520 {
     public boolean detectCapitalUse(String word) {
-        int length = word.length();
         if (word.toUpperCase().equals(word) || word.toLowerCase().equals(word)) {
             return true;
         }

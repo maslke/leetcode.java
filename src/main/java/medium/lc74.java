@@ -16,7 +16,7 @@ public class lc74 {
         if (column == 0) {
             return false;
         }
-        int i = 0, j = 0;
+        int i = 0;
         while (i < row) {
             if (matrix[i][column - 1] < target) {
                 i++;

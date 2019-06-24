@@ -21,3 +21,22 @@ public class lc492 {
         return ret;
     }
 }
+
+// a better solution 
+class Solution {
+    public int[] constructRectangle(int area) {
+        int v1 = (int)Math.sqrt(area);
+        int v2 = 0;
+        while (v1 >= 1) {
+            if (area % v1 == 0) {
+                v2 = area/v1;
+                break;
+            }
+            v1--;
+        }
+        int[] ret = new int[2];
+        ret[0] = Math.max(v1, v2);
+        ret[1] = Math.min(v1, v2);
+        return ret;
+    }
+}

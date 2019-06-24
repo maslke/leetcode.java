@@ -14,7 +14,7 @@ public class lc43 {
         if (num1.equals("0") || num2.equals("0")) {
             return "0";
         }
-        int len1 = num1.length(), len2 = num2.length();
+        int len1 = num1.length();
         List<String> rets = new ArrayList<String>();
         int index = 0;
         for (int i = len1 - 1; i >= 0; i--) {
