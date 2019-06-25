@@ -52,6 +52,27 @@ public class lc234 {
         return true;
     }
 
+    public boolean isPalind(ListNode head) {
+        if (head == null || head.next == null) return true;
+        ListNode c1 = head;
+        ListNode prev = null;
+        ListNode c2 = head;
+        while (c2 != null && c2.next != null) {
+            prev = c1;
+            c1 = c1.next;
+            c2 = c2.next.next; 
+        }    
+        prev.next = null;
+        ListNode temp = head;
+        ListNode temp2 = reverse(c1);
+        while (temp != null && temp2 != null) {
+            if (temp.val != temp2.val) return false;
+            temp = temp.next;
+            temp2 = temp2.next;
+        }
+        return true;
+    }
+
     //a better solution
     public boolean isPalindrome2(ListNode head) {
         if (head == null || head.next == null) return true;
