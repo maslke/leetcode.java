@@ -50,6 +50,22 @@ class lc430 {
         flatten(null, head);
         return head;
     }
+
+
+    private Node flatten2(Node prev, Node current) {
+        if (current == null) return prev;
+        Node child = current.child;
+        Node next = current.next;
+        if (prev != null) {
+            prev.next = current;
+            current.next = prev;
+        }
+        current.child = null;
+
+        Node node = flatten2(current, child);
+        return flatten2(node, next);
+    }
+
     private Node flatten(Node prev, Node current) {
         if (current == null) return prev;
         Node next = current.next;
