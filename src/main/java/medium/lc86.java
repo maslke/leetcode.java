@@ -42,4 +42,28 @@ public class lc86 {
         }
         return newHead.next;
     }
+
+    // a much easier solution
+    public ListNode partiton2(ListNode head, int x) {
+        ListNode h1 = new ListNode(0);
+        ListNode h2 = new ListNode(0);
+        ListNode temp1 = h1;
+        ListNode temp2 = h2;
+        ListNode temp = head;
+        while (temp != null) {
+            ListNode next = temp.next;
+            if (temp.val < x) {
+                temp1.next = temp;
+                temp.next = null;
+                temp1 = temp1.next;
+            } else {
+                temp2.next = temp;
+                temp.next = null;
+                temp2 = temp2.next;
+            }
+            temp = next;
+        }        
+        temp1.next = h2.next;
+        return h1.next;
+    }
 }
