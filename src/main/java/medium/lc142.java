@@ -39,6 +39,25 @@ public class lc142 {
         return null;
     }
 
+    public ListNode detectCycle3(ListNode head) {
+        if (head == null || head.next == null) return null;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                fast = head;
+                while (fast != slow) {
+                    fast = fast.next;
+                    slow = slow.next;
+                }
+                return slow;
+            }        
+        }
+        return null;
+    }
+
     /**
      * 2018/12/28
      * @param head
