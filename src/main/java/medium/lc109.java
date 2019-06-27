@@ -27,6 +27,24 @@ class lc109 {
         }
         return convert(data, 0, count - 1);
     }
+
+    public TreeNode sortedListToBST2(ListNode head) {
+        if (head == null) return null;
+        ListNode prev = null;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if (prev == null) return new TreeNode(slow.val);
+        prev.next = null;
+        TreeNode result = new TreeNode(slow.val);
+        result.left = sortedListToBST2(head);
+        result.right = sortedListToBST2(slow.next);
+        return result;
+    }
     
     private TreeNode convert(ListNode[] nodes, int begin, int end) {
         if (begin > end) return null;
@@ -36,4 +54,7 @@ class lc109 {
         node.right = convert(nodes, mid + 1, end);
         return node;
     }
+
+
+
 }
