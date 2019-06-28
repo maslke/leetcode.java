@@ -3,6 +3,10 @@
 
 package hard;
 
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
 /**
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode(int x) { val = x; } }
@@ -10,12 +14,39 @@ package hard;
 
 public class lc23 {
 
+    public ListNode mergeKLists3(ListNode[] lists) {
+        Queue<ListNode> queue = new PriorityQueue<>(new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode n1, ListNode n2) {
+                return n1.val - n2.val;
+            }
+        });
+
+        for (ListNode list : lists) {
+            if (list != null) {
+                queue.add(list);
+            }
+        }
+        ListNode head = new ListNode(0);
+        ListNode temp = head;
+        while (!queue.isEmpty()) {
+            ListNode node = queue.poll();
+            temp.next = node;
+            temp = temp.next;
+            if (node.next != null) {
+                queue.add(node.next);
+            }
+        }
+        return head.next;
+    }
+
     public ListNode mergeKLists2(ListNode[] lists) {
         int len = lists.length;
         ListNode result = null;
         int i = 0;
         while (true) {
-            if (i >= len) break;
+            if (i >= len)
+                break;
             if (i == 0) {
                 result = lists[0];
             } else {
