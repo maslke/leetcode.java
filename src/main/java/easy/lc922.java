@@ -4,7 +4,7 @@ package easy;
  * lc.922 Sort Array By Parity II
  * easy
  */
-class Solution {
+class lc922 {
     private void swap(int[] A, int i, int j) {
         int temp = A[i];
         A[i] = A[j];

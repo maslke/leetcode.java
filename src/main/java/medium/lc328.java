@@ -13,6 +13,32 @@ public class lc328 {
         }
     }
 
+    public ListNode oddEvenList3(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode odd = head;
+        ListNode even = head.next;
+
+        ListNode temp1 = odd;
+        ListNode temp2 = even;
+        ListNode temp = even.next;
+        boolean flag = true;
+        while (temp != null) {
+             if (flag) {
+                 temp1.next = temp;
+                 temp1 = temp1.next;
+             } else {
+                 temp2.next = temp;
+                 temp2.next = temp;
+             }
+             temp = temp.next;
+             flag = !flag;
+        }
+
+        temp2.next = null;
+        temp1.next = even;
+        return odd;
+    }
+
     public ListNode oddEvenList(ListNode head) {
         if (head == null) {
             return null;

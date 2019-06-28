@@ -8,7 +8,7 @@ import java.util.HashMap;
  * https://leetcode.com/problems/verifying-an-alien-dictionary/
  *
  */
-class Solution {
+class lc953 {
     public boolean isAlienSorted(String[] words, String order) {
         Map<Character, Integer> map = new HashMap<>();
         for (int i = 0; i < order.length(); i++) {
