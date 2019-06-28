@@ -14,6 +14,19 @@ import java.util.Comparator;
 
 public class lc23 {
 
+    public ListNode mergeKLists4(ListNode[] lists) {
+        int len = lists.length;
+        if (len == 0) return null;
+        int interval = 1;
+        while (interval < len) {
+            for (int i = 0; i + interval < len; i = i + 2 * interval) {
+                lists[i] = merge(lists[i], lists[i + interval]);
+            }
+            interval *= 2;
+        }
+        return lists[0];
+    }
+
     public ListNode mergeKLists3(ListNode[] lists) {
         Queue<ListNode> queue = new PriorityQueue<>(new Comparator<ListNode>() {
             @Override

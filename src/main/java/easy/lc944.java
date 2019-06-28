@@ -4,7 +4,7 @@ package easy;
  * https://leetcode.com/problems/delete-columns-to-make-sorted/
  * 944. Delete Columns to Make Sorted
  */
-class Solution {
+class lc944 {
     public int minDeletionSize(String[] A) {
         int len = A.length;
         int count = 0;

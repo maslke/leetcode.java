@@ -10,7 +10,7 @@ package easy;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc965 {
 
     class TreeNode {
         TreeNode left;

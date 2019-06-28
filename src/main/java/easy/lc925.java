@@ -4,7 +4,7 @@ package easy;
  * https://leetcode.com/problems/long-pressed-name/
  * lc.925
  */
-class Solution {
+class lc925 {
     public boolean isLongPressedName(String name, String typed) {
         int len1 = name.length();
         int len2 = typed.length();
