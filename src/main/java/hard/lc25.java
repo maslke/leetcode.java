@@ -24,7 +24,6 @@ public class lc25 {
         int i = 0;
         ListNode newHead = new ListNode(0);
         newHead.next = head;
-        int i = 0;
         while (true) {
             boolean flag = reverse(newHead, k * i + 1, k * i + k);
             if (!flag)
