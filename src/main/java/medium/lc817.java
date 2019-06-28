@@ -3,6 +3,8 @@ package medium;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
 
 
 //https://leetcode.com/problems/linked-list-components/
@@ -23,6 +25,23 @@ import java.util.Arrays;
  }
 
 class Solution {
+
+    public int numComponents2(ListNode head, int[] G){
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < G.length; i++) {
+            set.add(G[i]);
+        }
+        int count = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            if (set.contains(temp.val) && (temp.next == null || !set.contains(temp.next.val))) {
+                count++;
+            }
+            temp = temp.next;
+        }
+        return count;
+    }
+
     public int numComponents(ListNode head, int[] G) {
         if (G.length == 0) return 0;
         if (G.length == 1) return 1;
