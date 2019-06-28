@@ -11,6 +11,58 @@ package medium;
  * }
  */
 class lc148 {
+
+
+    public ListNode sortList2(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode mid = middle(head);
+        ListNode next = mid.next;
+        mid.next = null;
+        ListNode n1 = sortList2(head);
+        ListNode n2 = sortList2(next);
+        return sort(n1, n2);
+    }
+
+    private ListNode middle(ListNode head) {
+        ListNode prev = null;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return prev;
+    }
+
+    private ListNode sort(ListNode headA, ListNode headB) {
+        ListNode head = new ListNode(0);
+        ListNode temp = head;
+        ListNode tempA = headA;
+        ListNode tempB = headB;
+        while (tempA != null || tempB != null) {
+            if (tempA != null && tempB != null) {
+                if (tempA.val < tempB.val) {
+                    temp.next = tempA;
+                tempA = tempA.next;
+                temp = temp.next;
+                } else {
+                    temp.next = tempB;
+                    tempB = tempB.next;
+                    temp = temp.next;
+                }
+            } else if (tempA != null) {
+                temp.next = tempA;
+                break;
+            } else {
+                temp.next = temepB;
+                break;
+            }
+        }    
+        return head.next;
+    }
+
+
     public ListNode sortList(ListNode head) {
         if (head == null) return head;
         ListNode flag = new ListNode(0);
