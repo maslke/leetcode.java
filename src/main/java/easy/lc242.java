@@ -2,14 +2,21 @@ package easy;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Arrays;
 
 /**
- * Author:maslke
- * Date:2017/9/6
- * Version:0.0.1
- * 242. Valid Anagram
+ * Author:maslke Date:2017/9/6 Version:0.0.1 242. Valid Anagram
  */
 public class lc242 {
+
+    public boolean isAnagram2(String s, String t) {
+        char[] sa = s.toCharArray();
+        char[] ta = t.toCharArray();
+        Arrays.sort(sa);
+        Arrays.sort(ta);
+        return Arrays.equals(sa, ta);
+    }
+
     public boolean isAnagram(String s, String t) {
         if (s == null && t == null) {
             return true;
