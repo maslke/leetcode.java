@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 
 /**
  * Author:maslke
@@ -12,6 +14,30 @@ import java.util.Map;
  * 349. Intersection of Two Arrays
  */
 public class lc349 {
+
+    public int[] intersections2(int[] nums1, int[] nums2) {
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums1.length; i++) {
+            set.add(nums1[i]);
+        }
+
+        List<Integer> result = new ArrayList<Integer>();
+        Set<Integer> set2 = new HashSet<>();
+        for (int i = 0; i < nums2.length; i++) {
+            if (set.contains(nums2[i]) && !set2.contains(nums2[i])) {
+                result.add(nums2[i]);
+                set2.add(nums2[i]);
+            }
+        }
+
+        int[] ret = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            ret[i] = result.get(i);
+        }
+        return ret;
+    }
+
+
     public int[] intersection(int[] nums1, int[] nums2) {
         int[] ret;
         if (nums1.length == 0 || nums2.length == 0) {
