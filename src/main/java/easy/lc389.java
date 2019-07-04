@@ -2,6 +2,7 @@ package easy;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Arrays;
 
 /**
  * Author:maslke
@@ -10,6 +11,21 @@ import java.util.HashMap;
  * 389. Find the Difference
  */
 public class lc389 {
+
+    public char findTheDifferences3(String s, String t) {
+        char[] ca = s.toCharArray();
+        char[] ct = t.toCharArray();
+        Arrays.sort(ca);
+        Arrays.sort(ct);
+        int i = 0;
+        int j = 0;
+        while (i < ca.length && j < ct.length) {
+            if (ca[i] != ct[j]) {
+                return ct[j];
+            }
+        }
+        return ct[ct.length - 1];
+    }
 
     public char findTheDifferences2(String s, String t) {
         Map<Character, Integer> map1 = new HashMap<>();
