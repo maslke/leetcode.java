@@ -5,12 +5,13 @@ import java.util.HashMap;
 
 //https://leetcode.com/problems/buddy-strings/
 //859. Buddy Strings
-class Solution {
+class lc895 {
     public boolean buddyStrings(String A, String B) {
         int count = 0;
         int len1 = A.length();
         int len2 = B.length();
-        if (len1 != len2) return false;
+        if (len1 != len2)
+            return false;
         int i = 0;
         int j = 0;
         char[] chars = new char[2];
@@ -28,13 +29,13 @@ class Solution {
                         return false;
                     }
                     count++;
-                    
+
                 } else {
                     count++;
                     break;
                 }
                 i++;
-                    j++;
+                j++;
             }
         }
         if (count == 0) {

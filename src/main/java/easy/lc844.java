@@ -6,7 +6,7 @@ import java.util.Stack;
  * lc844. Backspace String Compare
  */
 
-class Solution {
+class lc844 {
     public boolean backspaceCompare(String S, String T) {
         Stack<Character> stack1 = new Stack<>();
         Stack<Character> stack2 = new Stack<>();
@@ -30,7 +30,8 @@ class Solution {
                 stack2.push(c);
             }
         }
-        if (stack1.size() != stack2.size()) return false;
+        if (stack1.size() != stack2.size())
+            return false;
         while (!stack1.isEmpty()) {
             if (stack1.pop() != stack2.pop()) {
                 return false;
