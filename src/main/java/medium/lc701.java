@@ -5,29 +5,25 @@ package medium;
  */
 
 /**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
+ * Definition for a binary tree node. public class TreeNode { int val; TreeNode
+ * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 
-
-class Solution {
+class lc701 {
 
     class TreeNode {
         TreeNode left;
         TreeNode right;
         int val;
-        public TreeNode (int val) {
+
+        public TreeNode(int val) {
             this.val = val;
         }
     }
 
     public TreeNode insertIntoBST(TreeNode root, int val) {
-        if (root == null) return new TreeNode(val);
+        if (root == null)
+            return new TreeNode(val);
         if (root.val > val) {
             if (root.left == null) {
                 root.left = new TreeNode(val);
@@ -41,7 +37,7 @@ class Solution {
                 root.right = new TreeNode(val);
                 return root;
             } else {
-                insertIntoBST(root.right, val);    
+                insertIntoBST(root.right, val);
                 return root;
             }
         }

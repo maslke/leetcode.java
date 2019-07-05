@@ -6,27 +6,25 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
 
-
 //https://leetcode.com/problems/linked-list-components/
 //817. Linked List Components
 /**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode
+ * next; ListNode(int x) { val = x; } }
  */
 
- class ListNode {
-     int val;
-     ListNode next;
-     ListNode(int x) { val = x; }
- }
+class ListNode {
+    int val;
+    ListNode next;
 
-class Solution {
+    ListNode(int x) {
+        val = x;
+    }
+}
 
-    public int numComponents2(ListNode head, int[] G){
+class lc817 {
+
+    public int numComponents2(ListNode head, int[] G) {
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < G.length; i++) {
             set.add(G[i]);
@@ -43,8 +41,10 @@ class Solution {
     }
 
     public int numComponents(ListNode head, int[] G) {
-        if (G.length == 0) return 0;
-        if (G.length == 1) return 1;
+        if (G.length == 0)
+            return 0;
+        if (G.length == 1)
+            return 1;
         ListNode temp = head;
         Map<Integer, Integer> map = new HashMap<>();
         int index = 0;
@@ -67,7 +67,8 @@ class Solution {
             count++;
             inx++;
         }
-        if (ret[len - 1] - ret[len - 2] == 1) return count;
+        if (ret[len - 1] - ret[len - 2] == 1)
+            return count;
         return count + 1;
     }
 }
