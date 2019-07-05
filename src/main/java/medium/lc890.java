@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * https://leetcode.com/problems/find-and-replace-pattern/
- * 890. Find and Replace Pattern
+ * https://leetcode.com/problems/find-and-replace-pattern/ 890. Find and Replace
+ * Pattern
  */
-class Solution {
+class lc890 {
     public List<String> findAndReplacePattern(String[] words, String pattern) {
         List<String> ret = new ArrayList<>();
         Map<Character, Character> map = new HashMap<>();

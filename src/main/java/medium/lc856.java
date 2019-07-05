@@ -3,10 +3,9 @@ package medium;
 import java.util.Stack;
 
 /**
- * https://leetcode.com/problems/score-of-parentheses/
- * 856. Score of Parentheses
+ * https://leetcode.com/problems/score-of-parentheses/ 856. Score of Parentheses
  */
-class Solution {
+class lc856 {
     public int scoreOfParentheses(String S) {
         Stack<String> stack = new Stack<>();
         for (int i = 0; i < S.length(); i++) {
@@ -17,24 +16,24 @@ class Solution {
                 String top = stack.pop();
                 int val;
                 if (top.equals("(")) {
-                 val = 1;
+                    val = 1;
                 } else {
-                    //数字
+                    // 数字
                     val = Integer.valueOf(top);
                     stack.pop();
-                    val = val * 2; 
+                    val = val * 2;
                 }
                 while (!stack.isEmpty()) {
-                        if (stack.peek().equals("(")) {
-                            break;
-                        } else {
-                            val += Integer.valueOf(stack.pop());
-                        }
+                    if (stack.peek().equals("(")) {
+                        break;
+                    } else {
+                        val += Integer.valueOf(stack.pop());
                     }
-                    stack.push(String.valueOf(val));
+                }
+                stack.push(String.valueOf(val));
             }
         }
-        
+
         if (stack.size() == 1) {
             return Integer.valueOf(stack.pop());
         } else {
