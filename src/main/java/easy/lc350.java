@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 /**
  * Author:maslke
@@ -12,6 +13,31 @@ import java.util.Map;
  * 350. Intersection of Two Arrays II
  */
 public class lc350 {
+
+    public int[] intersect2(int[] nums1, int[] nums2) {
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int i = 0;
+        int j = 0;
+        List<Integer> result = new ArrayList<>();
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] == nums2[j]) {
+                result.add(nums1[i]);
+                i++;
+                j++;
+            } else if (nums1[i] < nums2[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        int[] ret = new int[result.size()];
+        for (int inx = 0; inx < result.size(); inx++) {
+            ret[inx] = result.get(inx);
+        }
+        return ret;
+    }
+
     public int[] intersect(int[] nums1, int[] nums2) {
         int[] ret;
         if (nums1.length == 0 || nums2.length == 0) {
