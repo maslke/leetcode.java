@@ -6,12 +6,36 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Author:maslke
- * Date:2017/9/26
- * Version:0.0.1
- * 438. Find All Anagrams in a String
+ * Author:maslke Date:2017/9/26 Version:0.0.1 438. Find All Anagrams in a String
  */
 public class lc438 {
+
+    public List<Integer> findAnagrams2(String s, String p) {
+        List<Integer> result = new ArrayList<>();
+        if (p.length() > s.length())
+            return result;
+        char[] chars = new char[26];
+        for (int i = 0; i < p.length(); i++) {
+            chars[p.charAt(i) - 'a']++;
+        }
+
+        int l = 0;
+        int r = 0;
+
+        while (l < s.length()) {
+            if (chars[s.charAt(r) - 'a'] > 0) {
+                chars[s.charAt(r) - 'a']--;
+                r++;
+            } else {
+                chars[s.charAt(l) - 'a']++;
+                l++;
+            }
+            if (r - l == p.length())
+                result.add(l);
+        }
+        return result;
+    }
+
     public List<Integer> findAnagrams(String s, String p) {
         List<Integer> ret = new ArrayList<Integer>();
         int len = p.length();
