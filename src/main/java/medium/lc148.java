@@ -1,20 +1,15 @@
 package medium;
 
 /**
- * https://leetcode.com/problems/sort-list/
- * 148. Sort List
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
+ * https://leetcode.com/problems/sort-list/ 148. Sort List Definition for
+ * singly-linked list. public class ListNode { int val; ListNode next;
+ * ListNode(int x) { val = x; } }
  */
 class lc148 {
 
-
     public ListNode sortList2(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null)
+            return head;
         ListNode mid = middle(head);
         ListNode next = mid.next;
         mid.next = null;
@@ -44,8 +39,8 @@ class lc148 {
             if (tempA != null && tempB != null) {
                 if (tempA.val < tempB.val) {
                     temp.next = tempA;
-                tempA = tempA.next;
-                temp = temp.next;
+                    tempA = tempA.next;
+                    temp = temp.next;
                 } else {
                     temp.next = tempB;
                     tempB = tempB.next;
@@ -55,16 +50,16 @@ class lc148 {
                 temp.next = tempA;
                 break;
             } else {
-                temp.next = temepB;
+                temp.next = tempB;
                 break;
             }
-        }    
+        }
         return head.next;
     }
 
-
     public ListNode sortList(ListNode head) {
-        if (head == null) return head;
+        if (head == null)
+            return head;
         ListNode flag = new ListNode(0);
         ListNode current = head.next;
         flag.next = head;
@@ -82,7 +77,7 @@ class lc148 {
             }
             if (temp == null) {
                 prev.next = current;
-                current = current.next; 
+                current = current.next;
                 prev.next.next = null;
             } else {
                 ListNode temp2 = current.next;

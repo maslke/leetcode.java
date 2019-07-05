@@ -1,13 +1,30 @@
 package medium;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
- * Author:maslke
- * Date:2017/9/4
- * Version:0.0.1
- * 215. Kth Largest Element in an Array
- * 优先级队列
+ * Author:maslke Date:2017/9/4 Version:0.0.1 215. Kth Largest Element in an
+ * Array 优先级队列
  */
 public class lc215 {
+
+    public int findKLargest2(int[] nums, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
+            public int compare(Integer a, Integer b) {
+                return b - a;
+            }
+        });
+        for (int i = 0; i < nums.length; i++) {
+            queue.add(nums[i]);
+        }
+        while (k > 1) {
+            queue.poll();
+            k--;
+        }
+        return queue.poll();
+    }
+
     public int findKthLargest(int[] nums, int k) {
         int length = nums.length;
         int[] pq = new int[length + 1];
