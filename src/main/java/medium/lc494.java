@@ -2,11 +2,11 @@
 //494. Target Sum
 package medium;
 
-class Solution {
+class lc494 {
     public int findTargetSumWays(int[] nums, int S) {
-        return findTarget(nums, 0, nums.length - 1, S);        
+        return findTarget(nums, 0, nums.length - 1, S);
     }
-    
+
     private int findTarget(int[] nums, int begin, int end, int S) {
         if (begin == end) {
             if (nums[begin] == S || nums[begin] == -S) {
@@ -17,8 +17,9 @@ class Solution {
                 }
             }
             return 0;
-        }  else {
-            return findTarget(nums, begin + 1, end, S + nums[begin]) + findTarget(nums, begin + 1, end, S - nums[begin]);
+        } else {
+            return findTarget(nums, begin + 1, end, S + nums[begin])
+                    + findTarget(nums, begin + 1, end, S - nums[begin]);
         }
     }
 }
