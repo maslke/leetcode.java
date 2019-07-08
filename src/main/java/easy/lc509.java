@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 //https://leetcode.com/problems/fibonacci-number/
 //509. Fibonacci Number
-class Solution {
+class lc509 {
     public int fib(int N) {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, 0);

@@ -11,7 +11,7 @@ package easy;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc538 {
     
     private int sum = 0;
     public TreeNode convertBST(TreeNode root) {

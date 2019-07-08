@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
  * You may return the list in any order.
  */
-class Solution {
+class lc884 {
     public String[] uncommonFromSentences(String A, String B) {
         Map<String, Integer> map = new HashMap<>();
         String[] c1 = A.split(" ");

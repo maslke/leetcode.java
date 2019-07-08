@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 //https://leetcode.com/problems/subdomain-visit-count/
 //811. Subdomain Visit Count
-class Solution {
+class lc811 {
     public List<String> subdomainVisits(String[] cpdomains) {
         Map<String, Integer> map = new HashMap<>();
         for (int i = 0; i < cpdomains.length; i++) {

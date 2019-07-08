@@ -18,7 +18,7 @@ class TreeNode {
  }
  
 
-class Solution {
+class lc662 {
     public int widthOfBinaryTree(TreeNode root) {
         if (root == null) return 0;
         Map<TreeNode, Integer> map = new HashMap<>();

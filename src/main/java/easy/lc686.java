@@ -2,7 +2,7 @@ package easy;
 
 //https://leetcode.com/problems/repeated-string-match/
 //686. Repeated String Match
-class Solution {
+class lc686 {
     public int repeatedStringMatch(String A, String B) {
         StringBuilder sb = new StringBuilder(A);
         int count = 1;

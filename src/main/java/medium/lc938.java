@@ -16,7 +16,7 @@ class TreeNode {
     TreeNode(int x) { val = x; }
 }
 
-class Solution {
+class lc938 {
     public int rangeSumBST(TreeNode root, int L, int R) {
         if (root == null) return 0;
         int val = root.val;
