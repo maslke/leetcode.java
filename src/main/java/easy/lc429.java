@@ -34,7 +34,7 @@ class Node {
     }
 }
 
-class Solution {
+class lc429 {
     public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
         if (root == null) return ret;

@@ -6,7 +6,7 @@ package easy;
  * Version:0.0.1
  * 237. Delete Node in a Linked List
  */
-class Solution {
+class lc237 {
     class ListNode {
         ListNode next;
         int val;

@@ -20,11 +20,9 @@ public class lc492 {
         }
         return ret;
     }
-}
 
-// a better solution 
-class Solution {
-    public int[] constructRectangle(int area) {
+    // a better solution
+    public int[] constructRectangle2(int area) {
         int v1 = (int)Math.sqrt(area);
         int v2 = 0;
         while (v1 >= 1) {

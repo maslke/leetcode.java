@@ -3,7 +3,7 @@ package easy;
 //https://leetcode.com/problems/maximum-subarray/
 //53. Maximum Subarray
 //@date:2019/01/07
-class Solution {
+class lc53 {
     public int maxSubArray(int[] nums) {
         int sum = 0;
         int max = Integer.MIN_VALUE;

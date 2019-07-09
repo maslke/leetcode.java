@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 //https://leetcode.com/problems/palindrome-number/
 //9. Palindrome Number
-class Solution {
+class lc9 {
     public boolean isPalindrome(int x) {
         if (x < 0) return false;
         if (x == 0) return true;
