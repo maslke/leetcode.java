@@ -6,6 +6,7 @@ No.|Title|Difficulty|Solved|Date
 26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|Easy|yes|2019-01-10
 27|[Remove Element](https://leetcode.com/problems/remove-element/)|Easy|yes|2019-01-10
 153|[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|Medium|yes|2019-01-19
+791|[Custom Sort String](https://leetcode.com/problems/custom-sort-string/)|Medium|yes|2020-01-07
 ----------------------------------------------------------------
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
 
@@ -43,6 +44,10 @@ private int findMin(int[] nums, int start, int end) {
         }
         
     }
-```    
+```  
+
+791. [Custom Sort String](https://leetcode.com/problems/custom-sort-string/)
+
+自定义排序，排序规则是在给定的字符串中。
 
 
