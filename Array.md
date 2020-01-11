@@ -6,6 +6,7 @@ No.|Title|Difficulty|Solved|Date
 26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|Easy|yes|2019-01-10
 27|[Remove Element](https://leetcode.com/problems/remove-element/)|Easy|yes|2019-01-10
 153|[Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)|Medium|yes|2019-01-19
+289|[Game Of Life](https://leetcode.com/problems/game-of-life/)|Medium|yes|2020-01-11
 791|[Custom Sort String](https://leetcode.com/problems/custom-sort-string/)|Medium|yes|2020-01-07
 ----------------------------------------------------------------
 1. [Two Sum](https://leetcode.com/problems/two-sum/)
@@ -45,6 +46,12 @@ private int findMin(int[] nums, int start, int end) {
         
     }
 ```  
+
+289. [Game Of Life](https://leetcode.com/problems/game-of-life/)
+
+要求不使用额外变量临时记录中间状态的话，考虑使用特征值的方法。所有的Cell都处理完成之后，再将特征值替换会原始的值。
+
+例如，死亡的Cell -> 存活的Cell，这一过程的特征值为 2。存活的Cell -> 死亡的Cell，这一过程的特征值为 -1。在统计Cell周边存活Cell的个数的时候，需要统计值为-1的Cell。
 
 791. [Custom Sort String](https://leetcode.com/problems/custom-sort-string/)
 
