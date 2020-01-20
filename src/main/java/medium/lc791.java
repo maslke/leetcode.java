@@ -22,7 +22,7 @@ class Solution {
         //         if (index1 < 0) {
         //             return 1;
         //         }        
-        //         if (index2 < 0) {
+        //         if (index2 < 0) { 
         //             return -1;
         //         }
         //         return index1 - index2;
