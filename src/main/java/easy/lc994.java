@@ -43,6 +43,7 @@ class lc994 {
             }
             
         }
+        return count;
     }
 
     private boolean changedToRotten(int[][] grid, int i, int j) {
