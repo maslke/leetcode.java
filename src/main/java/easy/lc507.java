@@ -32,4 +32,18 @@ public class lc507 {
         }
         return sum == num;
     }
+
+    public boolean checkPerfectNumber2(int num) {
+        int sum = 1;
+        if (num <= 5) return false;
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                sum += i;
+                if (i != num / i) {
+                    sum += num / i;
+                }
+            }
+        }
+        return sum == num;
+    }
 }
