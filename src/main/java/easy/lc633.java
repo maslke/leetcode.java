@@ -21,4 +21,20 @@ public class lc633 {
         }
         return false;
     }
+
+    public boolean judgeSquareSum2(int c) {
+        int low = 0;
+        int high = (int)Math.sqrt(c);
+        while (low <= high) {
+            int v = low * low + high * high;
+            if (v == c) {
+                return true;
+            } else if (v < c) {
+                low = low + 1;
+            } else {
+                high = high - 1;
+            }
+        }
+        return false;
+    }
 }
