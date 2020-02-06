@@ -10,7 +10,7 @@ class lc106 {
 
     private TreeNode build(int[] inorder, int begin1, int end1, int[] postorder, int begin2, int end2) {
         if (begin1 > end1 || begin2 > end2) return false;
-        int val = postorder[end2];
+        int val = postorder[end2];1
         TreeNode root = new TreeNode(val);
         int index = 0;
         for (int i = begin1; i <= end1; i++) {
