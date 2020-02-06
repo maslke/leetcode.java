@@ -50,6 +50,30 @@ class lc120 {
         return m + Math.min(minimumTotal(t1), minimumTotal(t2));
     }
 
+    public int minimumTotal3(List<Integer> t) {
+        int lines = t.size();
+        for (int i = 1; i < lines; i++) {
+            for (int j = 0; j < t.get(i).size(); j++) {
+                if (j == 0) {
+                    t.get(i).set(j, t.get(i).get(j) + t.get(i - 1).get(j));
+                } else (j == t.get(i - 1).size()) {
+                    t.get(i).set(j, t.get(i).get(j) + t.get(i - 1).get(j - 1));
+                } else {
+                    t.get(i).set(j, t.get(i).get(j) + Math.min(t.get(i - 1).get(j), t.get(i - 1).get(j - 1)));
+                }
+            }
+        }
+
+        List<Integer> list = t.get(lines - 1);
+        int min = Math.MAX_VALUE;
+        for (int i = 0; i < list.size(); i++) {
+            if (min > list.get(i)) {
+                min = list.get(i);
+            }
+        }
+        return min;
+    }
+
 
     public int minimumTotal2(List<List<Integer>> triangle) {
         List<Integer> previous = new ArrayList<>(triangle.get(0));
