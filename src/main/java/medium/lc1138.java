@@ -24,11 +24,11 @@ class lc1138 {
             int a = list.get(0);
             int b = list.get(1);
             int a1 = a;
-            if (b != 0 && a == 5) {
-                a1 = a--;
+            if (col != 0 && a == 5) {
+                a1 = a - 1
             }
             String step = a > row ? "D" : "U";
-            for (int j = 0; j < Math.abs(a - row); j++) {
+            for (int j = 0; j < Math.abs(a1 - row); j++) {
                 sb.append(step);
             }
             step = b > col ? "R" : "L";
