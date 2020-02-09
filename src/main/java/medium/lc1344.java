@@ -1,5 +1,8 @@
 package medium;
 
+// https://leetcode.com/problems/angle-between-hands-of-a-clock/
+// 1344. Angle Between Hands of a Clock
+
 class lc1344 {
     public double angleClock(int hour, int minutes) {
         double[] hours = new double[13];
