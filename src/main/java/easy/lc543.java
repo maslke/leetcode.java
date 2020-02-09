@@ -11,7 +11,7 @@ package easy;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc543 {
     public int diameterOfBinaryTree(TreeNode root) {
         if (root == null) return 0;
         int lh = height(root.left);

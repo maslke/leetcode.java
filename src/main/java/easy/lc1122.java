@@ -1,5 +1,8 @@
 package easy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class lc1122 {
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
         Map<Integer, Integer> map = new HashMap<>();

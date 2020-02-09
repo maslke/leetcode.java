@@ -14,7 +14,7 @@ class ListNode {
     }
 }
 
-class Solution {
+class lc876 {
     public ListNode middleNode(ListNode head) {
         if (head == null)
             return head;

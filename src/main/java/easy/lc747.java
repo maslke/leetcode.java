@@ -1,3 +1,5 @@
+package easy;
+
 class lc747 {
     public int dominantIndex(int[] nums) {
         int index = -1;

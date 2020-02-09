@@ -1,3 +1,8 @@
+package easy;
+
+import java.util.HashSet;
+import java.util.Set;
+
 class lc1128 {
     public int numEquivDominoPairs(int[][] dominoes) {
         Set<Integer> set = new HashSet<>();
