@@ -60,4 +60,27 @@ class lc1080 {
             visit(root);
         }
     }
+
+    public TreeNode sufficientSubset2(TreeNode root, int limit) {
+        if (root == null) return null;
+        boolean reserved = sufficient(root, 0, limit);
+        if (reserved) return root;
+        return null;
+    }
+    
+    private boolean sufficient(TreeNode root, int sum, int limit) {
+        if (root == null) return false;
+        if (root.left == null && root.right == null) {
+            return sum + root.val >= limit;
+        }
+        boolean resLeft = sufficient(root.left, sum + root.val, limit);
+        boolean resRight = sufficient(root.right, sum + root.val, limit);
+        if (!resLeft) {
+            root.left = null;
+        }
+        if (!resRight) {
+            root.right = null;
+        }
+        return resLeft || resRight;
+    }
 }
