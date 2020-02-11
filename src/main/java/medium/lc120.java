@@ -50,7 +50,7 @@ class lc120 {
         return m + Math.min(minimumTotal(t1), minimumTotal(t2));
     }
 
-    public int minimumTotal3(List<Integer> t) {
+    public int minimumTotal3(List<List<Integer>> t) {
         int lines = t.size();
         for (int i = 1; i < lines; i++) {
             for (int j = 0; j < t.get(i).size(); j++) {
@@ -65,7 +65,7 @@ class lc120 {
         }
 
         List<Integer> list = t.get(lines - 1);
-        int min = Math.MAX_VALUE;
+        int min = Integer.MAX_VALUE;
         for (int i = 0; i < list.size(); i++) {
             if (min > list.get(i)) {
                 min = list.get(i);

@@ -9,12 +9,12 @@ class lc105 {
         int end1 = preorder.length - 1;
         int begin2 = 0;
         int end2 = inorder.length - 1;
-        return buildTree(preorder, begin1, end1, inorder, begin2, end2);
+        return build(preorder, begin1, end1, inorder, begin2, end2);
     }
 
     private TreeNode build(int[] preorder, int begin1, int end1, int[] inorder, int begin2, int end2) {
-        if (begin1 > end1 || begin2 > end2) return false;
-        int val = preorder[0];
+        if (begin1 > end1 || begin2 > end2) return null;
+        int val = preorder[begin1];
         TreeNode root = new TreeNode(val);
         int index = 0;
         for (int i = begin2; i <= end2; i++) {
@@ -25,7 +25,7 @@ class lc105 {
         }
 
         root.left = build(preorder, begin1 + 1, begin1 + index - begin2, inorder, begin2, index - 1);
-        root.right = build(preorder, begin1 + index + 1 - begin2, inorder, index + 1, end2);
+        root.right = build(preorder, begin1 + index + 1 - begin2, end1, inorder, index + 1, end2);
         return root;
     }
 }
