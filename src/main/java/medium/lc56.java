@@ -5,6 +5,7 @@ import java.util.List;
 
 // https://leetcode.com/problems/merge-intervals/
 // 56. Merge Intervals
+
 class lc56 {
     public int[][] merge(int[][] intervals) {
         sort(intervals, 0, intervals.length - 1);
