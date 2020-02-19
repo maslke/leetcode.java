@@ -1,59 +1,23 @@
 package medium;
 
-/**
- * Author:maslke
- * Date:2017/8/27
- * Version:0.0.1
- * 74. Search a 2D Matrix
- */
+// https://leetcode.com/problems/search-a-2d-matrix/
+// 74. Search a 2D Matrix
+
 public class lc74 {
     public boolean searchMatrix(int[][] matrix, int target) {
-        int row = matrix.length;
-        if (row == 0) {
-            return false;
-        }
-        int column = matrix[0].length;
-        if (column == 0) {
-            return false;
-        }
-        int i = 0;
-        while (i < row) {
-            if (matrix[i][column - 1] < target) {
-                i++;
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return false;
+        int m = matrix.length;
+        int i = m - 1;
+        int j = 0;
+        while (i >= 0 && j < matrix[0].length) {
+            int v = matrix[i][j];
+            if (v == target) return true;
+            if (v < target) {
+                j++;
             } else {
-                break;
-            }
-
-        }
-        if (i == row) {
-            return false;
-        } else {
-            return find(matrix[i], target);
-        }
-    }
-
-    private boolean find(int[] values, int target) {
-        int left = 0;
-        int right = values.length - 1;
-        return find(values, left, right, target);
-
-    }
-
-    private boolean find(int[] values, int left, int right, int target) {
-        if (left >= right) {
-            if (values[left] == target) {
-                return true;
-            } else {
-                return false;
+                i--;
             }
         }
-        int mid = left + (right - left) / 2;
-        if (values[mid] == target) {
-            return true;
-        } else if (values[mid] < target) {
-            return find(values, mid + 1, right, target);
-        } else {
-            return find(values, left, mid - 1, target);
-        }
+        return false;
     }
 }
