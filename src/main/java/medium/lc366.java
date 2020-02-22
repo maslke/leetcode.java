@@ -64,3 +64,27 @@ class lc366 {
         }
     }
 }
+
+// a much better solution
+class lc3662 {
+    private List<List<Integer>> result = new ArrayList<>();
+    public List<List<Integer>> findLeaves(TreeNode root) {
+            height(root);
+            return result;
+    }
+
+    private int height(TreeNode node) {
+        if (node == null) return 0;
+        int left = height(node.left);
+        int right = height(node.right);
+        int max = 1 + Math.max(left, right);
+        if (max > result.size()) {
+            result.add(new ArrayList<>());
+        }
+        result.get(max - 1).add(node.val);
+        return max;
+
+    }
+
+
+}
