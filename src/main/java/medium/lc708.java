@@ -17,6 +17,8 @@ class Node {
         val = _val;
         next = _next;
     }
+
+}
 class Solution {
     public Node insert(Node head, int insertVal) {
         if (head == null) {
