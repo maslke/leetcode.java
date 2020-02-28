@@ -1,7 +1,9 @@
 package medium;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Author:maslke
@@ -42,6 +44,36 @@ public class lc565 {
                 }
                 map.put(i, len);
             }
+        }
+        return max;
+    }
+}
+
+class lc565_2 {
+    public int arrayNesting(int[] nums) {
+        Set<Integer> set2 = new HashSet<>();
+        int max = 0;
+        int i = 0;
+        while (i < nums.length) {
+            if (set2.contains(i)) {
+                i++;
+                continue;
+            }
+            int first = nums[i];
+            Set<Integer> set = new HashSet<>();
+            int count = 0;
+            set2.add(i);
+            while (!set.contains(first)) {
+                count++;
+                set.add(first);
+                if (first >= nums.length) break;
+                first = nums[first];
+                set2.add(first);
+            }
+            if (count > max) {
+                max = count;
+            }
+            
         }
         return max;
     }
