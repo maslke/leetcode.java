@@ -1,5 +1,7 @@
 package easy;
 
+import java.util.Arrays;
+
 // https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/
 // 1013. Partition Array into Three Parts With Equal Sum
 
