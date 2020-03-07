@@ -33,4 +33,22 @@ class lc1309 {
         }
         return sb.toString();
     }
+
+
+    public String freqAlphabets2(String s) {
+        StringBuilder sb = new StringBuilder();
+        char[] chars = s.toCharArray();
+        int i = 0;
+        int j = s.length() - 1;
+        while (i <= j) {
+            if (i + 2 > j || chars[i + 2] != '#') {
+                sb.append((char)(Integer.parseInt(String.valueOf(chars[i])) + 96));
+                i++;
+            } else {
+                sb.append((char)(Integer.parseInt(s.substring(i, i + 2)) + 96));
+                i = i + 3;
+            }
+        }
+        return sb.toString();
+    }
 }
