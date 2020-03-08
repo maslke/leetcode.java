@@ -3,6 +3,10 @@ package easy;
 import java.util.HashMap;
 import java.util.Map;
 
+
+// https://leetcode.com/problems/third-maximum-number/
+// 414. Third Maximum Number
+
 /**
  * Author:maslke
  * Date:2017/9/5
@@ -61,5 +65,52 @@ public class lc414 {
             }
             k = j;
         }
+    }
+}
+
+
+class lc414_2 {
+    public int thirdMax(int[] nums) {
+        Integer a = null;
+        Integer b = null;
+        Integer c = null;
+        for (int v : nums) {
+            if (a == null) {
+                a = v;
+            } else if (b == null) {
+                if (a == v) continue;
+                if (v > a) {
+                    b = a;
+                    a = v;
+                } else if (v < a) {
+                    b = v;
+                }
+            } else if (c == null) {
+                if (a == v || b == v) continue;
+                if (v > a) {
+                    c  = b;
+                    b = a;
+                    a = v;
+                } else if (v > b) {
+                    c = b;
+                    b = v;
+                } else {
+                    c = v;
+                }
+            } else {
+                if (a == v || b == v || c == v) continue;
+                if (v > a) {
+                    c = b;
+                    b = a;
+                    a = v;
+                } else if (v > b) {
+                    c = b;
+                    b = v;
+                } else if (v > c) {
+                    c = v;
+                }
+            }
+        }
+        return c == null ? a : c;
     }
 }
