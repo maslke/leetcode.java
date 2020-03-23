@@ -1,35 +1,26 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/9/25
- * Version:0.0.1
- * 605. Can Place Flowers
- */
-public class lc605 {
+// https://leetcode.com/problems/can-place-flowers/
+// 605. Can Place Flowers
+
+class lc605 {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        int length = flowerbed.length;
         int i = 0;
-        while (i < length) {
-            if (n == 0) {
-                return true;
-            }
-            if (flowerbed[i] == 1) {
-                i = i + 2;
-                continue;
-            }
-            if (i + 1 < length) {
-                if (flowerbed[i + 1] == 1) {
-                    i = i + 3;
-                } else {
-                    n--;
-                    i = i + 2;
-                }
+        int j = flowerbed.length;
+        while (i < j) {
+            if (n == 0) return true;
+            if (flowerbed[i] == 1 
+                || (i - 1 >= 0 && flowerbed[i - 1] == 1)
+                || (i + 1 < j && flowerbed[i + 1] == 1)) {
+                i = i + 1;
             } else {
                 n--;
+                flowerbed[i] = 1;
                 i = i + 2;
             }
         }
-        return n == 0;
+        return n <= 0;
     }
+    
+   
 }
