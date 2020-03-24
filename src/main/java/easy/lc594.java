@@ -1,5 +1,6 @@
 package easy;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -25,5 +26,34 @@ class lc594 {
             }
         }
         return length;
+    }
+
+    public int findLHS2(int[] nums) {
+        Arrays.sort(nums);
+        int ret = 0;
+        int i = 0;
+        int j = nums.length;
+        while (i < j) {
+            int m = i;
+            int v = nums[i];
+            while (m < j) {
+                if (nums[m] - v <= 1) {
+                    m++;
+                } else {
+                  break;
+                }
+            }
+            if (nums[m - 1] != v) {
+                ret = Math.max(ret, m - i);
+            }
+            
+            if(m < j && nums[m] - v > 2) {
+                i = m;
+            } else {
+                i = i + 1;
+            }
+            
+        }
+        return ret;
     }
 }
