@@ -19,3 +19,4 @@ class lc1389 {
         return ret;
     }
 }
+
