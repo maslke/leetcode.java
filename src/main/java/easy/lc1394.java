@@ -22,4 +22,22 @@ class lc1394 {
         }
         return ret;
     }
+
+    public int findLucky2(int[] arr) {
+        Arrays.sort(arr);
+        int i = arr.length - 1;
+        while (i >= 0) {
+            int m = i;
+            int v = arr[i];
+            while (m >= 0) {
+                if (arr[m] != v) break;
+                m--;
+            }
+            if (i - m == v) {
+                return v;
+            }
+            i = m;
+        }
+        return -1;
+    }
 }
