@@ -2,7 +2,7 @@ package medium;
 
 // https://leetcode.com/problems/counting-bits/
 // 338. Counting Bits
-class Solution {
+class lc338 {
     public int[] countBits(int num) {
         int[] ret = new int[num + 1];
         if (num == 0) {

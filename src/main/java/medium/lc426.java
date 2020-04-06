@@ -8,25 +8,28 @@ import java.util.Stack;
 // 426. Convert Binary Search Tree To Doubly Linked List
 
 // Definition for a Node.
-class Node {
-    public int val;
-    public Node left;
-    public Node right;
 
-    public Node() {}
-
-    public Node(int _val) {
-        val = _val;
-    }
-
-    public Node(int _val,Node _left,Node _right) {
-        val = _val;
-        left = _left;
-        right = _right;
-    }
-};
 
 class lc426 {
+
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+    
+        public Node() {}
+    
+        public Node(int _val) {
+            val = _val;
+        }
+    
+        public Node(int _val,Node _left,Node _right) {
+            val = _val;
+            left = _left;
+            right = _right;
+        }
+    };
+
     public Node treeToDoublyList(Node root) {
         if (root == null) return null;
         Set<Node> set = new HashSet<>();

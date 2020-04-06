@@ -6,7 +6,7 @@ import java.util.Map;
 // https://leetcode-cn.com/problems/find-smallest-common-element-in-all-rows/
 // 1198. 找出所有行中最小公共元素
 
-class Solution {
+class lc1198 {
     public int smallestCommonElement(int[][] mat) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < mat.length; i++) {

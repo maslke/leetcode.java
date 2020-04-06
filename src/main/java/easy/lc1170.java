@@ -18,7 +18,6 @@ class lc1170 {
 
         for (int i = 0; i <queries.length; i++) {
             int f = fre(queries[i]);
-            int count = 0;
             int inx = 0;
             for (int j = 0;j < fs.length; j++) {
                 if (f < fs[j]) {

@@ -7,7 +7,7 @@ import java.util.Map;
 
 // https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/
 // 1282. Group the People Given the Group Size They Belong To
-class Solution {
+class lc1282 {
     public List<List<Integer>> groupThePeople(int[] groupSizes) {
         List<List<Integer>> result = new ArrayList<>();
         Map<Integer, List<Integer>> map = new HashMap<>();

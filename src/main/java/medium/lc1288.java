@@ -1,9 +1,12 @@
 package medium;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 // https://leetcode.com/problems/remove-covered-intervals/
 // 1288. Remove Covered Intervals
 
-class Solution {
+class lc1288 {
     public int removeCoveredIntervals(int[][] intervals) {
         int n = intervals.length;
         Arrays.sort(intervals, new Comparator<int[]>(){

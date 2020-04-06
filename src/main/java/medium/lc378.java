@@ -7,7 +7,7 @@ import java.util.Queue;
 // https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/
 // 378. Kth Smallest Element in a Sorted Matrix
 
-class Solution {
+class lc378 {
     public int kthSmallest(int[][] matrix, int k) {
         Queue<Node> queue = new PriorityQueue<Node>(new Comparator<Node>() {
             public int compare(Node a, Node b) {

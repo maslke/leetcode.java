@@ -28,6 +28,7 @@ class MyCircularQueue {
             return false;
         values[tail] = value;
         tail = (tail + 1) % values.length;
+        return true;
     }
 
     private boolean deQueue() {
