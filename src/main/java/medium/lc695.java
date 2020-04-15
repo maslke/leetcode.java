@@ -3,7 +3,7 @@ package medium;
 // https://leetcode-cn.com/problems/max-area-of-island/
 // 695. 岛屿的最大面积
 
-class Solution {
+class lc695 {
     private boolean[][] visited;
     public int maxAreaOfIsland(int[][] grid) {
         if (grid.length == 0) return 0;

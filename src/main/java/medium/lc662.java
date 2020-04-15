@@ -10,15 +10,19 @@ import java.util.LinkedList;
  * Definition for a binary tree node.
  * 
  **/
-class TreeNode {
-      int val;
-      TreeNode left;
-      TreeNode right;
-      TreeNode(int x) { val = x; }
- }
- 
+
 
 class lc662 {
+
+
+    class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
+   }
+   
+
     public int widthOfBinaryTree(TreeNode root) {
         if (root == null) return 0;
         Map<TreeNode, Integer> map = new HashMap<>();
