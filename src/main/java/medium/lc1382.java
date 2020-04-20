@@ -10,7 +10,7 @@ import java.util.List;
  * Definition for a binary tree node. public class TreeNode { int val; TreeNode
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
-class Solution {
+class lc1382 {
     private List<TreeNode> list;
     public TreeNode balanceBST(TreeNode root) {
         if (root == null) return null;

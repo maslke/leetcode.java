@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 // https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/
 // 面试题59 - II 队列的最大值 
+
 class MaxQueue {
     private LinkedList<Integer> queue1;
     private LinkedList<Integer> queue2;

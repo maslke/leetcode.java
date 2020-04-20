@@ -5,7 +5,7 @@ package medium;
 
 import java.util.TreeSet;
 
-class Solution {
+class lc300 {
     public int lengthOfLIS(int[] nums) {
         TreeSet<Integer> set = new TreeSet<>();
         for (int v : nums) {

@@ -8,7 +8,7 @@ import java.util.Map;
 // https://leetcode.com/problems/partition-labels/
 // 763. Partition Labels
 
-class Solution {
+class lc763 {
     public List<Integer> partitionLabels(String S) {
         List<Integer> result = new ArrayList<>();
         Map<Character, Integer> map = new HashMap<>();

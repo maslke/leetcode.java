@@ -19,7 +19,7 @@ class Node {
     }
 
 }
-class Solution {
+class lc708 {
     public Node insert(Node head, int insertVal) {
         if (head == null) {
             Node node = new Node(insertVal);

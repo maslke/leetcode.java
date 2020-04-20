@@ -6,7 +6,7 @@ import java.util.Map;
 // https://leetcode.com/problems/reconstruct-original-digits-from-english/
 // 423. Reconstruct Original Digits from English
 
-class Solution {
+class lc423 {
     public String originalDigits(String s) {
         
         Map<Character, Integer> map = new HashMap<>();

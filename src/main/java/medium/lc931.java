@@ -3,7 +3,7 @@ package medium;
 // https://leetcode.com/problems/minimum-falling-path-sum/
 // 931. Minimum Falling Path Sum
 
-class Solution {
+class lc931 {
     public int minFallingPathSum(int[][] A) {
         int m = A.length;
         int n = A[0].length;

@@ -1,7 +1,10 @@
 package medium;
 import java.util.concurrent.atomic.AtomicInteger;
+
+
 // https://leetcode-cn.com/problems/fizz-buzz-multithreaded/
 // 1195. 交替打印字符串
+
 class FizzBuzz {
     private int n;
     private AtomicInteger value;

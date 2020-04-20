@@ -4,7 +4,7 @@ package medium;
 // 1395. Count Number of Teams
 
 
-class Solution {
+class lc1395 {
     public int numTeams(int[] rating) {
         int ret = 0;
         for (int i = 1; i < rating.length - 1; i++) {

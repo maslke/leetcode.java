@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc1038 {
     public TreeNode bstToGst(TreeNode root) {
         List<TreeNode> list = new ArrayList<>();     
         traverse(root, list);

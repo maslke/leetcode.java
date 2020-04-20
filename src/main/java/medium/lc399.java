@@ -9,7 +9,7 @@ import java.util.Map;
  * Version:0.0.1
  * 399. Evaluate Division
  */
-public class lc339 {
+public class lc399 {
     public double[] calcEquation(String[][] equations, double[] values, String[][] queries) {
         Map<String, Integer> map = new HashMap<String, Integer>();
         int len = equations.length;
