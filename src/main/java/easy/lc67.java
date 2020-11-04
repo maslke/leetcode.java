@@ -82,10 +82,10 @@ class Solution {
         while (i >= 0 || j >= 0) {
             int v = 0;
             if (i >= 0) {
-                v += Integer.valueOf(a.substring(i, i + 1));
+                v += Integer.parseInt(a.substring(i, i + 1));
             }
             if (j >= 0) {
-                v += Integer.valueOf(b.substring(j, j + 1));
+                v += Integer.parseInt(b.substring(j, j + 1));
             }
             if (addOne) {
                 v += 1;
