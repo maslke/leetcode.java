@@ -3,6 +3,8 @@ package medium;
 // https://leetcode.com/problems/linked-list-in-binary-tree/
 // 1367. Linked List in Binary Tree
 
+import basic.TreeNode;
+
 class lc1367 {
     public boolean isSubPath(ListNode head, TreeNode root) {
         if (head == null) return true;

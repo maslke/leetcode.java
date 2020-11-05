@@ -7,7 +7,7 @@ import java.util.Map;
 // https://leetcode-cn.com/problems/word-break/
 // 139. 单词划分
 
-class Solution {
+class lc139 {
     Map<String, Boolean> map = new HashMap<>();
     public boolean wordBreak(String s, List<String> wordDict) {
         if (map.containsKey(s)) return map.get(s);

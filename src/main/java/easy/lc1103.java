@@ -3,7 +3,7 @@ package easy;
 // https://leetcode-cn.com/problems/distribute-candies-to-people/
 // 1103. 分糖果II
 
-class Solution {
+class lc1103 {
     public int[] distributeCandies(int candies, int num_people) {
         int[] ret = new int[num_people];
         int start = 1;

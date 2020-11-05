@@ -3,7 +3,7 @@ package easy;
 // https://leetcode-cn.com/problems/surface-area-of-3d-shapes/
 // 892. 三维形体的表面积
 
-class Solution {
+class lc892 {
     public int surfaceArea(int[][] grid) {
         int sum = 0;
         for (int i = 0; i < grid.length; i++) {

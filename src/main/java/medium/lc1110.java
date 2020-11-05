@@ -1,23 +1,18 @@
 package medium;
 
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Queue;
+import basic.TreeNode;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-}
 
 class lc1110 {
+
+
     public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
         List<TreeNode> nodes = new ArrayList<TreeNode>();
         nodes.add(root);
@@ -62,11 +57,11 @@ class lc1110 {
                     if (rightMap.containsKey(tn)) {
                         rightMap.get(tn).right = null;
                     }
-                    
+
                     if (tn.left == null && tn.right == null) {
                         return result;
                     }
-                    
+
                     if (tn.left != null) {
                         result.add(tn.left);
                         tn.left = null;
@@ -77,7 +72,7 @@ class lc1110 {
                     }
                     return result;
                 }
-                
+
                 if (tn.left != null) {
                     queue.offer(tn.left);
                     leftMap.put(tn.left, tn);

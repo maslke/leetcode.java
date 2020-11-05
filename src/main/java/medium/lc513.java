@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -10,14 +12,7 @@ import java.util.Queue;
  * 513. Find Bottom Left Tree Value
  */
 public class lc513 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode (int x) {
-            val = x;
-        }
-    }
+
     public int findBottomLeftValue(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.add(root);

@@ -7,7 +7,7 @@ import java.util.Map;
 // 1347. Minimum Number of Steps to Make Two Strings Anagram
 
 
-class lc347 {
+class lc1347 {
     public int minSteps(String s, String t) {
         char[] cs = s.toCharArray();
         char[] ct = t.toCharArray();

@@ -11,7 +11,7 @@ package easy;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc108 {
     public TreeNode sortedArrayToBST(int[] nums) {
             return convert(nums, 0, nums.length - 1);
     }

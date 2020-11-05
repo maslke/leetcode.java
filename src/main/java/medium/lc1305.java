@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.List;
 import java.util.Stack;
 import java.util.ArrayList;

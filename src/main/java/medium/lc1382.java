@@ -3,6 +3,8 @@ package medium;
 // https://leetcode.com/problems/balance-a-binary-search-tree/
 // 1382. Balance a Binary Search Tree
 
+import basic.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 

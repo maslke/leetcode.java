@@ -3,19 +3,21 @@
 
 package easy;
 
-class ListNode {
-    int val;
-    ListNode next;
-    public ListNode(int val) {
-        this.val = val;
-    }
-    
-}
+
 
 /**
  * it seems that leetcode adds new case.
  */
 class MyLinkedList2 {
+
+    class ListNode {
+        int val;
+        ListNode next;
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+    }
 
     private ListNode head;
     private int length;
@@ -99,6 +101,15 @@ class MyLinkedList2 {
 }
 
 class MyLinkedList {
+
+    class ListNode {
+        int val;
+        ListNode next;
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+    }
     
     private ListNode head;
     private ListNode tail;

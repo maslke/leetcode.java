@@ -6,7 +6,7 @@ import java.util.TreeMap;
 // https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
 // 1365. How Many Numbers Are Smaller Than the current Number
 
-class Solution {
+class lc1365 {
     public int[] smallerNumbersThanCurrent(int[] nums) {
         Map<Integer, Integer> map = new TreeMap<>();
         for (int v : nums) {

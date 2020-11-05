@@ -1,5 +1,7 @@
 package easy;
 
+import basic.ListNode;
+
 class lc1290 {
     public int getDecimalValue(ListNode head) {
         int value = 0;

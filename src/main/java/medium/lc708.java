@@ -3,23 +3,26 @@ package medium;
 // https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/
 // 708. 循环有序列表的插入
 
-class Node {
-    public int val;
-    public Node next;
 
-    public Node() {}
-
-    public Node(int _val) {
-        val = _val;
-    }
-
-    public Node(int _val, Node _next) {
-        val = _val;
-        next = _next;
-    }
-
-}
 class lc708 {
+
+    class Node {
+        public int val;
+        public Node next;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val, Node _next) {
+            val = _val;
+            next = _next;
+        }
+
+    }
+
     public Node insert(Node head, int insertVal) {
         if (head == null) {
             Node node = new Node(insertVal);

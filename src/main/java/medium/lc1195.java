@@ -1,5 +1,6 @@
 package medium;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.IntConsumer;
 
 
 // https://leetcode-cn.com/problems/fizz-buzz-multithreaded/

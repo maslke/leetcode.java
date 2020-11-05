@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 class lc814 {
     public TreeNode pruneTree(TreeNode root) {
         if (root == null) return null;

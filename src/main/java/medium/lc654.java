@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 /**
  * Author:maslke
  * Date:2017/8/18

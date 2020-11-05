@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 class lc285 {
 
 

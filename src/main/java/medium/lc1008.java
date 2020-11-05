@@ -1,6 +1,9 @@
 package medium;
 
+import basic.TreeNode;
+
 class lc1008 {
+
     public TreeNode bstFromPreorder(int[] preorder) {
         return compose(preorder, 0, preorder.length - 1);
     }

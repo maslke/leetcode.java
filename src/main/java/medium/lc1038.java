@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -13,6 +15,7 @@ import java.util.ArrayList;
  * }
  */
 class lc1038 {
+
     public TreeNode bstToGst(TreeNode root) {
         List<TreeNode> list = new ArrayList<>();     
         traverse(root, list);

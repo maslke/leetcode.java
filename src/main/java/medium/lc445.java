@@ -146,53 +146,53 @@ public class lc445 {
 }
 
 //solution 2
-class Solution {
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode l3 = reverse(l1);
-        ListNode l4 = reverse(l2);
-        return reverse(add(l3, l4));
-    }
-    
-    private ListNode add(ListNode h1, ListNode h2) {
-        ListNode c1 = h1;
-        ListNode c2 = h2;
-        boolean addOne = false;
-        ListNode h = new ListNode(0);
-        ListNode current = h;
-        while (c1 != null || c2 != null) {
-            int v = (c1 != null ? c1.val: 0) + (c2 != null ? c2.val : 0);
-            if (addOne) {
-                v += 1;
-                addOne = false;
-            }
-            if (v >= 10) {
-                v -= 10;
-                addOne = true;
-            }
-            current.next = new ListNode(v);
-            current = current.next;
-            if (c1 != null) {
-                c1 = c1.next;
-            }
-            if (c2 != null) {
-                c2 = c2.next;
-            }
-        }
-        if (addOne) {
-            current.next = new ListNode(1);
-        }
-        return h.next;
-    }
-    
-    private ListNode reverse(ListNode head) {
-        ListNode current = head;
-        ListNode prev = null;
-        while (current != null) {
-            ListNode next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
-        return prev;
-    }
-}
+//class Solution {
+//    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+//        ListNode l3 = reverse(l1);
+//        ListNode l4 = reverse(l2);
+//        return reverse(add(l3, l4));
+//    }
+//
+//    private ListNode add(ListNode h1, ListNode h2) {
+//        ListNode c1 = h1;
+//        ListNode c2 = h2;
+//        boolean addOne = false;
+//        ListNode h = new ListNode(0);
+//        ListNode current = h;
+//        while (c1 != null || c2 != null) {
+//            int v = (c1 != null ? c1.val: 0) + (c2 != null ? c2.val : 0);
+//            if (addOne) {
+//                v += 1;
+//                addOne = false;
+//            }
+//            if (v >= 10) {
+//                v -= 10;
+//                addOne = true;
+//            }
+//            current.next = new ListNode(v);
+//            current = current.next;
+//            if (c1 != null) {
+//                c1 = c1.next;
+//            }
+//            if (c2 != null) {
+//                c2 = c2.next;
+//            }
+//        }
+//        if (addOne) {
+//            current.next = new ListNode(1);
+//        }
+//        return h.next;
+//    }
+//
+//    private ListNode reverse(ListNode head) {
+//        ListNode current = head;
+//        ListNode prev = null;
+//        while (current != null) {
+//            ListNode next = current.next;
+//            current.next = prev;
+//            prev = current;
+//            current = next;
+//        }
+//        return prev;
+//    }
+//}

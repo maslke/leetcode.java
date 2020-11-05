@@ -1,6 +1,8 @@
 package medium;
 
 
+import basic.TreeNode;
+
 import java.util.Stack;
 
 // https://leetcode.com/problems/kth-smallest-element-in-a-bst/

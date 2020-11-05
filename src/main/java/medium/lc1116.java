@@ -1,5 +1,7 @@
 package medium;
 import java.util.concurrent.Semaphore;
+import java.util.function.IntConsumer;
+
 // https://leetcode-cn.com/problems/print-zero-even-odd/
 class ZeroEvenOdd {
     private int n;

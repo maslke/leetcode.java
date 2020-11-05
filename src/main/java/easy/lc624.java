@@ -6,6 +6,17 @@ import java.util.List;
 // 624. 数组列表中的最大距离
 
 class lc624 {
+
+    class Node {
+        int val;
+        int index;
+
+        public Node(int val, int index) {
+            this.val = val;
+            this.index = index;
+        }
+    }
+
     public int maxDistance(List<List<Integer>> arrays) {
         Node min1 = null;
         Node min2 = null;
@@ -49,12 +60,3 @@ class lc624 {
     }
 }
 
-class Node {
-    int val;
-    int index;
-    
-    public Node(int val, int index) {
-        this.val = val;
-        this.index = index;
-    }
-}

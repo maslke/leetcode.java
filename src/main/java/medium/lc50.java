@@ -3,7 +3,7 @@ package medium;
 // https://leetcode-cn.com/problems/powx-n/
 // 50. Pow(x, n)
 
-class Solution {
+class lc50 {
 
     public double myPow(double x, int n) { 
         long n1 = n;

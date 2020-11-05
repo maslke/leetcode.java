@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 class lc450 {
     public TreeNode deleteNode(TreeNode root, int key) {
         if (root == null) return null;

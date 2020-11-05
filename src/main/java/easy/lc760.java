@@ -3,7 +3,7 @@ package easy;
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+class lc760 {
     public int[] anagramMappings(int[] A, int[] B) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < B.length; i++) {

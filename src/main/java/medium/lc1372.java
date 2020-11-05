@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 // https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree/
 // 1372. Longest ZigZag Path in Binary Tree
 class lc1372 {

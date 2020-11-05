@@ -1,6 +1,6 @@
 package easy;
 
-class Solution {
+class lc999 {
 
 
     public int numRookCaptures(char[][] board) {

@@ -3,7 +3,7 @@ package easy;
 // https://leetcode.com/problems/day-of-the-week/
 // 1185. Day of the Week
 
-class Solution {
+class lc1185 {
     // 1971/1/1 Friday
     public String dayOfTheWeek(int day, int month, int year) {
         String[] days = new String[] {"Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"};    
