@@ -7,6 +7,26 @@ import java.util.Stack;
 // https://leetcode-cn.com/problems/lexicographical-numbers/
 // 模拟N叉树的遍历
 public class lc386 {
+
+    public List<Integer> lexicalOrder2(int n) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i <= 9; i++) {
+            dfs(n, list, i);
+        }
+        return list;
+    }
+
+    private void dfs(int n, List<Integer> list, int i) {
+        if (i > n) {
+            return;
+        }
+        list.add(i);
+        for (int inx = 0; inx <= 9; inx++) {
+            dfs(n, list, 10 * i + inx);
+        }
+    }
+
+
     public List<Integer> lexicalOrder(int n) {
         List<Integer> list = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
