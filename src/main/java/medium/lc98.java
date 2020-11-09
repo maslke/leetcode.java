@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.*;
 
 /**
@@ -9,14 +11,6 @@ import java.util.*;
  * 98. Validate Binary Search Tree
  */
 public class lc98 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode(int i) {
-            val = i;
-        }
-    }
     public boolean isValidBST(TreeNode root) {
         if (root == null) {
             return true;

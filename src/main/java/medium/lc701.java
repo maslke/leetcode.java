@@ -4,6 +4,8 @@ package medium;
  * https://leetcode.com/problems/insert-into-a-binary-search-tree/
  */
 
+import basic.TreeNode;
+
 /**
  * Definition for a binary tree node. public class TreeNode { int val; TreeNode
  * left; TreeNode right; TreeNode(int x) { val = x; } }
@@ -11,15 +13,6 @@ package medium;
 
 class lc701 {
 
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-    }
 
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null)

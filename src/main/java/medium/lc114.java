@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -11,14 +13,7 @@ import java.util.Stack;
  * 114. Flatten Binary Tree to Linked List
  */
 public class lc114 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+
     public void flatten(TreeNode root) {
         if (root == null) {
             return;

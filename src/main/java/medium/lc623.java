@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -10,14 +12,7 @@ import java.util.Queue;
  * 623. Add One Row to Tree
  */
 public class lc623 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+
     public TreeNode addOneRow(TreeNode root, int v, int d) {
         if (d == 1) {
             TreeNode temp = new TreeNode(v);

@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,14 +14,6 @@ import java.util.Queue;
  * 199. Binary Tree Right Side View
  */
 public class lc199 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> ret = new ArrayList<Integer>();
         if (root == null) {

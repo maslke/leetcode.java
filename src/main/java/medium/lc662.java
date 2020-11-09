@@ -2,6 +2,8 @@
 //662. Maximum Width of Binary Tree
 package medium;
 
+import basic.TreeNode;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Queue;
@@ -13,15 +15,6 @@ import java.util.LinkedList;
 
 
 class lc662 {
-
-
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-   }
-   
 
     public int widthOfBinaryTree(TreeNode root) {
         if (root == null) return 0;

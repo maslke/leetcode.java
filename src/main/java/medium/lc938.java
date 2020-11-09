@@ -1,4 +1,7 @@
 package medium;
+
+import basic.TreeNode;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -13,13 +16,6 @@ package medium;
 
 class lc938 {
 
-
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
 
     public int rangeSumBST(TreeNode root, int L, int R) {
         if (root == null) return 0;
