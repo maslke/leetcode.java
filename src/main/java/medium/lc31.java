@@ -1,6 +1,30 @@
 package medium;
 
+// https://leetcode-cn.com/problems/next-permutation/
+// 31. 下一个全排列
+
 class lc31 {
+
+    public void nextPermutation2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+        int i = nums.length - 2;
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
+            i--;
+        }
+
+        if (i >= 0) {
+            int j = nums.length - 1;
+            while (j >= 0 && nums[i] >= nums[j]) {
+                j--;
+            }
+            swap(nums, i, j);
+        }
+
+        reverse(nums, i + 1);
+    }
+
     public void nextPermutation(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;
@@ -29,10 +53,12 @@ class lc31 {
     }
 
     private void reverse(int[] nums, int index) {
-        if (index < nums.length - 1) {
-            for (int i = index, j = nums.length - 1; i < j; i++, j--) {
-                swap(nums, i, j);
-            }
+        int left = index;
+        int right= nums.length - 1;
+        while (left < right) {
+            swap(nums, left, right);
+            left++;
+            right--;
         }
     }
 
