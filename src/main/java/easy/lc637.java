@@ -1,5 +1,7 @@
 package easy;
 
+import basic.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,14 +14,7 @@ import java.util.Queue;
  * 637. Average of Levels in Binary Tree
  */
 public class lc637 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> ret = new ArrayList<Double>();
         if (root == null) {

@@ -3,6 +3,8 @@ package easy;
 // https://leetcode-cn.com/problems/closest-binary-search-tree-value/
 // 270. 最接近的二叉搜索数值
 
+import basic.TreeNode;
+
 class lc270 {
     public int closestValue(TreeNode root, double target) {
         int v = root.val;

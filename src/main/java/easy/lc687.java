@@ -2,6 +2,9 @@ package easy;
 
 //https://leetcode.com/problems/longest-univalue-path/
 //687. Longest Univalue Path
+
+import basic.TreeNode;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {

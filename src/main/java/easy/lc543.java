@@ -2,6 +2,9 @@ package easy;
 
 //https://leetcode.com/problems/diameter-of-binary-tree/
 //543. Diameter of Binary Tree
+
+import basic.TreeNode;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
