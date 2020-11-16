@@ -7,7 +7,7 @@ import java.util.List;
 // 54. Spiral Matrix
 
 
-class Solution {
+class lc54 {
     public List<Integer> spiralOrder(int[][] matrix) {
         if (matrix.length == 0) return new ArrayList<>();
         int m = 0;
