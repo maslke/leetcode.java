@@ -1,6 +1,8 @@
 package easy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -9,6 +11,27 @@ import java.util.TreeMap;
 // 1030. Matrix Cells in Distance Order
 
 class lc1030 {
+
+
+    public int[][] allCellsDistOrder2(int R, int C, int r0, int c0) {
+        int[][] ret = new int[R * C][2];
+        int inx = 0;
+        for (int i = 0; i < R;i ++) {
+            for (int j = 0; j < C; j++) {
+                ret[inx++] = new int[] {i, j};
+            }
+        }
+        Arrays.sort(ret, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] a, int[] b) {
+                return Math.abs(a[0] - r0) + Math.abs(a[1] - c0) - Math.abs(b[0] - r0) - Math.abs(b[1] - c0);
+
+            }
+        });
+
+        return ret;
+    }
+
     public int[][] allCellsDistOrder(int R, int C, int r0, int c0) {
         Map<Integer, List<List<Integer>>> map = new TreeMap<Integer, List<List<Integer>>>();
         for (int i = 0; i < R; i++) {
