@@ -8,6 +8,21 @@ import java.util.List;
 
 
 class lc77 {
+
+    private void compose(int begin, int n, int k, List<Integer> list, List<List<Integer>> ret) {
+        if (list.size() == k) {
+            ret.add(new ArrayList<>(list));
+        } else {
+            for (int i = begin; i <= n; i++) {
+                list.add(i);
+                // 避免了重复的创建list
+                int size = list.size();
+                compose(i + 1, n, k, list, ret);
+                list.remove(size - 1);
+            }
+        }
+    }
+
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
         combine(1, n, k, new ArrayList<>(), result);
