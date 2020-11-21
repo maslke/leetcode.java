@@ -1,9 +1,8 @@
 package hard;
 
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.Arrays;
-import java.util.List;
+import basic.TreeNode;
+
+import java.util.*;
 
 //https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 //297. Serialize and Deserialize Binary Tree
@@ -13,17 +12,78 @@ import java.util.List;
  * left; TreeNode right; TreeNode(int x) { val = x; } }
  */
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-        val = x;
-    }
-}
-
 public class lc297 {
+
+    class Codec {
+
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            if (root == null) {
+                return "";
+            }
+            Stack<TreeNode> stack = new Stack<>();
+            Set<TreeNode> set = new HashSet<>();
+            StringBuilder sb = new StringBuilder();
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                TreeNode node = stack.pop();
+                if (set.contains(node)) {
+                    if (node.right != null) {
+                        stack.push(node.right);
+                    } else {
+                        sb.append(",#");
+                    }
+                } else {
+                    set.add(node);
+                    stack.push(node);
+                    sb.append(",").append(node.val);
+                    if (node.left != null) {
+                        stack.push(node.left);
+                    } else {
+                        sb.append(",#");
+                    }
+                }
+            }
+            return sb.toString().substring(1);
+        }
+
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            if (data.equals("")) {
+                return null;
+            }
+            TreeNode root = null;
+            Set<TreeNode> set = new HashSet<>();
+            Stack<TreeNode> stack = new Stack<>();
+            String[] parts = data.split(",");
+            for (String p : parts) {
+                TreeNode node = null;
+                if (!p.equals("#")) {
+                    node = new TreeNode(Integer.parseInt(p));
+                }
+                if (stack.isEmpty()) {
+                    stack.push(node);
+                    root = node;
+                } else {
+                    TreeNode peek = stack.peek();
+                    if (set.contains(peek)) {
+                        peek.right = node;
+                        stack.pop();
+                        if (node != null) {
+                            stack.push(node);
+                        }
+                    } else {
+                        set.add(peek);
+                        peek.left = node;
+                        if (node != null) {
+                            stack.push(node);
+                        }
+                    }
+                }
+            }
+            return root;
+        }
+    }
 
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
