@@ -1,50 +1,53 @@
 package medium;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-/**
- * Author:maslke
- * Date:2017/9/2
- * Version:0.0.1
- * 15. 3Sum
- */
+// https://leetcode-cn.com/problems/3sum/
+// 15. 三数之和
+
 public class lc15 {
-    Map<String, Integer> map;
+
     public List<List<Integer>> threeSum(int[] nums) {
-        map = new HashMap<String, Integer>();
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
+        List<List<Integer>> ret = new ArrayList<>();
         Arrays.sort(nums);
-        for(int i = 0; i < nums.length - 2; i++) {
-            List<List<Integer>> list = twoSum(nums, i);
-            ret.addAll(list);
-        }
-        return ret;
-    }
-
-    private List<List<Integer>> twoSum(int[] nums, int inx) {
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        int length = nums.length;
-        int i = inx + 1, j = length - 1;
-        int target = -1 * nums[inx];
-        while (i < j) {
-            int v1 = nums[i];
-            int v2 = nums[j];
-            if (v1 + v2 > target) {
-                j--;
-            } else if (v1 + v2 < target) {
-                i++;
-            } else {
-                if (!map.containsKey(nums[inx] + "" + nums[i] + "" + nums[j])) {
-                    List<Integer> list = new ArrayList<Integer>();
-                    list.add(nums[inx]);
+        for (int i = 0; i < nums.length; i++) {
+            if (i != 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right) {
+                int sum = nums[left] + nums[right];
+                if (sum == -1 * nums[i]) {
+                    List<Integer> list = new ArrayList<>();
                     list.add(nums[i]);
-                    list.add(nums[j]);
+                    list.add(nums[left]);
+                    list.add(nums[right]);
                     ret.add(list);
-                    map.put(nums[inx] + "" + nums[i] + "" + nums[j], 1);
-                }
+                    left++;
+                    while (left < nums.length - 1 && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
+                    right--;
+                    while (right >= 0 && nums[right] == nums[right + 1]) {
+                        right--;
+                    }
 
-                i++;
-                j--;
+                }
+                else if (sum > -1 * nums[i]) {
+                    right--;
+                    while (right >= 0 && nums[right] == nums[right + 1]) {
+                        right--;
+                    }
+                }
+                else {
+                    left++;
+                    while (left < nums.length - 1 && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
+                }
             }
         }
         return ret;
