@@ -1,31 +1,30 @@
 package medium;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 
 public class lc17_22 {
-    private void dfs(String begin, String end, List<String> paths, Set<String> dict, Set<String> set, List<String> result) {
+
+    private Set<String> visited = new HashSet<>();
+
+    private void dfs(String begin, String end, List<String> paths, List<String> dict, Set<String> set, List<String> result) {
         if (!result.isEmpty()) {
             return;
         }
         if (begin.equals(end)) {
             result.addAll(paths);
-        }
-        else {
+        } else {
             for (String temp : dict) {
-                if (valid(begin, temp) && dict.contains(temp) && !set.contains(temp)) {
+                if (!result.isEmpty()) {
+                    return;
+                }
+                if (!visited.contains(temp) && !set.contains(temp) && valid(begin, temp)) {
                     paths.add(temp);
                     int size = paths.size();
                     set.add(temp);
                     dfs(temp, end, paths, dict, set, result);
                     paths.remove(size - 1);
                     set.remove(temp);
+                    visited.add(temp);
                 }
             }
         }
@@ -34,18 +33,20 @@ public class lc17_22 {
     private boolean valid(String word, String d) {
         int length = word.length();
         int diff = 0;
-        if (d.length() != length) {
+        if (d.length() != length || word.equals(d)) {
             return false;
         }
+        char[] c1 = word.toCharArray();
+        char[] c2 = d.toCharArray();
         for (int i = 0; i < length; i++) {
-            if (d.charAt(i) != word.charAt(i)) {
+            if (c1[i] != c2[i]) {
                 diff++;
                 if (diff > 1) {
                     return false;
                 }
             }
         }
-        return diff == 1;
+        return true;
     }
 
     public List<String> findLadders(String beginWord, String endWord, List<String> wordList) {
@@ -54,16 +55,11 @@ public class lc17_22 {
         paths.add(beginWord);
         set.add(beginWord);
         List<String> result = new ArrayList<>();
-        dfs(beginWord, endWord, paths, new HashSet<>(wordList), set, result);
+        if (!wordList.contains(endWord)) {
+            return result;
+        }
+        dfs(beginWord, endWord, paths, wordList, set, result);
         return result;
-    }
-
-    public static void main(String[] args) {
-        lc17_22 instance = new lc17_22();
-        String begin = "hit";
-        String end = "cog";
-        List<String> dict = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
-        List<String> ret = instance.findLadders(begin, end, dict);
     }
 
     // dfs
@@ -72,10 +68,9 @@ public class lc17_22 {
         // stack
         Stack<String> stack = new Stack<>();
         stack.push(beginWord);
-        // dict
-        Set<String> dict = new HashSet<>(wordList);
         Map<String, Set<String>> map = new HashMap<>();
         Set<String> set = new HashSet<>();
+        Set<String> visited = new HashSet<>();
         while (!stack.isEmpty()) {
             String peek = stack.peek();
             if (!map.containsKey(peek)) {
@@ -85,33 +80,20 @@ public class lc17_22 {
             if (peek.equals(endWord)) {
                 ret.addAll(stack);
                 break;
-            }
-            else {
+            } else {
                 boolean placed = false;
-                char[] chars = peek.toCharArray();
-                for (int i = 0; i < peek.length(); i++) {
-                    for (char c = 'a'; c <= 'z'; c++) {
-                        char old = chars[i];
-                        chars[i] = c;
-                        String temp = new String(chars);
-                        if (dict.contains(temp) && !set.contains(temp) && !map.get(peek).contains(temp)) {
-                            stack.push(temp);
-                            set.add(temp);
-                            map.get(peek).add(temp);
-                            placed = true;
-                            break;
-                        }
-                        else {
-                            chars[i] = old;
-                        }
-                    }
-                    if (placed) {
+                for (String temp : wordList) {
+                    if (!visited.contains(temp) && !set.contains(temp) && !map.get(peek).contains(temp) && valid(temp, peek)) {
+                        stack.push(temp);
+                        set.add(temp);
+                        map.get(peek).add(temp);
+                        visited.add(temp);
+                        placed = true;
                         break;
                     }
                 }
                 if (!placed) {
                     stack.pop();
-                    set.remove(peek);
                     map.get(peek).clear();
                 }
             }
