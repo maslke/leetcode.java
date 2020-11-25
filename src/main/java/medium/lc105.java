@@ -3,6 +3,8 @@ package medium;
 // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 // 105. Construct Binary Tree from Preorder and inorder Traversal
 
+import basic.TreeNode;
+
 class lc105 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         int begin1 = 0;

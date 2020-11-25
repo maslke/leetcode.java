@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Queue;
@@ -23,7 +25,6 @@ class FindElements {
         root.val = 0;
         queue.add(root);
         while (!queue.isEmpty()) {
-            int size = queue.size();
             for (int i = 0; i < queue.size(); i++) {
                 TreeNode node = queue.poll();
                 set.add(node.val);

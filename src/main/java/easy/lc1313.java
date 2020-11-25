@@ -1,5 +1,8 @@
 package easy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class lc1313 {
     public int[] decompressRLElist(int[] nums) {
         List<Integer> list = new ArrayList<>();

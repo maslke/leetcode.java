@@ -3,6 +3,8 @@ package medium;
 // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 // 106. Construct Binary Tree from Inorder and Postorder Traversal
 
+import basic.TreeNode;
+
 class lc106 {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         return build(inorder, 0, inorder.length - 1, postorder, 0, postorder.length - 1);

@@ -1,6 +1,13 @@
 package medium;
 
-clss lc988 {
+import basic.TreeNode;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+
+class lc988 {
     public String smallestFromLeaf(TreeNode root) {
         String ret = null;
         Queue<TreeNode> queue = new LinkedList<>();

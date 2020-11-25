@@ -6,7 +6,7 @@ import java.util.HashMap;
 // https://leetcode.com/problems/product-of-the-last-k-numbers/
 // 1352. Product of the Last K Numbers
 
-class lc1352 {
+class ProductOfNumbers {
     
     private Map<Integer, Integer> map;
     private int count;

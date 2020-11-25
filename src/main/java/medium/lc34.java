@@ -1,38 +1,36 @@
 package medium;
 
-/**
- * Author:maslke
- * Date:2017/8/27
- * Version:0.0.1
- * 34. Search for a Range
- */
-public class lc34 {
+// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+// 34. Find First and Last Position of Element in Sorted Array
+
+class lc34 {
+    private int a;
+    private int b;
     public int[] searchRange(int[] nums, int target) {
-        int[] ret = new int[2];
-        int i = 0, j = nums.length-1;
-        boolean left = false, right = false;
-        while(i <= j) {
-            if (nums[i] < target) {
-                i++;
-            } else {
-                left = true;
+        a = -1;
+        b = -1;
+        search(nums, 0, nums.length - 1, target);
+        return new int[]{a, b};
+    }
+
+    private void search(int[] nums, int low, int high, int target) {
+        if (low > high) return;
+        int middle = low + (high - low) / 2;
+        int v = nums[middle];
+        if (v == target) {
+            if (a == -1 || a > middle) {
+                a = middle;
             }
-            if (nums[j] > target) {
-                j--;
-            } else {
-                right = true;
+            if (b == -1 || b < middle) {
+                b = middle;
             }
-            if (left && right) {
-                break;
-            }
-        }
-        if (i <= j) {
-            ret[0] = i;
-            ret[1] = j;
+
+            search(nums, low, middle - 1, target);
+            search(nums, middle + 1, high, target);
+        } else if (v < target) {
+            search(nums, middle + 1, high, target);
         } else {
-            ret[0] = -1;
-            ret[1] = -1;
+            search(nums, low, middle - 1, target);
         }
-        return ret;
     }
 }

@@ -1,32 +1,34 @@
 package easy;
 
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+// 122. Best Time to Buy and Sell Stock II
 
-/**
- * Author:maslke
- * Date:2017/9/24
- * Version:0.0.1
- * 122. Best Time to Buy and Sell Stock II
- */
-public class lc122 {
-    public int maxProfit(int[] prices) {
+class lc122 {
+
+    public int maxProfit2(int[] prices) {
         int length = prices.length;
-        if (length == 0 || length == 1) {
-            return 0;
-        }
-        int[] values = new int[length];
-        values[0] = 0;
-        int max = Integer.MIN_VALUE;
-        int min = prices[0];
+        int[][] dp = new int[length][2];
+        // 0 不持有股票
+        // 1 持有股票
+        dp[0] = new int[] {0, - 1 * prices[0]};
+
         for (int i = 1; i < length; i++) {
-            values[i] = Math.max(values[i - 1], values[i - 1] + prices[i] - prices[i - 1]);
-            values[i] = Math.max(values[i], prices[i] - min);
-            if (min > prices[i]) {
-                min = prices[i];
-            }
-            if (max < values[i]) {
-                max = values[i];
+            dp[i] = new int[] {0, 0};
+            dp[i][0] = Math.max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+        }
+
+        return dp[length - 1][0];
+    }
+
+    public int maxProfit(int[] prices) {
+        int ret = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                ret += prices[i] - prices[i - 1];
             }
         }
-        return max;
+        return ret;
     }
 }

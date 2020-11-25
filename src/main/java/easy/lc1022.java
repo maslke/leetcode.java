@@ -1,5 +1,7 @@
 package easy;
 
+import basic.TreeNode;
+
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Stack;

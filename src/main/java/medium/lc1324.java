@@ -2,7 +2,7 @@ package medium;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.StringBuilder;
+import java.lang.StringBuilder;
 
 // https://leetcode.com/contest/weekly-contest-172/problems/print-words-vertically/
 // 1324. Print Words Vertically

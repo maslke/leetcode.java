@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 // https://leetcode.com/problems/serialize-and-deserialize-bst/
 // 449. Serialize and Deserialize BST
 public class lc449 {

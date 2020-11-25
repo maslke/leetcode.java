@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +14,7 @@ import java.util.LinkedList;
 
 // https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
 // 987. Vertical Order Traversal of a Binary Tree
+
 class lc987 {
     public List<List<Integer>> verticalTraversal(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
@@ -58,7 +61,7 @@ class lc987 {
                     if (map2.get(a).get(1) == map2.get(b).get(1)) {
                         return a.val - b.val;
                     } else {
-                        return 0; 
+                        return 0;
                     }
                 }
             });
@@ -69,6 +72,5 @@ class lc987 {
             ret.add(values);
         }
         return ret;
-        }
     }
 }

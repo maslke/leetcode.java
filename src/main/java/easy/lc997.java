@@ -3,7 +3,7 @@ package easy;
 // https://leetcode.com/problems/find-the-town-judge/
 // 997. Find the Town Judge
 
-class Solution {
+class lc997 {
     public int findJudge(int N, int[][] trust) {
         int[][] ret = new int[N + 1][N + 1];
         for (int i = 0; i < trust.length; i++) {

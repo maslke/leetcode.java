@@ -1,14 +1,18 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.Map;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Queue;
+import java.util.Set;
 import java.util.LinkedList;
 import java.util.Stack;
 
 // https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/submissions/
 // 1026. Maximum Difference Between Node And Ancestor
-class Solution {
+class lc1026 {
     public int maxAncestorDiff2(TreeNode root) {
         Map<TreeNode, TreeNode> map = new HashMap<>();
         int max = 0;

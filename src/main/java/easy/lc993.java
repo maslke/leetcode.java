@@ -1,5 +1,7 @@
 package easy;
 
+import basic.TreeNode;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -41,7 +43,7 @@ class lc993 {
     }
 
 
-    public boolean isCousins(TreeNode root, int x, int y) {
+    public boolean isCousins2(TreeNode root, int x, int y) {
         Map<TreeNode, TreeNode> map1 = new HashMap<>();
         map1.put(root, null);
         Queue<TreeNode> queue = new LinkedList<>();

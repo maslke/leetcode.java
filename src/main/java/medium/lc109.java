@@ -1,6 +1,8 @@
 package medium;
 
 
+import basic.TreeNode;
+
 /**
  * https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
  * 109. Convert Sorted List to Binary Search Tree

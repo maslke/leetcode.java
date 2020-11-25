@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 class lc998 {
     public TreeNode insertIntoMaxTree(TreeNode root, int val) {
         if (root == null) return new TreeNode(val);

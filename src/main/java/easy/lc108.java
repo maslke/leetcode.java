@@ -1,5 +1,7 @@
 package easy;
 
+import basic.TreeNode;
+
 /**
  * https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
  * 108. Convert Sorted Array to Binary Search Tree
@@ -11,7 +13,7 @@ package easy;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc108 {
     public TreeNode sortedArrayToBST(int[] nums) {
             return convert(nums, 0, nums.length - 1);
     }

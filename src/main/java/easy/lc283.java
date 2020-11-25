@@ -6,6 +6,21 @@ package easy;
  * Version:0.0.1
  */
 public class lc283 {
+
+    public void moveZeroes2(int[] nums) {
+        int i = 0;
+
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] != 0) {
+                nums[i++] = nums[j];
+            }
+        }
+        while (i < nums.length) {
+            nums[i++] = 0;
+        }
+
+    }
+
     public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;

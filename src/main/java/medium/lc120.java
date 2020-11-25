@@ -56,7 +56,7 @@ class lc120 {
             for (int j = 0; j < t.get(i).size(); j++) {
                 if (j == 0) {
                     t.get(i).set(j, t.get(i).get(j) + t.get(i - 1).get(j));
-                } else (j == t.get(i - 1).size()) {
+                } else if (j == t.get(i - 1).size()) {
                     t.get(i).set(j, t.get(i).get(j) + t.get(i - 1).get(j - 1));
                 } else {
                     t.get(i).set(j, t.get(i).get(j) + Math.min(t.get(i - 1).get(j), t.get(i - 1).get(j - 1)));

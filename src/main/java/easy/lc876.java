@@ -5,16 +5,19 @@ package easy;
  * next; ListNode(int x) { val = x; } }
  */
 
-class ListNode {
-    int val;
-    ListNode next;
 
-    ListNode(int x) {
-        val = x;
-    }
-}
 
 class lc876 {
+
+    class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
+    }
+
     public ListNode middleNode(ListNode head) {
         if (head == null)
             return head;

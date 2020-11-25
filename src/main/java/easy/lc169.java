@@ -26,4 +26,25 @@ public class lc169 {
         }
         return 0;
     }
+
+
+    // a much better solution
+    public int majorityElement2(int[] nums) {
+        int count = 0;
+        int v = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (count == 0) {
+                v = nums[i];
+                count = 1;
+            } else {
+                if (v == nums[i]) {
+                    count++;
+                } else {
+                    count--;
+                }
+            }
+        }
+        if (count > 0) return v;
+        return -1;
+    }
 }

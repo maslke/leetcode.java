@@ -3,6 +3,9 @@ package easy;
 import java.util.Map;
 import java.util.HashMap;
 
+// https://leetcode-cn.com/problems/shortest-completing-word/
+// 748. 最短补全词
+
 class lc748 {
     public String shortestCompletingWord(String licensePlate, String[] words) {
         Map<Character, Integer> map = new HashMap<>();
@@ -36,6 +39,7 @@ class lc748 {
     private boolean complete(Map<Character, Integer> map, String word) {
         for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
+
             if (map.containsKey(c)) {
                 if (map.get(c) == 1) {
                     map.remove(c);

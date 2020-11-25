@@ -1,10 +1,6 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/31
- * Version:0.0.1
- */
+
 public class lc198 {
     public int rob(int[] nums) {
         if (nums.length == 0) {

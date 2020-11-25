@@ -5,7 +5,9 @@ import java.util.Map;
 
 // https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/
 // 1347. Minimum Number of Steps to Make Two Strings Anagram
-class Solution {
+
+
+class lc1347 {
     public int minSteps(String s, String t) {
         char[] cs = s.toCharArray();
         char[] ct = t.toCharArray();

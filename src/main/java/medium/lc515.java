@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,14 +14,7 @@ import java.util.Queue;
  * 515. Find Largest Value in Each Tree Row
  */
 public class lc515 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+
     public List<Integer> largestValues(TreeNode root) {
         List<Integer> ret = new ArrayList<Integer>();
         if (root == null) {

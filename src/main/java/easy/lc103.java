@@ -1,33 +1,22 @@
 package easy;
 
+import basic.TreeNode;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-//https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/submissions/
-//103. Binary Tree Zigzag Level Order Traversal
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
+// https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/submissions/
+// 103. Binary Tree Zigzag Level Order Traversal
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x) { val = x;}
-}
 
 class lc103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        if (root == null) return ret;
+        if (root == null) {
+            return ret;
+        }
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         boolean leftToRight = true;

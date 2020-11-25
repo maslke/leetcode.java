@@ -1,7 +1,8 @@
 package medium;
 
-import java.util.List;
-import java.util.ArrayList;
+import basic.TreeNode;
+
+import java.util.*;
 
 /**
  * Definition for a binary tree node.
@@ -12,7 +13,50 @@ import java.util.ArrayList;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class lc1038 {
+
+    int sum = 0;
+    public TreeNode bstToGst2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        bstToGst2(root.right);
+        root.val += sum;
+        sum = root.val;
+        bstToGst2(root.left);
+        return root;
+    }
+
+    public TreeNode bstToGst3(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        Set<TreeNode> set = new HashSet<>();
+        stack.push(root);
+        int sum = 0;
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (!set.contains(node)) {
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+
+                stack.push(node);
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                set.add(node);
+            } else {
+                node.val += sum;
+                sum = node.val;
+            }
+        }
+
+
+        return root;
+    }
+
     public TreeNode bstToGst(TreeNode root) {
         List<TreeNode> list = new ArrayList<>();     
         traverse(root, list);

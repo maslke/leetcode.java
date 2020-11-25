@@ -1,5 +1,7 @@
 package easy;
 
+import basic.TreeNode;
+
 /**
  * https://leetcode.com/problems/convert-bst-to-greater-tree/
  * 538. Convert BST to Greater Tree
@@ -15,8 +17,14 @@ class lc538 {
     
     private int sum = 0;
     public TreeNode convertBST(TreeNode root) {
-        if (root == null) return root;
-        convert(root);
+        if (root == null) {
+            return null;
+        }
+        convertBST(root.right);
+        root.val += sum;
+        sum = root.val;
+        convertBST(root.left);
+
         return root;
     }
     

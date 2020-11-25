@@ -1,11 +1,9 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/10/2
- * Version:0.0.1
- * 643. Maximum Average Subarray I
- */
+
+// https://leetcode-cn.com/problems/maximum-average-subarray-i/
+// 643. 子数组最大平均数 I
+
 public class lc643 {
     public double findMaxAverage(int[] nums, int k) {
         double max = 0;

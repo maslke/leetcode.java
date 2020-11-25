@@ -1,5 +1,7 @@
 package medium;
 
+import basic.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -10,14 +12,7 @@ import java.util.Stack;
  * Version:0.0.1
  */
 public class lc144 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-        TreeNode (int x) {
-            val = x;
-        }
-    }
+
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> ret = new ArrayList<Integer>();
         if (root == null) {
