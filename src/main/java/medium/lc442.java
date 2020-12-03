@@ -3,12 +3,9 @@ package medium;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author:maslke
- * Date:2017/9/17
- * Version:0.0.1
- * 442. Find All Duplicates in an Array
- */
+// https://leetcode-cn.com/problems/find-all-duplicates-in-an-array/submissions/
+// 442. 数组中重复的数据
+
 public class lc442 {
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> ret = new ArrayList<Integer>();
