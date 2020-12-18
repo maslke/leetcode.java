@@ -12,4 +12,14 @@ public class lc389 {
         }
         return (char) (diff + t.charAt(t.length() - 1));
     }
+
+    public char findTheDifference2(String s, String t) {
+        int diff = 0;
+        for (int i = 0; i < s.length(); i++) {
+            diff ^= s.charAt(i);
+            diff ^= t.charAt(i);
+        }
+
+        return (char) (diff ^ t.charAt(t.length() - 1)) ;
+    }
 }
