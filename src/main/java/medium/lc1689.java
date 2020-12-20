@@ -4,6 +4,17 @@ package medium;
 // 1689. 十-二进制数的最少数目
 
 public class lc1689 {
+
+    public int minPartitions2(String n) {
+        char[] chars = n.toCharArray();
+        int max = 0;
+        for (char aChar : chars) {
+            max = Math.max(max, aChar - '0');
+        }
+        return max;
+
+    }
+
     public int minPartitions(String n) {
         char[] chars = n.toCharArray();
         int count = 0;
