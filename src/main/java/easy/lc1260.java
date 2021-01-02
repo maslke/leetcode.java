@@ -1,49 +1,49 @@
 package easy;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-// https://leetcode.com/problems/shift-2d-grid/
-//  1260. Shift 2D Grid
+// https://leetcode-cn.com/problems/shift-2d-grid/submissions/
+// 1260. 二维网格迁移
+
 class lc1260 {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
         int m = grid.length;
         int n = grid[0].length;
-        k = k % (m * n);
-        List<Integer> list = new ArrayList<>();
-        int count = k;
-        for (int i = m - 1; i >= 0; i--) {
-            for (int j = n - 1; j >= 0; j--) {
-                if (count > 0) {
-                    list.add(0, grid[i][j]);
-                    count--;
-                } else {
-                    break;
-                }
+        int count = m * n;
+        LinkedList<List<Integer>> ret = new LinkedList<>();
+        int move = k % count;
+        int x = 0;
+        LinkedList<Integer> list = new LinkedList<>();
+
+        // count - move
+        for (int inx = count - move; inx < count; inx++) {
+            int a = inx / n;
+            int b = inx % n;
+
+            list.add(grid[a][b]);
+            x++;
+            if (x == n) {
+                ret.add(list);
+                x = 0;
+                list = new LinkedList<>();
             }
+
         }
-        count = m * n - k;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (count > 0) {
-                    list.add(grid[i][j]);
-                    count--;
-                } else {
-                    break;
-                }
-            }
-        }
-        count = 0;
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        List<Integer> level = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            count++;
-            level.add(list.get(i));
-            if (count % n == 0) {
-                ret.add(level);
-                level = new ArrayList<>();
+
+        for (int inx = 0; inx < count - move; inx++) {
+            int a = inx / n;
+            int b = inx % n;
+            list.addLast(grid[a][b]);
+            x++;
+            if (x == n) {
+                ret.add(list);
+                list = new LinkedList<>();
+                x = 0;
             }
         }
         return ret;
+
     }
 }
