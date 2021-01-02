@@ -1,50 +1,43 @@
 package easy;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 
+// https://leetcode-cn.com/problems/add-to-array-form-of-integer/
+// 989. 数组形式的整数加法
+
 class lc989 {
     public List<Integer> addToArrayForm(int[] A, int K) {
+        LinkedList<Integer> list = new LinkedList<>();
+        char[] b = String.valueOf(K).toCharArray();
+        boolean added = false;
         int i = A.length - 1;
-        boolean plusOne = false;
-        List<Integer> result = new ArrayList<>();
-        while (i >= 0 || K > 0) {
-            int m = 0;
-            if (i >= 0 && K > 0 ) {
-                int a = A[i];
-                int b = K % 10;
-                m = a + b;
-                i--;
-                K = K / 10;
+        int j = b.length - 1;
+        while (i >= 0 || j >= 0) {
+            int sum = 0;
+            if (i >= 0 && j >= 0) {
+                sum = A[i] + (b[j] - '0');
             } else if (i >= 0) {
-                m = A[i];
-                i--;
-            } else if (K > 0) {
-                m = K % 10;
-                K = K / 10;
+                sum = A[i];
+            } else {
+                sum = (b[j] - '0');
             }
-            
-            if (plusOne) {
-                    m += 1;
-                    plusOne = false;
-                }
-                if (m >= 10) {
-                    m -= 10;
-                    plusOne = true;
-                }
-                result.add(m);
+            if (added) {
+                sum += 1;
+                added = false;
+            }
+            if (sum >= 10) {
+                sum -= 10;
+                added = true;
+            }
+            list.offerFirst(sum);
+            i--;
+            j--;
         }
-        if (plusOne) {
-            result.add(1);
+        if (added) {
+            list.offerFirst(1);
         }
-        
-        List<Integer> ret = new ArrayList<>();
-        int size = result.size();
-        for (int inx = size - 1; inx >= 0; inx--) {
-            ret.add(result.get(inx));
-        }
-        
-        
-        return ret;
+        return list;
     }
 }

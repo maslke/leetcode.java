@@ -1,5 +1,7 @@
 package hard;
 
+import java.util.Collections;
+
 /**
  * Author:maslke
  * Date:2017/9/2

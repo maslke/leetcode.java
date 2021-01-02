@@ -1,13 +1,31 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/9/5
- * Version:0.0.1
- * 204. Count Primes
- * 素数筛选法
- */
+import java.util.Arrays;
+
+// https://leetcode-cn.com/problems/count-primes/
+// 204. 计数质数
+
 public class lc204 {
+
+    public int countPrimes2(int n) {
+        boolean[] flags = new boolean[n];
+        Arrays.fill(flags, true);
+        int count = 0;
+        for (int i = 2; i < n; i++) {
+            if (flags[i]) {
+                count++;
+                if ((long) i * i < n) {
+                    for (int j = i * i; j < n; j = j + i) {
+                        flags[j] = false;
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+
+
     public int countPrimes(int n) {
         if (n <= 2) {
             return 0;

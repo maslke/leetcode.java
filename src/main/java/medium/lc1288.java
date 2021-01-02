@@ -10,13 +10,11 @@ import java.util.Comparator;
 class lc1288 {
     public int removeCoveredIntervals(int[][] intervals) {
         int n = intervals.length;
-        Arrays.sort(intervals, new Comparator<int[]>(){
-            public int compare(int[] e1, int[] e2){
-                if(e1[0] < e2[0]) return -1;
-                if(e2[0] < e1[0]) return 1;
-                if(e1[1] > e2[1]) return -1;
-                return 1;
-            }
+        Arrays.sort(intervals, (e1, e2) -> {
+            if(e1[0] < e2[0]) return -1;
+            if(e2[0] < e1[0]) return 1;
+            if(e1[1] > e2[1]) return -1;
+            return 1;
         });
         
         int count = 1;

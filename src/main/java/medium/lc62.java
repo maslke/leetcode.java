@@ -1,25 +1,26 @@
 package medium;
 
-/**
- * Author:maslke
- * Date:2017/8/26
- * Version:0.0.1
- * 62. Unique Paths
- */
+// https://leetcode-cn.com/problems/unique-paths/
+// 62. 不同路径
+
 public class lc62 {
     public int uniquePaths(int m, int n) {
-        int[][] values = new int[m][n];
-        for (int i = 0; i < n; i++) {
-            values[m - 1][i] = 1;
-        }
+        int[][] ret = new int[m][n];
+
         for (int i = 0; i < m; i++) {
-            values[i][n - 1] = 1;
+            ret[i][0] = 1;
         }
-        for (int i = m - 2; i >= 0; i--) {
-            for (int j = n - 2; j >= 0; j--) {
-                values[i][j] = values[i][j + 1] + values[i + 1][j];
+
+        for (int i = 0; i < n; i++) {
+            ret[0][i] = 1;
+        }
+
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                ret[i][j] = ret[i - 1][j] + ret[i][j - 1];
             }
         }
-        return values[0][0];
+
+        return ret[m - 1][n - 1];
     }
 }

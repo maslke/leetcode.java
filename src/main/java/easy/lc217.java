@@ -1,25 +1,19 @@
 package easy;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
-/**
- * Author:maslke
- * Date:2017/8/29
- * Version:0.0.1
- * 217. Contains Duplicate
- */
+// https://leetcode-cn.com/problems/contains-duplicate/
+// 217. 存在重复元素
+
 public class lc217 {
     public boolean containsDuplicate(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums.length <= 1) {
             return false;
         }
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])) {
+        Arrays.sort(nums);
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
                 return true;
-            } else {
-                map.put(nums[i], 1);
             }
         }
         return false;

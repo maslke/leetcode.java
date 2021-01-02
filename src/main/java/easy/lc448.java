@@ -3,12 +3,9 @@ package easy;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author:maslke
- * Date:2017/9/17
- * Version:0.0.1
- * 448. Find All Numbers Disappeared in an Array
- */
+// https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array/
+// 448. 找到所有数组中消失的数字
+
 public class lc448 {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> ret = new ArrayList<Integer>();

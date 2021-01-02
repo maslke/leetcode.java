@@ -1,12 +1,39 @@
 package easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Author:maslke Date:2017/9/26 Version:0.0.1 205. Isomorphic Strings
- */
+// https://leetcode-cn.com/problems/isomorphic-strings/
+// 205. 同构字符串
+
 public class lc205 {
+
+    public boolean isIsomorphic(String s, String t) {
+        int[] arr1 = new int[1000];
+        int[] arr2 = new int[1000];
+        Arrays.fill(arr1, -1);
+        Arrays.fill(arr2, -1);
+        for (int i = 0; i < s.length(); i++) {
+            char c1 = s.charAt(i);
+            char c2 = t.charAt(i);
+            if (arr1[c1] != -1) {
+                if (arr1[c1] != c2) {
+                    return false;
+                }
+            } else {
+                arr1[c1] = c2;
+            }
+            if (arr2[c2] != -1) {
+                if (arr2[c2] != c1) {
+                    return false;
+                }
+            } else {
+                arr2[c2] = c1;
+            }
+        }
+        return true;
+    }
 
     public boolean isIsomorphic2(String s, String t) {
         Map<Character, Character> map = new HashMap<>();
@@ -20,31 +47,6 @@ public class lc205 {
                 return false;
             map.put(cs, ct);
             map2.put(ct, cs);
-        }
-        return true;
-    }
-
-    public boolean isIsomorphic(String s, String t) {
-        int len1 = s.length(), len2 = t.length();
-        if (len1 != len2) {
-            return false;
-        }
-        Map<String, String> map1 = new HashMap<String, String>();
-        Map<String, String> map2 = new HashMap<String, String>();
-        for (int i = 0; i < len1; i++) {
-            String s1 = s.substring(i, i + 1);
-            String s2 = t.substring(i, i + 1);
-            if (map1.containsKey(s1)) {
-                if (!map1.get(s1).equals(s2)) {
-                    return false;
-                }
-            } else {
-                map1.put(s1, s2);
-                if (map2.containsKey(s2) && !map2.get(s2).equals(s1)) {
-                    return false;
-                }
-                map2.put(s2, s1);
-            }
         }
         return true;
     }
