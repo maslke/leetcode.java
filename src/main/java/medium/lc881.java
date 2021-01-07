@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 // https://leetcode.com/problems/boats-to-save-people/
 // 881. Boats to Save People
+
 class lc881 {
     public int numRescueBoats(int[] people, int limit) {
-        Arrays.sort(people);
         int count = 0;
+        Arrays.sort(people);
         int i = 0;
         int j = people.length - 1;
         while (i <= j) {
@@ -15,20 +16,12 @@ class lc881 {
                 count++;
                 break;
             }
-            int m = people[j];
-            int n = people[i];
-            if (m >= limit) {
-                count++;
-                j--;
-            } else {
-                if (m + n <= limit) {
-                    count++;
-                    j--;
+            else {
+                if (people[j] + people[i] <= limit) {
                     i++;
-                } else {
-                    count++;
-                    j--;
                 }
+                j--;
+                count++;
             }
         }
         return count;
