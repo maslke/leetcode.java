@@ -1,21 +1,30 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/9/5
- * Version:0.0.1
- * 189. Rotate Array
- */
+// https://leetcode-cn.com/problems/rotate-array/
+// 189. 旋转数组
+
 public class lc189 {
     public void rotate(int[] nums, int k) {
-        int length = nums.length;
-        k = k % length;
-        for (int i = 0; i < k; i++) {
-            int temp = nums[length - 1];
-            for (int j = length - 2; j >= 0; j--) {
-                nums[j + 1] = nums[j];
-            }
-            nums[0] = temp;
+        int len = nums.length;
+        k = k % len;
+        revert(nums, 0, len - k - 1);
+        revert(nums, len - k, len - 1);
+        revert(nums, 0, len - 1);
+    }
+
+    private void swap(int[] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    private void revert(int[] a, int begin, int end) {
+        int i = begin;
+        int j = end;
+        while (i < j) {
+            swap(a, i, j);
+            i++;
+            j--;
         }
     }
 }
