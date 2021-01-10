@@ -1,7 +1,11 @@
 package medium;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
+
+// https://leetcode-cn.com/problems/path-in-zigzag-labelled-binary-tree/
+// 1104. 二叉树寻路
 
 class lc1104 {
     public List<Integer> pathInZigZagTree(int label) {
@@ -28,5 +32,31 @@ class lc1104 {
         int min = (int)(Math.pow(2, a));
         int max = (int)(Math.pow(2, level)) - 1;
         return min + max - m;
+    }
+
+    // better ,simple
+    public List<Integer> pathInZigZagTree2(int label) {
+        int level = 0;
+        while (Math.pow(2, level + 1) <= label) {
+            level++;
+        }
+
+        LinkedList<Integer> list = new LinkedList<>();
+        list.addFirst(label);
+        while (level > 0) {
+            label = label / 2;
+            int sum = sum(level - 1);
+            label = sum - label;
+            list.addFirst(label);
+            level--;
+        }
+        return list;
+
+    }
+
+    private int sum(int level) {
+        int min = (int)(Math.pow(2, level));
+        int max = (int) (Math.pow(2, level + 1)) - 1;
+        return (min + max);
     }
 }

@@ -9,23 +9,24 @@ import java.util.List;
 public class lc228 {
     public List<String> summaryRanges(int[] nums) {
         List<String> ret = new ArrayList<>();
-        if (nums.length == 0) {
-            return ret;
-        }
-        for (int i = 0; i < nums.length;) {
-            int j = i + 1;
-            while (j < nums.length && nums[j] == nums[j - 1] + 1) {
+        int len = nums.length;
+        int i = 0;
+        while (i < len) {
+            int j = i;
+            while (j < len - 1 && nums[j + 1] == nums[j] + 1) {
                 j++;
             }
-            if (j == i + 1) {
-                ret.add(nums[i] + "");
+            StringBuilder sb = new StringBuilder();
+            if (j == i) {
+                sb.append(nums[i]);
+
             } else {
-                ret.add(nums[i] + "->" + nums[j - 1]);
+                sb.append(nums[i]).append("->").append(nums[j]);
+
             }
-
-            i = j;
+            ret.add(sb.toString());
+            i = j + 1;
         }
-
         return ret;
     }
 }
