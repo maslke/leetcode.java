@@ -7,7 +7,7 @@ import java.util.Map;
 // 1209. 删除字符串中的所有相邻重复项II
 public class lc1209 {
 
-    public String removeDuplicates2(String s, int k) {
+    public String removeDuplicates(String s, int k) {
         StringBuilder sb = new StringBuilder(s);
         int[] times = new int[s.length()];
         int i = 0;
@@ -26,41 +26,5 @@ public class lc1209 {
             }
         }
         return sb.toString();
-    }
-
-    Map<Character, String> map = null;
-
-    public String removeDuplicates(String s, int k) {
-        StringBuilder sb = new StringBuilder();
-        int i = 0;
-        int j = s.length();
-        if (map == null) {
-            map = new HashMap<>();
-            for (int inx = 0; inx < j; inx++) {
-                char c = s.charAt(inx);
-                if (!map.containsKey(c)) {
-                    map.put(c, String.valueOf(c).repeat(Math.max(0, k)));
-                }
-            }
-        }
-        while (i < j) {
-            char c = s.charAt(i);
-            if (i + k - 1 < j) {
-                if (s.substring(i, i + k).equals(map.get(c))) {
-                    i = i + k;
-                } else {
-                    sb.append(c);
-                    i = i + 1;
-                }
-
-            } else {
-                sb.append(s, i, j);
-                break;
-            }
-        }
-        if (sb.length() == j) {
-            return sb.toString();
-        }
-        return removeDuplicates(sb.toString(), k);
     }
 }
