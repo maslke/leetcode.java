@@ -3,7 +3,71 @@ package medium;
 // https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/
 // 947. 移除最多的同行或同列石头
 
+import java.util.Arrays;
+
 public class lc947 {
+    public int removeStones2(int[][] stones) {
+        UnionFind uf = new UnionFind();
+        int n = stones.length;
+        for (int[] stone : stones) {
+            uf.connect(stone[0] + 10000, stone[1]);
+        }
+        return n - uf.getCount();
+    }
+
+    static class UnionFind {
+
+        int[] v;
+        int[] sz;
+
+        int count;
+
+        UnionFind() {
+            v = new int[20001];
+            for (int i = 0; i < 20001; i++) {
+                v[i] = i;
+            }
+            sz = new int[20001];
+            Arrays.fill(sz, -1);
+            count = 0;
+        }
+
+        int getCount() {
+            return count;
+        }
+
+        int find(int x) {
+            if (sz[x] == -1) {
+                sz[x] = 1;
+                count++;
+            }
+            while (v[x] != x) {
+                x = v[x];
+            }
+            return x;
+        }
+
+        boolean connected(int p, int q) {
+            return find(p) == find(q);
+        }
+
+        void connect(int p, int q) {
+            int pRoot = find(p);
+            int qRoot = find(q);
+            if (pRoot == qRoot) {
+                return;
+            }
+            if (sz[pRoot] > sz[qRoot]) {
+                v[qRoot] = pRoot;
+                sz[pRoot] += sz[qRoot];
+            } else {
+                v[pRoot] = qRoot;
+                sz[qRoot] += sz[pRoot];
+            }
+            count--;
+        }
+    }
+
     public int removeStones(int[][] stones) {
         int n = stones.length;
         boolean[] visited = new boolean[stones.length];
