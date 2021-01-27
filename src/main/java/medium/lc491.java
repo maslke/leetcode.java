@@ -10,6 +10,38 @@ import java.util.Set;
 
 public class lc491 {
     Set<List<Integer>> res;
+
+    List<List<Integer>> ret;
+    List<Integer> list;
+
+    public List<List<Integer>> findSubsequences2(int[] nums) {
+        ret = new ArrayList<>();
+        list = new ArrayList<>();
+        visit(nums, 0, Integer.MIN_VALUE);
+        return ret;
+    }
+
+    private void visit(int[] nums, int current, int prev) {
+        if (current == nums.length) {
+            if (list.size() >= 2) {
+                ret.add(new ArrayList<>(list));
+            }
+            return;
+        }
+        if (nums[current] >= prev) {
+            list.add(nums[current]);
+            visit(nums, current + 1, nums[current]);
+            list.remove(list.size() - 1);
+        }
+        if (nums[current] != prev) {
+            visit(nums, current + 1, nums[current]);
+        }
+    }
+
+
+
+
+
     public List<List<Integer>> findSubsequences(int[] nums) {
         res = new HashSet<>();
         Set<Integer> visited = new HashSet<>();
