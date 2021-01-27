@@ -3,6 +3,8 @@ package hard;
 // https://leetcode-cn.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/
 // 1579. 保证图可完全遍历
 
+import java.util.Arrays;
+
 public class lc1579 {
     public int maxNumEdgesToRemove(int n, int[][] edges) {
         int res = 0;
