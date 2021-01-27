@@ -1,31 +1,26 @@
 
 package easy;
-/**
- * Author:maslke
- * Date:2017/9/12
- * Version:0.0.1
- * 674. Longest Continuous Increasing Subsequence
- */
+
+// https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/
+// 674. 最长连续递增序列
+
 public class lc674 {
     public int findLengthOfLCIS(int[] nums) {
-        int maxLength = 0;
-        int length = nums.length;
+        int ret = 1;
+        int len = nums.length;
+        if (len == 0) {
+            return 0;
+        }
         int i = 0;
-        while (i < length) {
+        while (i < len) {
             int j = i + 1;
-            int len = 1;
-            for (; j < length; j++) {
-                if (nums[j] > nums[j - 1]) {
-                    len++;
-                } else {
-                    break;
-                }
+            while (j < len && nums[j] > nums[j - 1]) {
+                j++;
             }
-            if (len > maxLength) {
-                maxLength = len;
-            }
+
+            ret = Math.max(ret, j - i);
             i = j;
         }
-        return maxLength;
+        return ret;
     }
 }
