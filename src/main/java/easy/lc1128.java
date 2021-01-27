@@ -1,36 +1,27 @@
 package easy;
 
-import java.util.HashSet;
-import java.util.Set;
+// https://leetcode-cn.com/problems/number-of-equivalent-domino-pairs/
+// 1128. 等价多米诺骨牌对的数量
 
 class lc1128 {
     public int numEquivDominoPairs(int[][] dominoes) {
-        Set<Integer> set = new HashSet<>();
+        int[][] mark = new int[10][10];
+        for (int[] dominoe : dominoes) {
+            int a = dominoe[0];
+            int b = dominoe[1];
+            mark[a][b]++;
+            if (a != b) {
+                mark[b][a]++;
+            }
+        }
         int count = 0;
-        for (int i = 0; i < dominoes.length; i++) {
-            if (set.contains(i)) continue;
-            int v[] = dominoes[i];
-            int c = 0;
-            for (int j = i + 1; j < dominoes.length; j++) {
-                if (set.contains(j)) continue;
-                int[] v1 = dominoes[j];
-                if ((v[0] == v1[0] && v[1] == v1[1]) || (v[0] == v1[1] && v[1] == v1[0])) {
-                    c++;
-                    set.add(j);
+        for (int i = 0; i < 10; i++) {
+            for (int j = i; j < 10; j++) {
+                if (mark[i][j] > 1) {
+                    count += mark[i][j] * (mark[i][j] - 1) / 2;
                 }
             }
-            if (c != 0) {
-                count = count + getCount(c + 1);
-            }
         }
-        return count >= 2 ? count : 1;
-    }
-    
-    private int getCount(int m) {
-        int a = 1;
-        for (int i = m  - 1; i <= m; i++) {
-            a = a * i;
-        }
-        return a / 2;
+        return count;
     }
 }

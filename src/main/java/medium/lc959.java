@@ -1,49 +1,92 @@
 package medium;
 
-import basic.TreeNode;
+import java.util.Arrays;
+// https://leetcode-cn.com/problems/regions-cut-by-slashes/
+// 959. 由斜杠划分区域
 
-import java.util.Queue;
-import java.util.LinkedList;
-
-/**
- * https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 958. Check
- * Completeness of a Binary Tree Definition for a binary tree node. public class
- * TreeNode { int val; TreeNode left; TreeNode right; TreeNode(int x) { val = x;
- * } }
- */
 class lc959 {
-    public boolean isCompleteTree(TreeNode root) {
-        if (root == null)
-            return true;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        int count = 1;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            boolean flag = false;
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                if (node.left != null || node.right != null) {
-                    if (flag)
-                        return false;
-                }
-                if (node.left == null && node.right != null) {
-                    return false;
-                }
-                if (node.left != null && node.right != null) {
-                    queue.add(node.left);
-                    queue.add(node.right);
-                } else if (node.left != null) {
-                    flag = true;
-                    queue.add(node.left);
-                } else {
-                    flag = true;
-                }
+    private class UnionFind {
+        private int count;
+        private int[] f;
+        private int[] rank;
+
+        UnionFind(int n) {
+            f = new int[n];
+            rank = new int[n];
+            count = n;
+
+            Arrays.fill(rank, 1);
+            for (int i = 0; i < n; i++) {
+                f[i] = i;
             }
-            if (size < count && !queue.isEmpty())
-                return false;
-            count *= 2;
         }
-        return true;
+
+        int find(int x) {
+            while (x != f[x]) {
+                x = f[x];
+            }
+            return x;
+        }
+
+        void union(int p, int q) {
+            int pRoot = find(p);
+            int qRoot = find(q);
+            if (pRoot == qRoot) {
+                return;
+            }
+            count--;
+            if (rank[pRoot] > rank[qRoot]) {
+                rank[pRoot] += rank[qRoot];
+                f[qRoot] = pRoot;
+            }
+            else {
+                rank[qRoot] += rank[pRoot];
+                f[pRoot] = qRoot;
+            }
+        }
+
+        int getCount() {
+            return count;
+        }
+    }
+
+    public int regionsBySlashes(String[] grid) {
+        int n = grid.length;
+        UnionFind unionFind = new UnionFind(4 * n * n);
+        for (int i = 0; i < n; i++) {
+            char[] chars = grid[i].toCharArray();
+            for (int j = 0; j < chars.length; j++) {
+                int inx = 4 * (i * n + j);
+
+                char c = chars[j];
+
+                if (c == '/') {
+                    unionFind.union(inx, inx + 3);
+                    unionFind.union(inx + 1, inx + 2);
+                }
+                else if (c == '\\') {
+                    unionFind.union(inx, inx + 1);
+                    unionFind.union(inx + 2, inx + 3);
+
+                }
+                else {
+                    unionFind.union(inx, inx + 1);
+                    unionFind.union(inx, inx + 2);
+                    unionFind.union(inx, inx + 3);
+                }
+
+                if (j + 1 < n) {
+                    unionFind.union(inx + 1, inx + 7);
+                }
+                if (i + 1 < n) {
+                    unionFind.union(inx + 2, 4 * ((i + 1) * n + j));
+                }
+
+
+            }
+
+
+        }
+        return unionFind.getCount();
     }
 }
