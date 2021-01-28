@@ -8,7 +8,7 @@ public class lc724 {
 
         int left = 0;
         int sum = 0;
-        f or (int num : nums) {
+        for (int num : nums) {
             sum += num;
         }
 
