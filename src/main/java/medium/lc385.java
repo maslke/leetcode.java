@@ -2,12 +2,9 @@ package medium;
 
 import java.util.Stack;
 
-/**
- * Author:maslke
- * Date:2017/8/31
- * Version:0.0.1
- * 385. Mini Parser
- */
+// https://leetcode-cn.com/problems/mini-parser/
+// 385. 迷你语法分析器
+
 public class lc385 {
     class NestedInteger {
         NestedInteger(int x) {
@@ -23,50 +20,48 @@ public class lc385 {
         }
 
     }
+
     public NestedInteger deserialize(String s) {
-        if (s == null || s.isEmpty()) {
+        if (s == null || s.length() == 0) {
             return null;
         }
-        int length = s.length();
+        int i = 0;
+        int j = s.length();
         if (s.charAt(0) != '[') {
-            NestedInteger ret = new NestedInteger(Integer.valueOf(s));
-            return ret;
+            return new NestedInteger(Integer.parseInt(s));
         }
         Stack<NestedInteger> stack = new Stack<NestedInteger>();
-        int i = 0;
         int positive = 1;
-        while (i < length - 1) {
-            String c = s.substring(i, i + 1);
-            if (c.equals("[")) {
-                NestedInteger ni = new NestedInteger();
-                if (stack.isEmpty()) {
-                    stack.push(ni);
-                } else {
-                    stack.peek().add(ni);
-                    stack.push(ni);
+        while (i < j - 1) {
+            char c = s.charAt(i);
+            if (c == '[') {
+                NestedInteger nestedInteger = new NestedInteger();
+                if (!stack.isEmpty()) {
+                    stack.peek().add(nestedInteger);
                 }
-                i++;
-            } else if (c.equals(",")) {
-                i++;
-            } else if (c.equals("]")) {
+                stack.push(nestedInteger);
+                i = i + 1;
+            } else if (c == ']') {
                 stack.pop();
-                i++;
-            } else if (c.equals("-")) {
+                i = i + 1;
+            } else if (c == ',') {
+                i = i + 1;
+            } else if (c == '-') {
                 positive = -1;
-                i++;
+                i = i + 1;
             } else {
                 int m = i;
-                for (; m < length - 1; m++) {
-                    if (!s.substring(m, m + 1).matches("\\d")) {
-                        break;
-                    }
+                int val = 0;
+                while (m < j && s.charAt(m) >= '0' && s.charAt(m) <= '9') {
+                    val = val * 10 + (s.charAt(m) - '0');
+                    m++;
                 }
-                String temp = s.substring(i, m);
-                i = m;
-                stack.peek().add(new NestedInteger(positive * Integer.valueOf(temp)));
+                NestedInteger nestedInteger = new NestedInteger(positive * val);
                 positive = 1;
+                stack.peek().add(nestedInteger);
+                i = m;
             }
         }
-        return stack.pop();
+        return stack.peek();
     }
 }
