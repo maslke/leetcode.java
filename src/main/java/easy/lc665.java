@@ -2,6 +2,7 @@ package easy;
 
 // https://leetcode-cn.com/problems/non-decreasing-array/
 // 665. 非递减数列
+// HARD
 
 public class lc665 {
     public boolean checkPossibility(int[] nums) {
