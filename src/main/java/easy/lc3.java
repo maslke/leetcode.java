@@ -1,18 +1,38 @@
 package easy;
 
-import java.util.Map;
-import java.util.Set;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
-/**
- * Author:maslke
- * Date:2017/9/2
- * Version:0.0.1
- * 3. Longest Substring Without Repeating Characters
- */
+
+// https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/submissions/
+// 3. 无重复字符的最长子串
+
 public class lc3 {
 
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int right = 0;
+        int left = 0;
+        int len = s.length();
+        int res = 0;
+        while (right < len) {
+            char c = s.charAt(right);
+            if (map.containsKey(c)) {
+                res = Math.max(res, right - left);
+                int inx = map.get(c);
+                for (int i = left; i <= inx; i++) {
+                    map.remove(s.charAt(i));
+                }
+                left = inx + 1;
+            } else {
+                map.put(c, right);
+                right++;
+            }
+        }
+        return Math.max(res, right - left);
+    }
 
     public int lengthOfLongestSubstring3(String s) {
         int length = s.length();
@@ -33,55 +53,5 @@ public class lc3 {
         return ret;
     }
 
-    public int lengthOfLongestSubstring2(String s) {
-        int i = 0;
-        int length = 0;
-        int maxLength = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        while (i < s.length() - 1) {
-            char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                i = map.get(c) + 1;
-                length = 0;
-                map.clear();    
-            } else {
-                i++;
-                length++;
-                if (maxLength < length) {
-                    maxLength = length;
-                }
-            }
-        }
-        return maxLength;
-    }
 
-
-
-    public int lengthOfLongestSubstring(String s) {
-        if (s == null || s.isEmpty()) {
-            return 0;
-        }
-        Map<Character, Integer> map = new HashMap<Character, Integer>();
-        int i = 0, j = s.length() - 1;
-        int max = 0;
-        while (i <= j) {
-            map.clear();
-            int len = 0;
-            int k = i;
-            for (; k <= j; k++) {
-                char c = s.charAt(k);
-                if (map.containsKey(c)) {
-                    break;
-                } else {
-                    map.put(c, 1);
-                    len++;
-                }
-            }
-            if (max < len) {
-                max = len;
-            }
-            i++;
-        }
-        return max;
-    }
 }
