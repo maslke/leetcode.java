@@ -51,4 +51,15 @@ public class UnionFind {
     public int getCount() {
         return count;
     }
+
+    public int getSize(int p) {
+        int pRoot = find(p);
+        int size = 0;
+        for (int i = 0; i < f.length; i++) {
+            if (find(f[i]) == pRoot) {
+                size++;
+            }
+        }
+        return size;
+    }
 }
