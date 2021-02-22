@@ -1,33 +1,24 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/29
- * Version:0.0.1
- * 485. Max Consecutive Ones
- */
+// https://leetcode-cn.com/problems/max-consecutive-ones/
+// 485. 最大连续1的个数
+
 public class lc485 {
     public int findMaxConsecutiveOnes(int[] nums) {
-        int i = 0, length = nums.length;
         int max = 0;
-        while (i < length) {
-            if (nums[i] == 1) {
-                int k = i + 1;
-                int len = 1;
-                for (;k < length; k++) {
-                    if (nums[k] != 1) {
-                        break;
-                    }
-                    len++;
-                }
-                i = k + 1;
-                if (max < len) {
-                    max = len;
-                }
+        int left = 0;
+        int right = 0;
+        int len = nums.length;
+        while (right < len) {
+            if (nums[right] == 0) {
+                max = Math.max(max, right - left);
+                left = right + 1;
+                right = left;
             } else {
-                i++;
+                right++;
             }
         }
-        return max;
+
+        return Math.max(max, right - left);
     }
 }
