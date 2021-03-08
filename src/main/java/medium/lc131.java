@@ -6,6 +6,7 @@ import java.util.List;
 
 // https://leetcode-cn.com/problems/palindrome-partitioning/
 // 131. 分割回文串
+// DO TWICE
 
 public class lc131 {
     private int length;
