@@ -1,75 +1,81 @@
 package medium;
 
-import java.util.Stack;
-
-/**
- * Author:maslke
- * Date:2017/9/17
- * Version:0.0.1
- * 227. Basic Calculator II
- */
+// https://leetcode-cn.com/problems/basic-calculator-ii/
+// 227. 基本计算器 II
 public class lc227 {
     public int calculate(String s) {
-        int len = s.length();
         int i = 0;
-        Stack<String> stack = new Stack<String>();
-        Stack<String> stack2 = new Stack<String>();
-        while (i < len) {
-            String v = s.substring(i, i + 1);
-            if (v.equals(" ")) {
+        int j = s.length();
+        char operator = '+';
+        int ret = 0;
+        while (i < j) {
+            char c = s.charAt(i);
+            if (c == ' ') {
                 i++;
-            } else if (v.equals("+") || v.equals("-")) {
-                stack.push(v);
+            }
+            else if (c == '+' || c == '-') {
                 i++;
-            } else if (v.matches("^\\d+$")) {
-                int k = i;
-                while (k < len) {
-                    String t = s.substring(k, k + 1);
-                    if (t.equals(" ")) {
-                        k++;
-                    } else if (t.equals("+") || t.equals("-")) {
-                        break;
-                    } else if (t.matches("^\\d+$")) {
-                        int m = k;
-                        for (; m < len; m++) {
-                            String t2 = s.substring(m, m + 1);
-                            if (!t2.matches("^\\d+$")) {
-                                break;
-                            }
-                        }
-                        String value = s.substring(k, m);
-                        if (stack2.isEmpty()) {
-                            stack2.push(value);
-                        } else {
-                            String o = stack2.pop();
-                            int v1 = Integer.valueOf(stack2.pop());
-                            if (o.equals("*")) {
-                                stack2.push(String.valueOf(v1 * Integer.valueOf(value)));
-                            } else {
-                                stack2.push(String.valueOf((int)(v1 / Integer.valueOf(value))));
-                            }
-                        }
-                        k = m;
-                    } else if (t.equals("*") || t.equals("/")) {
-                        stack2.push(t);
-                        k++;
-                    }
+                operator = c;
+            }
+            else {
+                int m = i;
+                while (m < j && (s.charAt(m) != '+' && s.charAt(m) != '-')) {
+                    m++;
                 }
-                i = k;
-                int value = Integer.valueOf(stack2.pop());
-                if (stack.isEmpty()) {
-                    stack.push(String.valueOf(value));
-                } else {
-                    String o = stack.pop();
-                    int v1 = Integer.valueOf(stack.pop());
-                    if (o.equals("+")) {
-                        stack.push(String.valueOf(v1 + value));
-                    } else {
-                        stack.push(String.valueOf(v1 - value));
-                    }
+                String sub = s.substring(i, m);
+                Integer v;
+                if (sub.contains("*") || sub.contains("/")) {
+                    v = cal(sub);
+                }
+                else {
+                    sub = sub.trim();
+                    v = Integer.parseInt(sub);
+                }
+                if (operator == '+') {
+                    ret = ret + v;
+                }
+                else {
+                    ret = ret - v;
+                }
+
+                i = m;
+            }
+        }
+        return ret;
+    }
+
+    private int cal(String s) {
+        int ret = 1;
+        int i = 0;
+        boolean first = true;
+        char operator = '*';
+        int j = s.length();
+        while (i < j) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                i++;
+            }
+            else if (c == '*' || c == '/') {
+                operator = c;
+                i++;
+            }
+            else {
+                int m = i;
+                int v = 0;
+                while (m < j && Character.isDigit(s.charAt(m))) {
+                    v = 10 * v + (s.charAt(m) - '0');
+                    m++;
+                }
+                i = m;
+                if (first) {
+                    ret = v;
+                    first = false;
+                }
+                else {
+                    ret = operator == '*' ? ret * v : ret / v;
                 }
             }
         }
-        return Integer.valueOf(stack.pop());
+        return ret;
     }
 }
