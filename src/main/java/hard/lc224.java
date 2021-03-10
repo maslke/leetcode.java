@@ -2,11 +2,8 @@ package hard;
 
 import java.util.Stack;
 
-/**
- * Author:maslke
- * Date:2017/8/31
- * Version:0.0.1
- */
+// https://leetcode-cn.com/problems/basic-calculator/
+// 224. 基本计算器
 public class lc224 {
 
     public int calculate2(String s) {
@@ -59,17 +56,19 @@ public class lc224 {
                 int num = Integer.parseInt(s.substring(i, j));
                 if (stack2.isEmpty() || stack2.peek() == '(' || stack2.peek() == ')') {
                     stack1.push(num);
-                } else {
+                }
+                else {
                     char top = stack2.pop();
                     int n = stack1.pop();
                     if (top == '+') {
                         stack1.push(n + num);
-                    } else {
+                    }
+                    else {
                         stack1.push(n - num);
                     }
                 }
                 i = j;
-             }
+            }
         }
         return stack1.pop();
     }
@@ -142,10 +141,81 @@ public class lc224 {
         return Integer.valueOf(stack.pop());
     }
 
-    public static void main(String[] args) {
-        lc224 instance = new lc224();
-        String s = "(12 - 3 + (1 +(4+5)))";
-        int result = instance.calculate2(s);
-        System.out.println(result);
+    public int calculate3(String s) {
+        s = s.trim();
+        if (s.length() == 0) {
+            return 0;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        Stack<Character> stack2 = new Stack<>();
+        int length = s.length();
+        int i = 0;
+        while (i < length) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                i++;
+            }
+            else if (c == '(') {
+                stack2.push(c);
+                i++;
+            }
+            else if (c == ')') {
+                Integer v = stack.pop();
+                stack2.pop();
+                if (stack.isEmpty()) {
+                    stack.push(v);
+                }
+                else {
+                    Character operator = stack2.pop();
+                    Integer v2 = stack.pop();
+                    if (operator == '+') {
+                        stack.push(v2 + v);
+                    }
+                    else {
+                        stack.push(v2 - v);
+                    }
+                }
+                i++;
+            }
+            else if (c == '+' || c == '-') {
+                stack2.push(c);
+                i++;
+            }
+            else {
+
+                int j = i;
+                int n = 0;
+                while (j < s.length() && Character.isDigit(s.charAt(j))) {
+                    n = n * 10 + (s.charAt(j) - '0');
+                    j++;
+                }
+
+                i = j;
+                if (stack2.isEmpty() || stack2.peek() == '(') {
+                    stack.push(n);
+                }
+                else {
+                    Character operator = stack2.pop();
+                    if (operator == '+') {
+                        stack.push(stack.pop() + n);
+                    }
+                    else {
+                        if (stack.isEmpty()) {
+                            stack.push(0 - n);
+                        }
+                        else {
+                            stack.push(stack.pop() - n);
+                        }
+                    }
+                }
+            }
+        }
+
+        if (stack2.isEmpty() || stack2.peek() == '+') {
+            return stack.peek();
+        }
+        return -1 * stack.peek();
     }
+
 }
