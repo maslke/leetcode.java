@@ -1,31 +1,23 @@
 package medium;
 
-//https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
-//80. Remove Duplicates from Sorted Array II
+// https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/
+// 80. 删除有序数组中的重复项 II
 class lc80 {
-    public int removeDuplicates(int[] nums) {
-        int i = 0;
-        int j = nums.length;
-        while ( i < j) {
-            int m = i;
-            while (m < j) {
-                if (nums[m] == nums[i]) {
-                    m++;
-                } else {
-                    break;
-                }
-            }
-            int count = m - i;
-            if (count <= 2) {
-                i = i + count;
-            } else {
-                for (int inx = m; inx < j; inx++) {
-                    nums[i + inx - m + 2] = nums[inx];
-                }
-                j = j - (m - i) + 2;
-                i = i + 2;
-            }
+
+    public int removeDuplicates3(int[] nums) {
+        int length = nums.length;
+        int slow = 2;
+        int fast = 2;
+        if (length <= 2) {
+            return length;
         }
-        return j;
+        while (fast < length) {
+            if (nums[fast] != nums[slow - 2]) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+            fast++;
+        }
+        return slow;
     }
 }
