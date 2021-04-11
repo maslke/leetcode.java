@@ -13,6 +13,7 @@ public class lc63 {
         if (obstacleGrid[m - 1][n - 1] == 1) {
             return 0;
         }
+        Long a = 111L;
         int[][] values = new int[m][n];
         values[ m - 1][n - 1] = Math.abs(1 - obstacleGrid[m - 1][n - 1]);
         for (int i = n - 2; i >= 0; i--) {
