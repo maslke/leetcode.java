@@ -1,5 +1,8 @@
 package medium;
 
+// https://leetcode-cn.com/problems/house-robber-ii/
+// 213. 打家劫舍 II
+
 public class lc213 {
     public int rob(int[] nums) {
         int n = nums.length;
@@ -14,8 +17,10 @@ public class lc213 {
         choices[0] = nums[0];
         choices[1] = Math.max(nums[0], nums[1]);
         int inx = 2;
+        int max = Math.max(choices[0], choices[1]);
         for (int i = 2; i < nums.length - 1; i++) {
             choices[inx++] = Math.max(choices[i - 1], choices[i - 2] + nums[i]);
+            max = Math.max(choices[inx - 1], max);
         }
 
 
@@ -23,11 +28,8 @@ public class lc213 {
         choices[inx++] = Math.max(nums[1], nums[2]);
         for (int i = 3; i < nums.length; i++) {
             choices[inx] = Math.max(choices[inx - 1], choices[inx - 2] + nums[i]);
+            max = Math.max(choices[inx], max);
             inx++;
-        }
-        int max = 0;
-        for (int i = 0; i < choices.length; i++) {
-            max = Math.max(choices[i], max);
         }
         return max;
     }
