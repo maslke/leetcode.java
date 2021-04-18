@@ -1,11 +1,28 @@
 package medium;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
+// https://leetcode-cn.com/problems/contains-duplicate-iii/
+// 220. 存在重复元素 III
 public class lc220 {
+
+    public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
+        TreeSet<Long> set = new TreeSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            Long key = set.ceiling((long) nums[i] - (long) t);
+            if (key != null && key <= (long) nums[i] + (long) t) {
+                return true;
+            }
+            set.add((long) nums[i]);
+            if (i >= k) {
+                set.remove((long) nums[i - k]);
+            }
+        }
+        return false;
+
+
+    }
+
     public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         TreeMap<Long, List<Integer>> map = new TreeMap<>();
         for (int i = 0; i < nums.length; i++) {
