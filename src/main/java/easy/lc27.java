@@ -1,21 +1,20 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/25
- * Version:0.0.1
- * 27. Remove Element
- */
+// https://leetcode-cn.com/problems/remove-element/
+// 27. 移除元素
+
 public class lc27 {
     public int removeElement(int[] nums, int val) {
-        int i = 0, j = nums.length - 1;
-        for (i = 0; i <= j; i++) {
-            if (nums[i] == val) {
-                nums[i] = nums[j];
-                j--;
-                i--;
+        int length = nums.length;
+        int i = 0;
+        int count = 0;
+        while (i < length) {
+            if (nums[i] != val) {
+                nums[count++] = nums[i];
             }
+            i++;
+
         }
-        return j + 1;
+        return count;
     }
 }
