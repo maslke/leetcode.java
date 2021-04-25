@@ -1,56 +1,34 @@
 package easy;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Stack;
-import java.util.Set;
-import java.util.HashSet;
+import basic.TreeNode;
 
-/**
- * Author:maslke
- * Date:2018/12/27 
- * Version:0.0.1 
- * 897. Increasing Order Search Tree
- */
+// https://leetcode-cn.com/problems/increasing-order-search-tree/
+// 897. 递增顺序搜索树
 public class lc897 {
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-
-        TreeNode(int x) {
-            val = x;
+    public TreeNode increasingBST(TreeNode root) {
+        if (root == null) {
+            return root;
         }
+        if (root.left != null) {
+            TreeNode left = increasingBST(root.left);
+            TreeNode prev = prev(left);
+            prev.right = root;
+            root.left = null;
+            root.right = increasingBST(root.right);
+            return left;
+        } else if (root.right != null) {
+            root.right = increasingBST(root.right);
+            return root;
+        }
+
+        return root;
     }
 
-    public TreeNode increasingBST(TreeNode root) {
-        if (root == null) return root;
-        List<TreeNode> nodeList = new ArrayList<TreeNode>();
-        Stack<TreeNode> stack = new Stack<>();
-        Set<TreeNode> set = new HashSet<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            if (set.contains(node)) {
-                nodeList.add(node);
-            } else {
-                if (node.right != null) {
-                    stack.push(node.right);
-                }
-                stack.push(node);
-                set.add(node);
-                if (node.left != null) {
-                    stack.push(node.left);
-                }
-            }
+    private TreeNode prev(TreeNode root) {
+        TreeNode prev = root;
+        while (prev.right != null) {
+            prev = prev.right;
         }
-        for (int i = 0; i < nodeList.size() - 1; i++) {
-            nodeList.get(i).left = null;
-            nodeList.get(i).right = nodeList.get(i + 1);
-        }
-        nodeList.get(nodeList.size() - 1).left = null;
-        nodeList.get(nodeList.size() - 1).right = null;
-        
-        return nodeList.get(0);
+        return prev;
     }
 }
