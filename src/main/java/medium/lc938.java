@@ -2,35 +2,30 @@ package medium;
 
 import basic.TreeNode;
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
-
-
-
+// https://leetcode-cn.com/problems/range-sum-of-bst/
+// 938. 二叉搜索树的范围和
 class lc938 {
+    int sum = 0;
 
+    public int rangeSumBST(TreeNode root, int low, int high) {
+        range(root, low, high);
+        return sum;
+    }
 
-    public int rangeSumBST(TreeNode root, int L, int R) {
-        if (root == null) return 0;
-        int val = root.val;
-        if (val == R) {
-            return rangeSumBST(root.left, L, R) + val;
-        } else if (val > R) {
-            return rangeSumBST(root.left, L, R);
-        } else if (val == L) {
-            return rangeSumBST(root.right, L, R) + val;
-        } else if (val < L) {
-            return rangeSumBST(root.right, L, R);
-        } else {
-            return rangeSumBST(root.left, L, R) + val + rangeSumBST(root.right, L, R);
+    private void range(TreeNode root, int left, int right) {
+        if (root == null) {
+            return;
         }
-        
+        if (root.val >= left && root.val <= right) {
+            sum += root.val;
+            range(root.left, left, right);
+            range(root.right, left, right);
+        }
+        else if (root.val < left) {
+            range(root.right, left, right);
+        }
+        else {
+            range(root.left, left, right);
+        }
     }
 }
