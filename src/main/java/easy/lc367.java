@@ -1,26 +1,23 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/27
- * Version:0.0.1
- * 367. Valid Perfect Square
- */
+// https://leetcode-cn.com/problems/valid-perfect-square/
+// 367. 有效的完全平方数
 public class lc367 {
     public boolean isPerfectSquare(int num) {
-        int sqrt = (int)getSqrt(1.0, num);
+        int sqrt = (int) getSqrt(1.0, num);
         return sqrt * sqrt == num;
     }
 
     private double getSqrt(double guess, int num) {
         if (!good(guess, num)) {
-            return getSqrt((guess + num / guess ) /2 ,num);
-        } else {
+            return getSqrt((guess + num / guess) / 2, num);
+        }
+        else {
             return guess;
         }
     }
 
-    private boolean good (double guess, int num) {
+    private boolean good(double guess, int num) {
         return Math.abs(guess * guess - num) <= 0.00001;
     }
 
@@ -39,16 +36,20 @@ public class lc367 {
     }
 
     public boolean isPerfectSquare3(int num) {
-        if (num <= 1) return true;
-        long left = 2;
-        long right = num / 2;
+        if (num < 2) {
+            return true;
+        }
+        int left = 2;
+        int right = num / 2;
         while (left <= right) {
-            long middle = left + (right - left) / 2;
-            long v = middle * middle;
-            if (v == num) return true;
-            if (v < num) {
+            int middle = (right - left) / 2 + left;
+            if (num / middle == middle && num % middle == 0) {
+                return true;
+            }
+            else if (num / middle >= middle) {
                 left = middle + 1;
-            } else {
+            }
+            else {
                 right = middle - 1;
             }
         }
