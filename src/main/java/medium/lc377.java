@@ -11,18 +11,15 @@ public class lc377 {
     public int combinationSum4_2(int[] nums, int target) {
         // dp[i] = dp[i - nums[i]]
         int[] dp = new int[target + 1];
-        dp[0] = 0;
+        dp[0] = 1;
         for (int i = 1; i <= target; i++) {
             int count = 0;
-            for (int j = 0; j < nums.length; j++) {
-                if (i - nums[j] == 0) {
-                    count += 1;
+            for (int num : nums) {
+                if (i - num >= 0) {
+                    count += dp[i - num];
                 }
-                if (i - nums[j] > 0) {
-                    count += dp[i - nums[j]];
-                }
-                dp[i] = count;
             }
+            dp[i] = count;
 
         }
         return dp[target];
