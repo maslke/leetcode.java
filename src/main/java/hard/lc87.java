@@ -3,6 +3,9 @@ package hard;
 // https://leetcode-cn.com/problems/scramble-string/
 // 87. 扰乱字符串
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class lc87 {
     private String s1;
     private String s2;
