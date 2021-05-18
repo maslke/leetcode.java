@@ -29,4 +29,32 @@ public class lc1442 {
 
         return count;
     }
+
+    public int countTriplets2(int[] arr) {
+        int n = arr.length;
+        int[][] v = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            v[i][i] = arr[i];
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                v[i][j] = v[i][j - 1] ^ arr[j];
+            }
+        }
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (v[i][j] == 0) {
+                    for (int k = i + 1; k <= j; k++) {
+                        if (v[k][j] == (v[i][k] ^ arr[k])) {
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+        return count;
+    }
 }
