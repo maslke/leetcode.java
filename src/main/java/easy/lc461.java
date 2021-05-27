@@ -1,19 +1,14 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/31
- * Version:0.0.1
- */
+// https://leetcode-cn.com/problems/hamming-distance/
+// 461. 汉明距离
+
 public class lc461 {
     public int hammingDistance(int x, int y) {
-        int m = x ^ y;
-        String r = Integer.toBinaryString(m);
+        int c = x ^ y;
         int ret = 0;
-        for (int i = 0; i < r.length(); i++) {
-            if (r.charAt(i) == '1') {
-                ret++;
-            }
+        for (int i = 31; i >= 0; i--) {
+            ret += (c >> i) & 1;
         }
         return ret;
     }
