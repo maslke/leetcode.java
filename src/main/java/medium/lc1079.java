@@ -35,9 +35,4 @@ public class lc1079 {
             visited[i] = false;
         }
     }
-
-    public static void main(String[] args) {
-        lc1079 instance = new lc1079();
-        System.out.println(instance.numTilePossibilities("AAABBC"));
-    }
 }
