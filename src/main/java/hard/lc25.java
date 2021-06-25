@@ -3,19 +3,7 @@ package hard;
 // https://leetcode.com/problems/reverse-nodes-in-k-group/
 // 25. Reverse Nodes in k-Group
 
-/**
- * Definition for singly-linked list. public class ListNode { int val; ListNode
- * next; ListNode(int x) { val = x; } }
- */
-
-class ListNode {
-    ListNode next;
-    int val;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}
+import basic.ListNode;
 
 public class lc25 {
     public ListNode reverseKGroup(ListNode head, int k) {
