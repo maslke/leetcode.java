@@ -2,6 +2,9 @@ package hard;
 
 //https://leetcode.com/problems/binary-tree-maximum-path-sum/
 //124. Binary Tree Maximum Path Sum
+
+import basic.TreeNode;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -11,13 +14,7 @@ package hard;
  *     TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
-
-    class TreeNode {
-        TreeNode left;
-        TreeNode right;
-        int val;
-    }
+class lc124 {
 
 
     public int maxPathSum(TreeNode root) {

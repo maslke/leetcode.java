@@ -1,41 +1,27 @@
 package medium;
 
-// https://leetcode.com/problems/subarray-sum-equals-k/
+// https://leetcode-cn.com/problems/subarray-sum-equals-k/
+// 560. 和为K的子数组
 
-// 560. Subarray Sum Equals K
+import java.util.HashMap;
+import java.util.Map;
 
 class lc560 {
 
-    public int subarraySum2(int[] nums, int k) {
-        int count = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int sum = 0;
-            for (int j = i; j < nums.length; j++) {
-                sum += nums[j];
-                if (sum == k) {
-                    count++;
-                }
-            }
-        }
-        return count;
-    }
+    // 重点在于使用哈希表进行优化
 
     public int subarraySum(int[] nums, int k) {
         int count = 0;
-        int[] sum = new int[nums.length + 1];
-        for (int i = 0; i <= nums.length; i++) {
-            sum[i] = sum[i - 1] + nums[i - 1];
-        }
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j <= nums.length; j++) {
-                if (sum[j] - sum[i] == k) {
-                    count++;
-                }
+        Map<Integer, Integer> map = new HashMap<>();
+        int acc = 0;
+        map.put(0, 1);
+        for (int num : nums) {
+            acc += num;
+            if (map.containsKey(acc - k)) {
+                count += map.get(acc - k);
             }
+            map.put(acc, map.getOrDefault(acc, 0) + 1);
         }
-
         return count;
-
     }
 }
