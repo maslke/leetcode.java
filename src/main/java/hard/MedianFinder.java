@@ -16,8 +16,8 @@ public class MedianFinder {
      * initialize your data structure here.
      */
     public MedianFinder() {
-        small = new PriorityQueue((Comparator<Integer>) (a, b) -> b.compareTo(a));
-        large = new PriorityQueue((Comparator<Integer>) (a, b) -> a.compareTo(b));
+        small = new PriorityQueue(Comparator.reverseOrder());
+        large = new PriorityQueue(Comparator.naturalOrder());
     }
 
     public void addNum(int num) {
