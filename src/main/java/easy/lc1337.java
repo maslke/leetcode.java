@@ -1,57 +1,45 @@
 package easy;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
-// https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
-// 1337. The K Weakest Rows in a Matrix
+// https://leetcode-cn.com/problems/the-k-weakest-rows-in-a-matrix/
+// 1337. 矩阵中战斗力最弱的 K 行
 
 class lc1337 {
-    class Pair {
-        int column;
-        int row;
-
-        Pair(int row, int column) {
-            this.row = row;
-            this.column = column;
-        }
-    }
     public int[] kWeakestRows(int[][] mat, int k) {
-        int m = mat.length;
-        List<Pair> list = new ArrayList<>();
-        for (int i = 0; i < m; i++) {
-            int[] values = mat[i];
-            Pair p = new Pair(i, -1);
-            search(values, 0, values.length - 1, p);
-            list.add(p);
-        }
-
-        Collections.sort(list, (a, b) -> {
-            if (a.column == b.column) {
-                return a.row - b.row;
+        PriorityQueue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] a, int[] b) {
+                if (a[1] == b[1]) {
+                    return a[0] - b[0];
+                }
+                return a[1] - b[1];
             }
-            return a.column - b.column;
         });
+        for (int i = 0; i < mat.length; i++) {
+            int pos = -1;
+            int[] v = mat[i];
+            int low = 0;
+            int high = v.length - 1;
+            while (low <= high) {
+                int m = (high - low) / 2 + low;
+                if (v[m] == 1) {
+                    pos = m;
+                    low = m + 1;
+                }
+                else {
+                    high = m - 1;
+                }
+            }
+            queue.offer(new int[]{i, pos + 1});
+        }
 
         int[] ret = new int[k];
         for (int i = 0; i < k; i++) {
-            ret[i] = list.get(i).row;
+            ret[i] = queue.poll()[0];
         }
         return ret;
-    }
 
-    private void search(int[] values, int left, int right, Pair p) {
-        if (left > right) {
-            return;
-        }
-        int middle = (right - left) / 2 + left;
-        int value = values[middle];
-        if (value == 1) {
-            if (p.column == -1 || p.column < middle) {
-                p.column = middle;
-            }
-            search(values, middle + 1, right, p);
-        } else {
-            search(values, left, middle - 1, p);
-        }
     }
 }

@@ -8,69 +8,53 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.PriorityQueue;
 import java.util.TreeMap;
 import java.util.Queue;
 import java.util.LinkedList;
 
-// https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
-// 987. Vertical Order Traversal of a Binary Tree
+// https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/
+// 987. 二叉树的垂序遍历
 
 class lc987 {
+    private TreeMap<Integer, PriorityQueue<int[]>> map = new TreeMap<>();
+    Comparator<int[]> comparator;
     public List<List<Integer>> verticalTraversal(TreeNode root) {
-        List<List<Integer>> ret = new ArrayList<List<Integer>>();
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        Map<Integer, List<TreeNode>> map = new TreeMap<>();
-        Map<TreeNode, List<Integer>> map2 = new HashMap<>();
-        List<Integer> xy = new ArrayList<>();
-        xy.add(0);
-        xy.add(0);
-        map2.put(root, xy);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                List<Integer> xys = map2.get(node);
-                if (map.containsKey(xys.get(0))) {
-                    map.get(xys.get(0)).add(node);
-                } else {
-                    List<TreeNode> list = new ArrayList<>();
-                    list.add(node);
-                    map.put(xys.get(0), list);
-                }
-                if (node.left != null) {
-                    queue.offer(node.left);
-                    List<Integer> xy1 = new ArrayList<>();
-                    xy1.add(xys.get(0) - 1);
-                    xy1.add(xys.get(1) - 1);
-                    map2.put(node.left, xy1);
-                }
-                if (node.right != null) {
-                    queue.offer(node.right);
-                    List<Integer> xy2 = new ArrayList<>();
-                    xy2.add(xys.get(0) + 1);
-                    xy2.add(xys.get(1) - 1);
-                    map2.put(node.right, xy2);
-                }
+        comparator = (o1, o2) -> {
+            if (o1[0] == o2[0]) {
+                return o1[2] - o2[2];
             }
-        }
-        for (List<TreeNode> list : map.values()) {
-            Collections.sort(list, new Comparator<TreeNode>() {
-                @Override
-                public int compare(TreeNode a, TreeNode b) {
-                    if (map2.get(a).get(1) == map2.get(b).get(1)) {
-                        return a.val - b.val;
-                    } else {
-                        return 0;
-                    }
-                }
-            });
-            List<Integer> values = new ArrayList<>();
-            for (TreeNode node : list) {
-                values.add(node.val);
+            return o1[0] - o2[0];
+        };
+        traversal(root, 0, 0);
+
+        List<List<Integer>> ret = new ArrayList<>();
+
+        for (PriorityQueue<int[]> queue : map.values()) {
+            List<Integer> ls = new ArrayList<>();
+            while (!queue.isEmpty()) {
+                ls.add(queue.poll()[2]);
             }
-            ret.add(values);
+            ret.add(ls);
         }
         return ret;
+    }
+
+    private void traversal(TreeNode node, int row, int col) {
+        if (node == null) {
+            return;
+        }
+        int[] p = new int[] {row, col, node.val};
+        if (map.containsKey(p[1])) {
+            map.get(p[1]).offer(p);
+        } else {
+            PriorityQueue<int[]> queue = new PriorityQueue<>(comparator);
+            queue.offer(p);
+            map.put(p[1], queue);
+        }
+
+
+        traversal(node.left, row + 1, col - 1);
+        traversal(node.right, row + 1, col + 1);
     }
 }
