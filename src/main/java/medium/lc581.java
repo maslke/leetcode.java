@@ -3,30 +3,36 @@ package medium;
 // https://leetcode-cn.com/problems/shortest-unsorted-continuous-subarray/
 // 581. 最短无序连续子数组
 
-import java.util.Stack;
+import java.util.Arrays;
 
 public class lc581 {
     public int findUnsortedSubarray(int[] nums) {
-        int left = nums.length;
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < nums.length; i++) {
-            while (!stack.isEmpty() && nums[stack.peek()] > nums[i]) {
-                left = Math.min(left, stack.pop());
+        int[] copy = new int[nums.length];
+        System.arraycopy(nums, 0, copy, 0, nums.length);
+
+        Arrays.sort(copy);
+
+        int i = 0;
+        int j = nums.length - 1;
+        while (i <= j) {
+            if (copy[i] == nums[i]) {
+                i++;
             }
-            stack.push(i);
+            else {
+                break;
+            }
         }
-        if (left == nums.length) {
+        if (i == j + 1) {
             return 0;
         }
-        int right = -1;
-        stack.clear();
-        for (int i = nums.length - 1; i>= 0; i--) {
-            while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
-                right = Math.max(right, stack.pop());
+        while (j >= 0) {
+            if (copy[j] == nums[j]) {
+                j--;
             }
-            stack.push(i);
+            else {
+                break;
+            }
         }
-
-        return right - left + 1;
+        return j - i + 1;
     }
 }
