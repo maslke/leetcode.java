@@ -1,40 +1,41 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/31
- * Version:0.0.1
- * 541. Reverse String II
- */
+// https://leetcode-cn.com/problems/reverse-string-ii/
+// 541. 反转字符串II
 public class lc541 {
     public String reverseStr(String s, int k) {
-        int length = s.length();
         char[] chars = s.toCharArray();
-        int loop = length / k;
-        for (int i = 0; i < loop; i= i + 2) {
-            int start = i * k;
-            int end = (i + 1) * k - 1;
-            while (start <= end) {
-                char temp = chars[start];
-                chars[start] = chars[end];
-                chars[end] = temp;
-                start++;
-                end--;
+        int len = chars.length;
+        int start = 0;
+        while (start < len) {
+            int left = len - start;
+            if (left < k) {
+                revert(chars, start, len - 1);
+                break;
+            }
+            else {
+                revert(chars, start, start + k - 1);
+                start = start + 2 * k;
             }
         }
-        if (length % k != 0) {
-            if (loop % 2 == 0) {
-                int start = loop * k;
-                int end = length  - 1;
-                while (start <= end) {
-                    char temp = chars[start];
-                    chars[start] = chars[end];
-                    chars[end] = temp;
-                    start++;
-                    end--;
-                }
-            }
-        }
+
         return new String(chars);
+    }
+
+    private void revert(char[] chars, int left, int right) {
+        int i = left;
+        int j = right;
+
+        while (i < j) {
+            swap(chars, i, j);
+            i++;
+            j--;
+        }
+    }
+
+    private void swap(char[] chars, int i, int j) {
+        char temp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = temp;
     }
 }
