@@ -11,7 +11,7 @@ public class lc443 {
             }
             if (j != i + 1) {
 
-                String  s = String.valueOf(j - i);
+                String s = String.valueOf(j - i);
                 int l = s.length();
                 for (int m = 0; m < l; m++) {
                     chars[i + m + 1] = s.charAt(m);
@@ -31,5 +31,28 @@ public class lc443 {
             }
         }
         return len;
+    }
+
+    public int compress2(char[] chars) {
+        int i = 0;
+        int len = chars.length;
+        int inx = 0;
+        while (i < len) {
+            int j = i + 1;
+            while (j < len && chars[j] == chars[i]) {
+                j++;
+            }
+
+            chars[inx++] = chars[i];
+            if (j != i + 1) {
+                String s = String.valueOf(j - i);
+                int l = s.length();
+                for (int m = 0; m < l; m++) {
+                    chars[inx++] = s.charAt(m);
+                }
+            }
+            i = j;
+        }
+        return inx;
     }
 }
