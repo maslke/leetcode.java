@@ -5,10 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+// https://leetcode-cn.com/problems/word-search-ii/
+// 212. 单词搜索 II
+
 public class lc212 {
 
     private Set<String> set;
     private Trie trie;
+
     public List<String> findWords(char[][] board, String[] words) {
 
         trie = new Trie();
@@ -20,48 +24,47 @@ public class lc212 {
 
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                boolean[][] visited = new boolean[board.length][board[0].length];
-                dfs(board, i, j, visited, new StringBuilder());
+                dfs(trie.root, board, i, j);
             }
         }
         return new ArrayList<>(set);
     }
 
-    private void dfs(char[][] chars, int i, int j, boolean[][] visited, StringBuilder sb) {
-
-        if (sb.length() > 0) {
-            if (!trie.startWith(sb.toString())) {
-                return;
-            }
-            if (trie.contains(sb.toString())) {
-                set.add(sb.toString());
-            }
-        }
+    private void dfs(TrieNode node, char[][] chars, int i, int j) {
 
         if (i < 0 || j < 0 || i >= chars.length || j >= chars[i].length) {
             return;
         }
-        if (visited[i][j]) {
+        if (chars[i][j] == '+') {
             return;
         }
 
+        char ch = chars[i][j];
+        TrieNode tn = node.children[ch - 'a'];
+        if (tn == null) {
+            return;
+        }
+        if (tn.getEnd()) {
+            set.add(tn.getWord());
+        }
 
 
-        visited[i][j] = true;
-        sb.append(chars[i][j]);
+        char temp = chars[i][j];
+        chars[i][j] = '+';
 
-        dfs(chars,i + 1, j, visited, sb);
-        dfs(chars, i - 1, j, visited, sb);
-        dfs(chars, i, j + 1, visited, sb);
-        dfs(chars, i, j - 1, visited, sb);
-        visited[i][j] = false;
-        sb.deleteCharAt(sb.length() - 1);
+        dfs(tn, chars, i + 1, j);
+        dfs(tn, chars, i - 1, j);
+        dfs(tn, chars, i, j + 1);
+        dfs(tn, chars, i, j - 1);
+
+        chars[i][j] = temp;
     }
 
     class TrieNode {
         char chr;
         boolean end;
         TrieNode[] children;
+        String word;
 
         TrieNode(char ch, boolean end) {
             this.chr = ch;
@@ -77,10 +80,13 @@ public class lc212 {
             return this.end;
         }
 
-        boolean containsKey(char ch) {
-            return children[ch - 'a'] != null;
+        void setWord(String word) {
+            this.word = word;
         }
 
+        String getWord() {
+            return this.word;
+        }
     }
 
     class Trie {
@@ -88,35 +94,6 @@ public class lc212 {
 
         Trie() {
             this.root = new TrieNode(' ', false);
-        }
-
-        boolean contains(String word) {
-            TrieNode[] children = root.children;
-            for (int i = 0; i < word.length(); i++) {
-                char ch = word.charAt(i);
-                if (children[ch - 'a'] == null) {
-                    return false;
-                }
-
-                if (i == word.length() - 1) {
-                    return children[ch - 'a'].getEnd();
-                }
-
-                children = children[ch - 'a'].children;
-            }
-            return false;
-        }
-
-        boolean startWith(String word) {
-            TrieNode[] children = root.children;
-            for (int i = 0; i < word.length(); i++) {
-                char ch = word.charAt(i);
-                if (children[ch - 'a'] == null) {
-                    return false;
-                }
-                children = children[ch - 'a'].children;
-            }
-            return true;
         }
 
         void insert(String word) {
@@ -130,17 +107,11 @@ public class lc212 {
                 }
                 if (i == word.length() - 1) {
                     node.setEnd(true);
+                    node.setWord(word);
                 }
                 children = node.children;
             }
         }
 
-    }
-
-    public static void main(String[] args) {
-        char[][] chars = {{'a'}};
-        String[] words = {"a"};
-        lc212 instance = new lc212();
-        List<String> ret = instance.findWords(chars, words);
     }
 }
