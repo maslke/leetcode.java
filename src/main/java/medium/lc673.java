@@ -5,7 +5,10 @@ package medium;
 
 public class lc673 {
 
+
+
     public int findNumberOfLIS2(int[] nums) {
+
         int ret = 0;
         int n = nums.length;
         int[] dp = new int[n];
@@ -64,13 +67,13 @@ public class lc673 {
         }
         int ret = 1;
         int max = 0;
-        for (int i = 0; i < dp.length; i++) {
-            if (dp[i][0] > max) {
-                max = dp[i][0];
-                ret = dp[i][1];
+        for (int[] ints : dp) {
+            if (ints[0] > max) {
+                max = ints[0];
+                ret = ints[1];
             }
-            else if (dp[i][0] == max) {
-                ret += dp[i][1];
+            else if (ints[0] == max) {
+                ret += ints[1];
             }
         }
         return ret;
