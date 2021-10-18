@@ -1,37 +1,36 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/25
- * Version:0.0.1
- * 38. Count and Say
- */
+// https://leetcode-cn.com/problems/count-and-say/
+// 38. 外观数列
+
 public class lc38 {
     public String countAndSay(int n) {
-        if (n == 1) {
-            return "1";
-        }
-        String ret = "1";
+
+        String prev = "1";
         for (int i = 2; i <= n; i++) {
-            int len = ret.length();
-            String temp ="";
-            for (int j = 0; j < len; j++) {
-                char c = ret.charAt(j);
-                int count = 1;
-                int k = j + 1;
-                for (; k < len; k++) {
-                    if (c == ret.charAt(k)) {
-                        count++;
-                    } else {
-                        k--;
-                        break;
-                    }
-                }
-                j = k;
-                temp = temp + count + Character.toString(c);
-            }
-            ret = temp;
+            String last = convert(prev);
+            prev = last;
+
         }
-        return ret;
+        return prev;
+    }
+
+    private String convert(String prev) {
+        StringBuilder sb = new StringBuilder();
+        if (prev.length() == 1) {
+            sb.append("1").append(prev);
+            return sb.toString();
+        }
+        int i = 0;
+        int len = prev.length();
+        while (i < len) {
+            int j = i;
+            while (j < len && prev.charAt(j) == prev.charAt(i)) {
+                j++;
+            }
+            sb.append(j - i).append(prev.charAt(i));
+            i = j;
+        }
+        return sb.toString();
     }
 }

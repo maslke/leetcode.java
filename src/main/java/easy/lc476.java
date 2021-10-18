@@ -1,20 +1,22 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/8/30
- * Version:0.0.1
- */
+// https://leetcode-cn.com/problems/number-complement/
+// 476. 数字的补数
+
 public class lc476 {
     public int findComplement(int num) {
-        String s = Integer.toBinaryString(num);
-        int ret = 0;
-        int length = s.length();
-        for (int i = 0; i < length; i++) {
-            if (s.charAt(i) == '0') {
-                ret = ret + (int)Math.pow(2, length - i - 1);
+        int n = 31;
+        while (n >= 0) {
+            if (((num >> n) & 1) == 1) {
+                break;
             }
+            n--;
         }
-        return ret;
+
+        int mask = 0;
+        for (int i = 0; i <= n; i++) {
+            mask = (mask << 1) | 1;
+        }
+        return (~num) & mask;
     }
 }

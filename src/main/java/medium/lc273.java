@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+// https://leetcode-cn.com/problems/integer-to-english-words/
+// 273. 整数转换英文表示
+
 public class lc273 {
     public String numberToWords(int num) {
         if (num == 0) {
