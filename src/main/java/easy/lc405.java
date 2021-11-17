@@ -1,36 +1,21 @@
 package easy;
 
-/**
- * Author:maslke
- * Date:2017/9/3
- * Version:0.0.1
- * 405. Convert a Number to Hexadecimal
- */
+// https://leetcode-cn.com/problems/convert-a-number-to-hexadecimal/
+// 405. 数字转换为十六进制数
+
 public class lc405 {
     public String toHex(int num) {
-        if (num == 0) {
-            return "0";
-        }
-        String x = Integer.toBinaryString(num);
-        int length = x.length();
-        for (int i = 0; i < 32 - length; i++) {
-            x = "0" + x;
-        }
-        char[] chars = x.toCharArray();
-        String ret = "";
-        for (int i = 0; i < 8; i++) {
-            int val = 8 * (chars[4 * i] - 48) + 4 * (chars[4 * i + 1] - 48) + 2 * (chars[4 * i + 2] - 48) + chars[4 * i + 3] - 48;
-            if (val == 0 && ret.equals("")) {
-                continue;
-            }
-            if (val >= 10) {
-                ret = ret + Character.toString((char) (97 + val - 10));
-            } else {
-                ret = ret + val;
+        if (num == 0) return "0";
+        StringBuilder sb = new StringBuilder();
+        String p = "0123456789abcdef";
+        for (int i = 7; i >= 0; i--) {
+            int inx = (num >> (4 * i)) & 15;
+            if (inx != 0 || sb.length() > 0) {
+                sb.append(p.charAt(inx));
             }
         }
-        return ret;
+
+        return sb.toString();
+
     }
-
-
 }

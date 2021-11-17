@@ -4,45 +4,39 @@ package medium;
 // 725. Split Linked List in Parts
 
 class lc725 {
-    public ListNode[] splitListToParts(ListNode root, int k) {
-        int length = 0;
-        ListNode temp = root;
-        while (temp != null) {
-            length++;
-            temp = temp.next;
+    public ListNode[] splitListToParts(ListNode head, int k) {
+        ListNode cursor = head;
+        int len = 0;
+        while (cursor != null) {
+            len++;
+            cursor = cursor.next;
         }
+        int cnt = len / k;
+        int left = len % k;
 
-        ListNode[] result = new ListNode[k];
-        int index = 0;
-        temp = root;
-        while (true) {
-            int count;
-            if (length <= k) {
-                count = index >= length ? 0 : 1;
-            } else {
-                if (index < length % k) {
-                    count = length / k + 1;
-                } else {
-                    count = length / k;
-                }
-                ListNode prev = null;    
-                for (int i = 0; i < count; i++) {
-                    if (result[index] == null) {
-                        result[index] = temp;
-                    }
-                    prev = temp;
-                    if (temp != null) {
-                        temp = temp.next;
-                    }  
-                }
-                if (prev != null) {
-                    prev.next = null;
-                }
-                index++;
-                if (index >= k) break;
+        ListNode[] ret = new ListNode[k];
+        cursor = head;
+
+        for (int i = 0; i < k; i++) {
+            int times = cnt;
+            if (left > 0) {
+                times++;
+                left--;
+            }
+
+            ListNode h = cursor;
+            ret[i] = h;
+            ListNode prev = null;
+            while (times > 0 && cursor != null) {
+                times--;
+                prev = cursor;
+                cursor = cursor.next;
+            }
+            if (prev != null) {
+                prev.next = null;
             }
         }
 
-        return result;
+        return ret;
     }
 }
