@@ -32,9 +32,6 @@ public class lc212 {
 
     private void dfs(TrieNode node, char[][] chars, int i, int j) {
 
-        if (i < 0 || j < 0 || i >= chars.length || j >= chars[i].length) {
-            return;
-        }
         if (chars[i][j] == '+') {
             return;
         }
@@ -52,10 +49,23 @@ public class lc212 {
         char temp = chars[i][j];
         chars[i][j] = '+';
 
-        dfs(tn, chars, i + 1, j);
-        dfs(tn, chars, i - 1, j);
-        dfs(tn, chars, i, j + 1);
-        dfs(tn, chars, i, j - 1);
+        if (i + 1 < chars.length) {
+            dfs(tn, chars, i + 1, j);
+
+        }
+        if (i - 1 >= 0) {
+            dfs(tn, chars, i - 1, j);
+
+        }
+        if (j + 1 < chars[i].length) {
+            dfs(tn, chars, i, j + 1);
+
+        }
+
+        if (j - 1 >= 0) {
+            dfs(tn, chars, i, j - 1);
+
+        }
 
         chars[i][j] = temp;
     }
