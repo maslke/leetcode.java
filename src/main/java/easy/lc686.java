@@ -23,4 +23,19 @@ class lc686 {
         }
        // return -1;
     }
+
+    public int repeatedStringMatch2(String a, String b) {
+        int count = 0;
+        StringBuilder sb = new StringBuilder();
+        while (sb.length() < b.length()) {
+            sb.append(a);
+            count++;
+        }
+        sb.append(a);
+        if (sb.indexOf(b) == -1) {
+            return -1;
+        }
+        int inx = sb.indexOf(a);
+        return inx + b.length() > a.length() * count ? count + 1 : count;
+    }
 }
