@@ -1,36 +1,64 @@
 package medium;
 
-// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-// 34. Find First and Last Position of Element in Sorted Array
+//https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+// 34. 在排序数组中查找元素的第一个和最后一个位置
 
 class lc34 {
-    private int a;
-    private int b;
+    // 想写对二分查找真的很难。
     public int[] searchRange(int[] nums, int target) {
-        a = -1;
-        b = -1;
-        search(nums, 0, nums.length - 1, target);
-        return new int[]{a, b};
+        if (nums.length == 0) return new int[]{-1, -1};
+        int inx = findFirstGreater(nums, target);
+        int inx2 = findLastSmaller(nums, target);
+
+        //
+        if (inx == -1 && nums[nums.length - 1] < target) {
+            return new int[]{-1, -1};
+        }
+        if (inx2 == -1 && nums[0] > target) {
+            return new int[]{-1, -1};
+        }
+
+        if (inx == -1) {
+            inx = nums.length;
+        }
+
+        if (inx - inx2 <= 1) return new int[]{-1, -1};
+
+        return new int[]{inx2 + 1, inx - 1};
     }
 
-    private void search(int[] nums, int low, int high, int target) {
-        if (low > high) return;
-        int middle = low + (high - low) / 2;
-        int v = nums[middle];
-        if (v == target) {
-            if (a == -1 || a > middle) {
-                a = middle;
+    private int findFirstGreater(int[] nums, int target) {
+        int ret = -1;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int m = (right - left) / 2 + left;
+            if (nums[m] > target) {
+                ret = right;
+                right = m - 1;
             }
-            if (b == -1 || b < middle) {
-                b = middle;
+            else {
+                left = m + 1;
             }
-
-            search(nums, low, middle - 1, target);
-            search(nums, middle + 1, high, target);
-        } else if (v < target) {
-            search(nums, middle + 1, high, target);
-        } else {
-            search(nums, low, middle - 1, target);
         }
+        return ret;
+    }
+
+    private int findLastSmaller(int[] nums, int target) {
+        int ret = -1;
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int m = (right - left) / 2 + left;
+            if (nums[m] < target) {
+                ret = m;
+                left = m + 1;
+            }
+            else {
+                right = m - 1;
+            }
+        }
+        return ret;
+
     }
 }
