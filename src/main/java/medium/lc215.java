@@ -1,70 +1,53 @@
 package medium;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
-/**
- * Author:maslke Date:2017/9/4 Version:0.0.1 215. Kth Largest Element in an
- * Array 优先级队列
- */
+// https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
+// 215. 数组中的第K个最大元素
 public class lc215 {
 
-    public int findKLargest2(int[] nums, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>(new Comparator<Integer>() {
-            public int compare(Integer a, Integer b) {
-                return b - a;
-            }
-        });
-        for (int i = 0; i < nums.length; i++) {
-            queue.add(nums[i]);
-        }
-        while (k > 1) {
-            queue.poll();
-            k--;
-        }
-        return queue.poll();
-    }
-
     public int findKthLargest(int[] nums, int k) {
-        int length = nums.length;
-        int[] pq = new int[length + 1];
-        for (int i = 0; i < length; i++) {
-            pq[i + 1] = nums[i];
-            swim(pq, i + 1);
-        }
-        int last = length;
-        for (int i = 1; i < k; i++) {
-            pq[1] = pq[last];
-            pq[last] = 0;
-            last--;
-            sink(pq, 1, last);
-        }
-        return pq[1];
-    }
+        if (nums.length == 1) return nums[0];
 
-    private void swim(int[] pq, int k) {
-        while (pq[k / 2] < pq[k] && k > 1) {
-            int temp = pq[k / 2];
-            pq[k / 2] = pq[k];
-            pq[k] = temp;
-            k = k / 2;
-        }
-    }
 
-    private void sink(int[] pq, int k, int last) {
-        while (2 * k <= last) {
-            int j = 2 * k;
-            if (j < last && pq[j] < pq[j + 1]) {
-                j++;
-            }
-            if (pq[k] < pq[j]) {
-                int temp = pq[k];
-                pq[k] = pq[j];
-                pq[j] = temp;
+        int left = 0;
+        int right = nums.length - 1;
+        int size = nums.length - k;
+        while (true) {
+            int p = partition(nums, left, right);
+            if (p == size) {
+                return nums[p];
+            } else if (p > size) {
+                right = p - 1;
             } else {
-                break;
+                left = p + 1;
             }
-            k = j;
         }
+
+    }
+
+    private int partition(int[] nums, int left, int right) {
+        if (left == right) {
+            return left;
+        }
+        int v = nums[left];
+        int i = left;
+        int j = right + 1;
+        while (true) {
+            while (nums[++i] < v) {
+                if (i == right) break;
+            }
+            while (nums[--j] > v) {
+                if (j == left) break;
+            }
+            if (i >= j) break;
+            swap(nums, i, j);
+        }
+        swap(nums, left, j);
+        return j;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }
