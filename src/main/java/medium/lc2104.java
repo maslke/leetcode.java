@@ -3,6 +3,8 @@ package medium;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+// https://leetcode-cn.com/problems/sum-of-subarray-ranges/
+// 2104. 子数组范围和
 public class lc2104 {
     public long subArrayRanges(int[] nums) {
         long sum = 0;
