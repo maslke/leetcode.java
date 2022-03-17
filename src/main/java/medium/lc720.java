@@ -5,67 +5,69 @@ package medium;
 
 public class lc720 {
 
-    class TrieNode {
-        boolean end;
+
+    static class TrieNode {
         TrieNode[] children;
+        boolean end;
         char val;
-
         TrieNode(char ch) {
-            this.val = ch;
-            this.children = new TrieNode[26];
+            val = ch;
+            children = new TrieNode[26];
         }
 
-        boolean contains(char ch) {
-            return this.children[ch - 'a'] != null;
+        TrieNode insert(char c) {
+            if (children[c - 'a'] != null) {
+                return children[c - 'a'];
+            }
+            children[c - 'a'] = new TrieNode(c);
+            return children[c - 'a'];
         }
 
-        TrieNode add(char ch) {
-            TrieNode node = new TrieNode(ch);
-            this.children[ch - 'a'] = node;
-            return node;
+        boolean add(String w) {
+            TrieNode node = this;
+            for (int i = 0; i < w.length(); i++) {
+                char c = w.charAt(i);
+                node = node.insert(c);
+            }
+            node.end = true;
+            return true;
         }
 
-        TrieNode getNode(char ch) {
-            return this.children[ch - 'a'];
+        boolean exists(String word) {
+            TrieNode node = this;
+            for (int i = 0; i < word.length(); i++) {
+                char c=  word.charAt(i);
+                if (node.children[c - 'a'] == null) {
+                    return false;
+                }
+                node = node.children[c - 'a'];
+                if (!node.end) {
+                    return false;
+                }
+            }
+            return node.end;
         }
+
+
     }
 
     public String longestWord(String[] words) {
-        TrieNode root = new TrieNode(' ');
-        for (int i = 0; i < words.length; i++) {
-            String word = words[i];
-            TrieNode node = root;
-            for (int j = 0; j < word.length(); j++) {
-                char ch = word.charAt(j);
-                if (node.contains(ch)) {
-                    node = node.getNode(ch);
-                }
-                else {
-                    node = node.add(ch);
-                }
-            }
-            node.end = true;
+        TrieNode node  = new TrieNode(' ');
+        for (String w : words) {
+            node.add(w);
         }
-        return longest(root);
 
-    }
-
-    private String longest(TrieNode node) {
-        TrieNode[] children = node.children;
-        int max = 0;
-        String result = "";
-        for (int i = 0; i < children.length; i++) {
-            TrieNode tn = children[i];
-            if (tn == null || !tn.end) {
-                continue;
-            }
-            String str = longest(tn);
-            if (1 + str.length() > max) {
-                max = 1 + str.length();
-                result = tn.val + str;
+        String ret = "";
+        for (String w : words) {
+            if (node.exists(w) && (ret.length() < w.length() || (ret.length() == w.length() && ret.compareTo(w) > 0))) {
+                ret = w;
             }
         }
-        return result;
+        return ret;
+
     }
 
 }
+
+
+
